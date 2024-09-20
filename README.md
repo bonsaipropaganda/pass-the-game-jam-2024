@@ -1,7 +1,7 @@
 # Pass the Game Game Jam - README
 
 ## Overview
-Welcome to the Pass the Game Game Jam! In this collaborative game jam, a group of developers will take turns contributing to a single game project with minimal communication between participants. Our goal is to create a fun and unique game through spontaneous creativity, all while maintaining a few important guidelines to ensure the project runs smoothly.
+Welcome to Higgaion Games' the Pass the Game Jam! In this collaborative game jam, a group of developers will take turns contributing to a single game project with minimal communication between participants. Our goal is to create a fun and unique game through spontaneous creativity, all while maintaining a few important guidelines to ensure the project runs smoothly.
 
 We will be working in **2D** using the **Godot Engine** with **GDScript** and the **compatibility mode** renderer. Please ensure all code follows the [Official GDScript Style Guide](https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_styleguide.html)
  for consistency.
