@@ -1,6 +1,5 @@
-# The room is responsible for spawning in its elements
-# and determining when the it has been cleared
-@tool
+# The room is responsible for managing game elements that do not persist between rooms
+# For example, spawning in elements and determining when the room is cleared
 extends Node2D
 
 @export var room_size = Vector2i(20, 11) # This is the minimum size, only go up from here

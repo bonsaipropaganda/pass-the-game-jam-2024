@@ -4,6 +4,10 @@ This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
 
+## Getting up to speed on what is in the game
+- Click the 
+
+
 ## Art style guide (last updated on day 1)
 - The window is 320x180, scaled up times 3
 - The window in in canvas_items mode. This means you can place art at half pixels and it will render correctly. This is primarly to allow the text to render nicely at all font sizes, let's try to properly keep the pixel art aesthetic otherwise.
