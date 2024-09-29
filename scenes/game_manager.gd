@@ -8,7 +8,7 @@ const ENEMY_HOVER_COLOR = Color("dd395264")
 const FLOOR_HOVER_COLOR = Color("80f4a764")
 
 enum GameState {
-	BUSY, # Don't do anything in _process() until state is changed again
+	BUSY, # Indicates not to do anything in _process()
 	PLAYER_TURN,
 	ENEMY_TURN,
 }
@@ -17,7 +17,9 @@ var game_state := GameState.PLAYER_TURN
 
 var available_rooms = {
 	"area_dungeon" = [
+		# Note - rooms are chosen by randomly popping from this list
 		preload("res://scenes/rooms/test_room.tscn"),
+		preload("res://scenes/rooms/template_room.tscn"),
 	],
 	"area_next" = [
 		# ...
@@ -27,8 +29,9 @@ var available_rooms = {
 var players_cards : Array[CardResource] = [
 	CardKingBasic.new(),
 	CardKnightBasic.new(),
-	CardKingBasic.new(),
+	CardPawnBasic.new(),
 ]
+var max_player_cards = 3 # Note - currently this doesn't do anything
 
 var discarded_cards : Array[CardResource] = []
 
@@ -74,6 +77,13 @@ func load_room(room:PackedScene) -> void:
 	
 	current_room = room.instantiate()
 	add_child(current_room)
+	
+	var cam_limits = current_room.get_cam_limits()
+	$Camera2D.limit_top = 0
+	$Camera2D.limit_left = 0
+	$Camera2D.limit_right = cam_limits.x
+	$Camera2D.limit_bottom = cam_limits.y
+	$Camera2D.reset_smoothing()
 	
 	assert(get_player() != null, "There is no player in room " + current_room.name)
 
@@ -160,4 +170,24 @@ func _process(_delta: float) -> void:
 		
 		GameState.ENEMY_TURN:
 			# TODO
+			Global.emit_signal("game_tick")
 			change_game_state(GameState.PLAYER_TURN)
+
+
+func _on_test_damage_button_pressed() -> void:
+	
+	# Once we choose a card to discard, this lambda is called
+	var card_choice_callback = func (card_choice:CardResource):
+		card_choice.on_discard()
+		players_cards.erase(card_choice)
+		if len(players_cards):
+			 # TODO - I'm not handling what happens if we discard the selected card, so I'm just ensuring you always select king after taking damage
+			selected_card = players_cards[0]
+		Global.fade_black(0, 0.5)
+		$CanvasLayerFront/TakeDamageUI.visible = false
+		get_tree().paused = false
+	
+	$CanvasLayerFront/TakeDamageUI.visible = true
+	get_tree().paused = true
+	Global.fade_black(0.6, 0.5)
+	$CanvasLayerFront/TakeDamageUI.show_cards(players_cards, card_choice_callback)

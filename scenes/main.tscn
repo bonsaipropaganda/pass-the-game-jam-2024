@@ -52,4 +52,20 @@ theme_override_font_sizes/normal_font_size = 8
 text = "- Number keys: Select card to use
 - Left click: Move to tile, or attack enemy"
 
+[node name="TestDamageButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 235.0
+offset_top = 168.0
+offset_right = 315.0
+offset_bottom = 177.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TestDamageButton"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Take damage (test)"
+metadata/_edit_lock_ = true
+
 [connection signal="toggled" from="CanvasLayer/ControlsButton" to="CanvasLayer/ControlsButton" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/TestDamageButton" to="GameManager" method="_on_test_damage_button_pressed"]

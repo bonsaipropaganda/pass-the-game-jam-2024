@@ -7,6 +7,11 @@ const SCALE_MIN = 0.3
 const SCALE_MAX = 0.6
 
 var old_z_index = z_index
+var card_resource # Stored by reference, not value
+
+
+func set_card_resource(card:CardResource):
+	card_resource = card
 
 
 func set_card_text(cname, cdesc):
@@ -42,4 +47,4 @@ func _on_color_rect_mouse_exited() -> void:
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		emit_signal("clicked", self)
+		emit_signal("clicked", self.card_resource)

@@ -19,6 +19,7 @@ func update(cards:Array[CardResource], selected_card:CardResource):
 		card.z_index = i
 		card.set_card_text(cards[i].card_name, cards[i].description)
 		card.set_selected(cards[i] == selected_card)
+		card.set_card_resource(cards[i])
 		
 		add_child(card)
 		card.global_position.x = card_start_x + (i * X_GAP)

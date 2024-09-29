@@ -29,3 +29,6 @@ func get_available_positions(player_pos:Vector2i) -> Array[Vector2i]:
 		if Global.is_floor_tile(target_tile):
 			ret.append(target_tile)
 	return ret
+
+func on_discard() -> void:
+	assert(false, "You died! Currently there is no death functionality so I'm just gonna kill your game.")

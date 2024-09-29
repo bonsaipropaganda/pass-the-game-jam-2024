@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="1_0j0n8"]
 [ext_resource type="PackedScene" uid="uid://bneqx1kc3tpux" path="res://scenes/rooms/tile_map.tscn" id="2_nluji"]
 [ext_resource type="PackedScene" uid="uid://3o1v1gb0lhhg" path="res://scenes/player.tscn" id="2_nnqbu"]
-[ext_resource type="PackedScene" uid="uid://b3kdipdfm3vmp" path="res://scenes/enemy/base_enemy.tscn" id="4_ux25v"]
+[ext_resource type="PackedScene" uid="uid://djs2uy3kj7xdy" path="res://scenes/enemy/enemy_spawner.tscn" id="4_b4usu"]
 
 [node name="TestRoom" type="Node2D"]
 script = ExtResource("1_0j0n8")
@@ -16,16 +16,25 @@ tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAAD+////AAAAAAEAAAD+/wAAAAAAAAE
 [node name="Player" parent="." instance=ExtResource("2_nnqbu")]
 position = Vector2(128, 48)
 
-[node name="BaseEnemy" parent="." instance=ExtResource("4_ux25v")]
-position = Vector2(176, 48)
+[node name="EnemySpawner" parent="." instance=ExtResource("4_b4usu")]
+position = Vector2(176, 64)
 
-[node name="BaseEnemy2" parent="." instance=ExtResource("4_ux25v")]
-position = Vector2(128, 80)
+[node name="EnemySpawner2" parent="." instance=ExtResource("4_b4usu")]
+position = Vector2(208, 32)
 
-[node name="BaseEnemy3" parent="." instance=ExtResource("4_ux25v")]
-position = Vector2(192, 96)
+[node name="EnemySpawner3" parent="." instance=ExtResource("4_b4usu")]
+position = Vector2(272, 64)
 
-[node name="BaseEnemy4" parent="." instance=ExtResource("4_ux25v")]
-position = Vector2(256, 64)
+[node name="EnemySpawner4" parent="." instance=ExtResource("4_b4usu")]
+position = Vector2(224, 112)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -96.0
+offset_top = -144.0
+offset_right = 512.0
+offset_bottom = -80.0
+text = "Hi future devs.
+This room is not representative of how new rooms should be made.
+Please read docs/README_FIRST.md to see how to create new rooms"
 
 [editable path="TileMap"]

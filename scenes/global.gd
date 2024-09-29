@@ -4,9 +4,14 @@ extends Node2D
 
 const TILE_SIZE = 16
 
-# This is emitted whenever enemies/things other than the player
-# can move
+# This is emitted whenever enemies/things other than the player can move
 signal game_tick
+
+# Emitted when an enemy dies, so the room can keep track of how many are left
+signal enemy_died
+
+# Emitted when all enemies in room have been killed
+signal room_complete
 
 
 func global_to_tile_position(global_pos:Vector2) -> Vector2i:

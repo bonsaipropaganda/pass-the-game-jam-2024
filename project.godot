@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 
 player=""
 enemy_area=""
+enemy_spawner=""
 
 [gui]
 
