@@ -4,9 +4,6 @@ const tile_hover_packed = preload("res://scenes/ui/tile_hover_rect.tscn")
 const TILE_HOVER_COLOR_VALID = Color("ffffff44")
 const TILE_HOVER_COLOR_INVALID = Color("00000000") # Don't show invalid tiles for now
 
-func _ready() -> void:
-	pass
-
 
 func move(to:Vector2i):
 	var tween = create_tween()
@@ -14,6 +11,7 @@ func move(to:Vector2i):
 	await tween.finished
 
 
+# Not sure if this is where this logic really belongs
 func draw_mouse_hover() -> void:
 	var tile_global_pos = (Vector2i(get_global_mouse_position()) / Global.TILE_SIZE) * Global.TILE_SIZE
 	

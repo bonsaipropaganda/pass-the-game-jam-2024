@@ -16,8 +16,26 @@ func global_to_tile_position(global_pos:Vector2) -> Vector2i:
 
 func is_floor_tile(tile_pos:Vector2i) -> bool:
 	$TestRaycast.global_position = (tile_pos * TILE_SIZE) + (Vector2i(TILE_SIZE, TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 1 # WallLayer
 	$TestRaycast.force_raycast_update()
 	return not $TestRaycast.is_colliding()
+
+func is_enemy_on_tile(tile_pos:Vector2i) -> bool:
+	$TestRaycast.global_position = (tile_pos * TILE_SIZE) + (Vector2i(TILE_SIZE, TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	
+	var col = $TestRaycast.get_collider()
+	return (col != null) and col.is_in_group("enemy_area")
+
+
+func attack_enemy_at_tile(tile_pos:Vector2i, damage:int):
+	$TestRaycast.global_position = (tile_pos * TILE_SIZE) + (Vector2i(TILE_SIZE, TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	var col = $TestRaycast.get_collider()
+	if col.is_in_group("enemy_area"):
+		await col.get_parent().take_damage(damage)
 
 
 # Only rotates by multiples of 90 degrees
@@ -35,3 +53,12 @@ func rotate_vec2i(v: Vector2i, degrees_clockwise: int) -> Vector2i:
 			return Vector2i(-v.x, -v.y) # 180 degrees
 		_:
 			return Vector2i(-v.y, v.x) # 270 degrees
+
+
+# To is between 0 and 1
+func fade_black(to:float, duration:float):
+	assert(to >= 0.0 and to <= 1.0)
+	
+	var tween = create_tween()
+	tween.tween_property($GlobalUI/FadeBlackRect, "color:a", to, duration)
+	await tween.finished

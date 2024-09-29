@@ -1,9 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://crd1plfabtfi"]
+[gd_scene load_steps=3 format=3 uid="uid://crd1plfabtfi"]
 
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://scenes/game_manager.tscn" id="1_qoir4"]
+[ext_resource type="Script" path="res://scenes/ui/controls_button.gd" id="3_sa5j2"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_lock_ = true
 
 [node name="GameManager" parent="." instance=ExtResource("1_qoir4")]
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="ControlsButton" type="TextureButton" parent="CanvasLayer"]
+process_mode = 3
+offset_left = 4.0
+offset_top = 166.0
+offset_right = 63.0
+offset_bottom = 176.0
+toggle_mode = true
+script = ExtResource("3_sa5j2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ControlsButton"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Show controls"
+metadata/_edit_lock_ = true
+
+[node name="Controls" type="Node2D" parent="CanvasLayer/ControlsButton"]
+visible = false
+
+[node name="ControlsLabel" type="RichTextLabel" parent="CanvasLayer/ControlsButton/Controls"]
+offset_left = 108.0
+offset_top = -128.0
+offset_right = 194.0
+offset_bottom = -110.0
+mouse_filter = 2
+text = "Controls:"
+
+[node name="ControlsLabel2" type="RichTextLabel" parent="CanvasLayer/ControlsButton/Controls"]
+offset_left = 91.0
+offset_top = -101.0
+offset_right = 240.0
+offset_bottom = -45.0
+mouse_filter = 2
+theme_override_constants/line_separation = 4
+theme_override_font_sizes/normal_font_size = 8
+text = "- Number keys: Select card to use
+- Left click: Move to tile, or attack enemy"
+
+[connection signal="toggled" from="CanvasLayer/ControlsButton" to="CanvasLayer/ControlsButton" method="_on_toggled"]

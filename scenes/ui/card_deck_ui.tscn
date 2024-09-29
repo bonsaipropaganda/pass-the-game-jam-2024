@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4ac0sxxnv6qe"]
+
+[ext_resource type="Script" path="res://scenes/ui/card_deck_ui.gd" id="1_ivh2k"]
+
+[node name="CardDeckUI" type="Node2D"]
+script = ExtResource("1_ivh2k")

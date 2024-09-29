@@ -3,4 +3,5 @@
 [node name="TileHoverRect" type="ColorRect" groups=["hover_tile"]]
 offset_right = 16.0
 offset_bottom = 16.0
+mouse_filter = 2
 color = Color(0.502801, 0.957574, 0.653028, 0.392157)

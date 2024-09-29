@@ -22,3 +22,7 @@ func do_move_action() -> bool:
 # Return whether action succeeded
 func do_attack_action() -> bool:
 	return true
+
+
+func on_discard() -> void:
+	pass

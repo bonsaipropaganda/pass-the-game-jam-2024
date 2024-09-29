@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv2sj0tpmbdau"]
+[gd_scene load_steps=4 format=3 uid="uid://cv2sj0tpmbdau"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_8grbe"]
-[ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://scenes/ui/card_display_ui.tscn" id="2_3k55r"]
+[ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://scenes/ui/card_deck_ui.tscn" id="2_3k55r"]
+[ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://scenes/take_damage_ui.tscn" id="3_xes4v"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_8grbe")
 
-[node name="CardDisplayUI" parent="." instance=ExtResource("2_3k55r")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="CardDeckUI" parent="CanvasLayer" instance=ExtResource("2_3k55r")]
+position = Vector2(155, 180)
+
+[node name="TakeDamageUI" parent="CanvasLayer" instance=ExtResource("3_xes4v")]
