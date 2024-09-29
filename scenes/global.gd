@@ -13,6 +13,8 @@ signal enemy_died
 # Emitted when all enemies in room have been killed
 signal room_complete
 
+signal next_level(level_type)
+
 
 func global_to_tile_position(global_pos:Vector2) -> Vector2i:
 	var int_pos = Vector2i(global_pos)

@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 player=""
 enemy_area=""
 enemy_spawner=""
+player_area=""
 
 [gui]
 
@@ -46,6 +47,7 @@ theme/custom_font="res://assets/Mystery Font.ttf"
 
 2d_physics/layer_1="WallLayer"
 2d_physics/layer_2="ObjectLayer"
+2d_physics/layer_3="Player"
 
 [rendering]
 

@@ -7,7 +7,7 @@ extends Node2D
 
 @export var min_enemy_count = 0
 @export var max_enemy_count = 10
-var enemy_count = randi_range(min_enemy_count, max_enemy_count)
+var enemy_count = randi_range(min_enemy_count, max_enemy_count) # This is then clamped to the number of spawners in the room
 
 # This needs to be populated in the editor for every room
 @export var enemy_options:Array[PackedScene] = [
@@ -31,6 +31,8 @@ func get_cam_limits() -> Vector2i:
 func spawn_enemies():
 	var spawners = get_tree().get_nodes_in_group("enemy_spawner")
 	spawners.shuffle()
+	
+	enemy_count = min(enemy_count, len(spawners))
 	
 	for i in min(enemy_count, len(spawners)):
 		spawners[i].spawn(enemy_options.pick_random())

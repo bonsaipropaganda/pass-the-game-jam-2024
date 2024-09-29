@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://5g3gsgd2a8dm" path="res://assets/area_dungeon_tilemap.png" id="1_yd32u"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ioy1"]
+texture = ExtResource("1_yd32u")
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fdf7e"]
+sources/0 = SubResource("TileSetAtlasSource_5ioy1")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd47r"]
 texture = ExtResource("1_yd32u")
 0:0/0 = 0
@@ -204,17 +212,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_hd47r")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ioy1"]
-texture = ExtResource("1_yd32u")
-3:0/0 = 0
-4:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_fdf7e"]
-sources/0 = SubResource("TileSetAtlasSource_5ioy1")
-
-[node name="TileMap" type="TileMap"]
-tile_set = SubResource("TileSet_t1hj4")
-format = 2
+[node name="TileMap" type="Node2D"]
 
 [node name="FloorTiles" type="TileMapLayer" parent="."]
 use_parent_material = true

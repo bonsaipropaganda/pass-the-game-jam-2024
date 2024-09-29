@@ -19,7 +19,6 @@ var available_rooms = {
 	"area_dungeon" = [
 		# Note - rooms are chosen by randomly popping from this list
 		preload("res://scenes/rooms/test_room.tscn"),
-		preload("res://scenes/rooms/template_room.tscn"),
 	],
 	"area_next" = [
 		# ...
@@ -37,13 +36,15 @@ var discarded_cards : Array[CardResource] = []
 
 var selected_card : CardResource = players_cards[0] : set = set_selected_card
 var current_room : Node
+var current_area = available_rooms.keys()[0]
 
 
 func _ready() -> void:
 	$CanvasLayer/CardDeckUI.update(players_cards, selected_card)
 	
-	var first_room = pop_random_room("area_dungeon")
-	await load_room(first_room)
+	Global.connect("next_level", on_next_level)
+	
+	on_next_level(0) # Spawn in the initial level
 	
 	# show_available_actions doesn't seem to work unless we wait for physics to settle..
 	await get_tree().physics_frame
@@ -61,6 +62,11 @@ func get_player_tile_pos() -> Vector2i:
 	assert(p)
 	
 	return Global.global_to_tile_position(p.global_position)
+
+
+func on_next_level(exit_type):
+	# TODO do something with exit_type
+	load_room(pop_random_room(current_area))
 
 
 func pop_random_room(area_name:String) -> PackedScene:
