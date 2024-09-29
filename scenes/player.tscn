@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3o1v1gb0lhhg"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_1wplv"]
+[ext_resource type="Texture2D" uid="uid://dbtvrgbaqftmr" path="res://assets/player.png" id="1_38ifl"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_1wplv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_38ifl")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+position_smoothing_enabled = true

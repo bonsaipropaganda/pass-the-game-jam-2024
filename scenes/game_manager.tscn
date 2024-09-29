@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv2sj0tpmbdau"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_8grbe"]
+[ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://scenes/ui/card_display_ui.tscn" id="2_3k55r"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_8grbe")
+
+[node name="CardDisplayUI" parent="." instance=ExtResource("2_3k55r")]

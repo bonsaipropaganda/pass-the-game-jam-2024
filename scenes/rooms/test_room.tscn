@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwenc75onipxl"]
+
+[ext_resource type="Script" path="res://scenes/rooms/room.gd" id="1_0j0n8"]
+[ext_resource type="PackedScene" uid="uid://bneqx1kc3tpux" path="res://scenes/rooms/tile_map.tscn" id="2_nluji"]
+[ext_resource type="PackedScene" uid="uid://3o1v1gb0lhhg" path="res://scenes/player.tscn" id="2_nnqbu"]
+
+[node name="TestRoom" type="Node2D"]
+script = ExtResource("1_0j0n8")
+
+[node name="TileMap" parent="." instance=ExtResource("2_nluji")]
+
+[node name="Player" parent="." instance=ExtResource("2_nnqbu")]
+position = Vector2(128, 48)

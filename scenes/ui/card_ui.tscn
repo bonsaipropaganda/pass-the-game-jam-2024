@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b15b6agchfahl"]
+
+[ext_resource type="Texture2D" uid="uid://darblkdowyh3j" path="res://assets/card_ui.png" id="1_lnotw"]
+[ext_resource type="Script" path="res://scenes/ui/card_ui.gd" id="1_ysex6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8srus"]
+size = Vector2(95, 129)
+
+[node name="CardUI" type="Node2D"]
+position = Vector2(167, 98)
+script = ExtResource("1_ysex6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lnotw")
+
+[node name="Name" type="RichTextLabel" parent="."]
+offset_left = -35.0
+offset_top = -55.0
+offset_right = 35.0
+offset_bottom = -30.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Name"
+
+[node name="Description" type="RichTextLabel" parent="."]
+offset_left = -35.0
+offset_top = -24.0
+offset_right = 34.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "Description"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_8srus")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

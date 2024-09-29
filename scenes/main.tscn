@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://crd1plfabtfi"]
+
+[ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://scenes/game_manager.tscn" id="1_qoir4"]
+
+[node name="Main" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="GameManager" parent="." instance=ExtResource("1_qoir4")]
+metadata/_edit_lock_ = true
