@@ -5,7 +5,7 @@ Please try to update it when you make relevant changes
 
 
 ## Getting up to speed on what is in the game
-- Click the 
+- Click the show controls button to see the controls
 
 
 ## Art style guide (last updated on day 1)
