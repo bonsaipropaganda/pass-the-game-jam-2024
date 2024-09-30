@@ -24,3 +24,8 @@ func draw_mouse_hover() -> void:
 
 func _process(delta: float) -> void:
 	draw_mouse_hover()
+	
+	
+func take_damage():
+	pass
+	

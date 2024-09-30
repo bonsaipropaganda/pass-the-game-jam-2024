@@ -31,9 +31,9 @@ Please try to update it when you make relevant changes
 - Give your room a name, and save it in a folder appropriate to what area it belongs in
 - If you want to place walls, select the wall tilemap layer and select the 'Terrain' tab
 - The room has export variables that determine what enemies can spawn and stuff
-    - Select desired min/max enemy count
-    - Select the desired room size. Note you cannot make the room smaller than the default, as it is the minimum. Note a white rectangle in the editor will indicate the borders of the room.
-    - There is a list of enemies that can spawn in the room. To add a new one, click the plus button, then drag the scene of an enemy from the filesystem dock into the new element you created.
+	- Select desired min/max enemy count
+	- Select the desired room size. Note you cannot make the room smaller than the default, as it is the minimum. Note a white rectangle in the editor will indicate the borders of the room.
+	- There is a list of enemies that can spawn in the room. To add a new one, click the plus button, then drag the scene of an enemy from the filesystem dock into the new element you created.
 - Place enemy spawners in the room
 - Place exits in the room so the player can continue when they beat the room
 - There is a list of rooms that will spawn in game_manager.tscn. Add your room to the list so it can appear during gameplay.

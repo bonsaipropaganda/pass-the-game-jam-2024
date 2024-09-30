@@ -2,11 +2,11 @@ extends Node2D
 
 @onready var scene_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 @onready var next_scene = preload("res://scenes/main.tscn")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_packed(next_scene)
-
+	animation_player.play("fade")
 
 # Move camera to view credits
 func _on_credits_button_pressed() -> void:
@@ -21,3 +21,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().change_scene_to_packed(next_scene)

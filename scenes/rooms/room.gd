@@ -3,6 +3,7 @@
 extends Node2D
 
 @export var room_size = Vector2i(20, 11) # This is the minimum size, only go up from here
+@onready var animation_player: AnimationPlayer = $anim/AnimationPlayer
 
 @export var min_enemy_count = 0
 @export var max_enemy_count = 10
@@ -48,3 +49,7 @@ func on_enemy_died():
 
 func on_room_complete():
 	Global.emit_signal("room_complete")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	animation_player.play("TEXT")
