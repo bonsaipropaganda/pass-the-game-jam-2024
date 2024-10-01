@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func on_room_complete() -> void:
 	$Area2D.set_deferred("monitoring", true)
-	$Sprite2D.frame = 1
+	$FullSpritesheet.frame = 1
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
