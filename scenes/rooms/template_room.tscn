@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxgdn6rnrcelo"]
+[gd_scene load_steps=4 format=3 uid="uid://dxgdn6rnrcelo"]
 
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="1_jf1yu"]
 [ext_resource type="Script" path="res://scenes/rooms/debug_rect.gd" id="2_t38vj"]
-[ext_resource type="PackedScene" uid="uid://3o1v1gb0lhhg" path="res://scenes/player.tscn" id="2_yiogb"]
 [ext_resource type="TileSet" uid="uid://culymj2kms04e" path="res://scenes/rooms/castle_tile_set.tres" id="3_3pobh"]
 
 [node name="TemplateRoom" type="Node2D"]
@@ -20,9 +19,6 @@ metadata/_edit_lock_ = true
 use_parent_material = true
 tile_set = ExtResource("3_3pobh")
 metadata/_edit_lock_ = true
-
-[node name="Player" parent="." instance=ExtResource("2_yiogb")]
-position = Vector2(64, 112)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_top = -112.0

@@ -10,7 +10,6 @@ size = Vector2(16, 16)
 script = ExtResource("1_30jgn")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(8, 8)
 collision_layer = 4
 collision_mask = 4
 monitoring = false
@@ -20,7 +19,6 @@ position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_1ajf1")
 
 [node name="FullSpritesheet" type="Sprite2D" parent="."]
-position = Vector2(8, 9)
 scale = Vector2(0.5, 0.535714)
 texture = ExtResource("2_xtujc")
 region_enabled = true

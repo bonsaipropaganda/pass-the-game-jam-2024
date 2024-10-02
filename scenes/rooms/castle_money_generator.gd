@@ -1,14 +1,14 @@
-extends Resource
-class_name BaseRoomGenerator
+extends BaseRoomGenerator
+class_name CastleBossGenerator
 
 ## determines when this generator will be used
 func get_type() -> Exit.ExitType:
-	return Exit.ExitType.MONEY_REWARD
+	return Exit.ExitType.BOSS
 
 
 ## determines the area that the generator belongs to
 func get_area() -> String:
-	return ""
+	return "castle"
 
 ## returns an array representing the room that will be generated
 ## the values in the array should match the values of a custom data layer on the used tileset called 'id'
@@ -17,16 +17,14 @@ func get_area() -> String:
 ## 1 - 16 floor
 ## 17 - 32 walls
 ## add to this however you need
-func generate_room(_dim: Vector2i, _danger_level: float) -> RoomData:
+func generate_room(dim: Vector2i, _danger_level: float) -> RoomData:
+	
+	
+	
 	return null
 
 
 ## returns the used TileSet. it should only have 1 source to make things easier to keep track of
 func get_used_tileset() -> TileSet:
-	return null
+	return preload("res://scenes/rooms/castle_tile_set.tres")
 
-
-class RoomData extends RefCounted:
-	var tiles : PackedByteArray
-	var scenes : Dictionary # {coords (Vector2i) : scene (Node)}
-	var dim_override := Vector2i.ZERO

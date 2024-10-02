@@ -7,7 +7,7 @@ const TILE_HOVER_COLOR_INVALID = Color("00000000") # Don't show invalid tiles fo
 
 func move(to:Vector2i):
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(to) * Global.TILE_SIZE, 0.5)
+	tween.tween_property(self, "global_position", Vector2(to) * Global.TILE_SIZE + (Vector2.ONE * Global.TILE_SIZE / 2.0), 0.5)
 	await tween.finished
 
 
@@ -21,6 +21,7 @@ func draw_mouse_hover() -> void:
 		Global.get_node("TileHoverRect").color = TILE_HOVER_COLOR_VALID
 	else:
 		Global.get_node("TileHoverRect").color = TILE_HOVER_COLOR_INVALID
+
 
 func _process(delta: float) -> void:
 	draw_mouse_hover()

@@ -12,12 +12,26 @@ func get_area() -> String:
 
 
 ## returns an array representing the room that will be generated
-func generate_room(dim: Vector2i, _danger_level: float) -> PackedByteArray:
-	var result := PackedByteArray()
-	result.resize(dim.x * dim.y)
-	for i in result.size():
-		if i % dim.x != 0 and i / dim.x != 0 and i % dim.x != dim.x-1 and i / dim.x != dim.y-1:
-			result[i] = 17
+func generate_room(dim: Vector2i, _danger_level: float) -> RoomData:
+	var result := RoomData.new()
+	result.tiles.resize(dim.x * dim.y)
+	
+	var room := Rect2i(Vector2i.ONE * 10, Vector2i.ONE * 10)
+	
+	for i in result.tiles.size():
+		var x := i % dim.x
+		var y := i / dim.x
+		if not room.has_point(Vector2i(x, y)):
+			result.tiles[i] = 17
+		else:
+			result.tiles[i] = ((i + y) % 2) + 1
+
+	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0), room.position.y + int(room.size.y * 3.0 / 4))] = preload("res://scenes/player.tscn").instantiate()
+	var exit : Exit =  preload("res://scenes/rooms/room_exit.tscn").instantiate()
+	exit.exit_type = Exit.ExitType.BOSS
+	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0), room.position.y - 1)] = exit
+	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0) - 1, room.position.y - 1)] = preload("res://scenes/rooms/torch.tscn").instantiate()
+	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0) + 1, room.position.y - 1)] = preload("res://scenes/rooms/torch.tscn").instantiate()
 	return result
 
 
