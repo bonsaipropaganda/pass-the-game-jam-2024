@@ -4,10 +4,8 @@ class_name CardKingBasic
 func _init() -> void:
 	action_count = 1
 	card_name = "King"
-	description = \
-"If this card is discarded, you die!
-Move action: Move to any adjacent tile.
-Attack action: Attack any adjacent enemy."
+	description = "If this card is discarded, you die! Move action: " +\
+		"Move to any adjacent tile. Attack action: Attack any adjacent enemy."
 	
 
 func get_available_positions(player_pos:Vector2i) -> Array[Vector2i]:

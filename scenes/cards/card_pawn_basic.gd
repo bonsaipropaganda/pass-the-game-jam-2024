@@ -4,9 +4,7 @@ class_name CardPawnBasic
 func _init() -> void:
 	action_count = 1
 	card_name = "Pawn"
-	description = \
-"This card has no effect.
-It can only be discarded."
+	description = "This card has no effect. It can only be discarded."
 
 
 # I am making this one do nothing since it is the only chess piece

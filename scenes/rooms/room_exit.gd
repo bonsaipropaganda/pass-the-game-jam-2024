@@ -8,11 +8,11 @@ enum ExitType {
 	BOSS,
 }
 
-@export var exit_type = ExitType.CARD_REWARD
+@export var exit_type := ExitType.CARD_REWARD
 
 
 func _ready() -> void:
-	Global.connect("room_complete", on_room_complete)
+	Global.room_complete.connect(on_room_complete)
 
 
 func on_room_complete() -> void:
@@ -23,4 +23,6 @@ func on_room_complete() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
 		await get_tree().create_timer(0.4).timeout # Let the player stand all the way on the tile. This is just a quick hack.
-		Global.emit_signal("next_level", exit_type) # TODO other nodes don't know what exit_type is so it's kinda useless
+		# to use exit type enum in other scripts, do Exit.ExitType.TYPE
+		# you can set the type of the variables that use it as int or Exit.ExitType
+		Global.next_level.emit(exit_type)

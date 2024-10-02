@@ -18,4 +18,4 @@ func spawn(enemy_packed:PackedScene) -> BaseEmemy:
 
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
-		pass # Code goes in here
+		pass

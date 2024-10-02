@@ -1,5 +1,5 @@
-# This script maintains the overall game state that persists between individual rooms,
-# as well as supporting most game logic not specific to individual entities
+## This script maintains the overall game state that persists between individual rooms,
+## as well as supporting most game logic not specific to individual entities
 extends Node2D
 class_name GameManager
 
@@ -15,14 +15,38 @@ enum GameState {
 
 var game_state := GameState.PLAYER_TURN
 
-var available_rooms = {
-	"area_dungeon" = [
-		# Note - rooms are chosen by randomly popping from this list
-		preload("res://scenes/rooms/test_room.tscn"),
-	],
-	"area_next" = [
-		# ...
-	]
+# var available_rooms = {
+# 	"area_dungeon" = [
+# 		# Note - rooms are chosen by randomly popping from this list
+# 		preload("res://scenes/rooms/test_room.tscn"),
+# 	],
+# 	"area_next" = [
+# 		# ...
+# 	]
+# }
+
+## this will be loaded and processed into room_generators in _ready
+var rooms : Array[GDScript] = [
+		preload("res://scenes/rooms/castle_shop_generator.gd")
+]
+var room_generators := {}
+var room_template := preload("res://scenes/rooms/template_room.tscn")
+var curr_room_type := "castle"
+var tileset_cach := {}
+## scenes that need to be placed in the level 
+var map_element_overrides := {
+	33 : {
+		"scene" : preload("res://scenes/rooms/room_exit.tscn"),
+		"replace" : 17,
+	},
+	34 : {
+		"scene" : preload("res://scenes/rooms/chest.tscn"),
+		"replace" : 1,
+	},
+	35 : {
+		"scene" : preload("res://scenes/rooms/torch.tscn"),
+		"replace" : 17,
+	},
 }
 
 var players_cards : Array[CardResource] = [
@@ -35,16 +59,30 @@ var max_player_cards = 3 # Note - currently this doesn't do anything
 var discarded_cards : Array[CardResource] = []
 
 var selected_card : CardResource = players_cards[0] : set = set_selected_card
-var current_room : Node
-var current_area = available_rooms.keys()[0]
+var current_room : BaseRoom
+# var current_area = available_rooms.keys()[0]
 
 
 func _ready() -> void:
+	for i: GDScript in rooms:
+		var inst = i.new()
+		assert(inst is BaseRoomGenerator, "all scrips assigned to rooms must inherit BaseRoomGenerator")
+		
+		if not room_generators.has(inst.get_area()):
+			room_generators[inst.get_area()] = {
+				Exit.ExitType.CARD_REWARD : [],
+				Exit.ExitType.MONEY_REWARD : [],
+				Exit.ExitType.BOSS : [],
+				Exit.ExitType.SHOP : [],
+			}
+		
+		room_generators[inst.get_area()][inst.get_type()].append(inst)
+	
 	$CanvasLayer/CardDeckUI.update(players_cards, selected_card)
 	
-	Global.connect("next_level", on_next_level)
+	Global.next_level.connect(to_next_level)
 	
-	on_next_level(0) # Spawn in the initial level
+	to_next_level(Exit.ExitType.SHOP) # Spawn in the initial level
 	
 	# show_available_actions doesn't seem to work unless we wait for physics to settle..
 	await get_tree().physics_frame
@@ -64,34 +102,72 @@ func get_player_tile_pos() -> Vector2i:
 	return Global.global_to_tile_position(p.global_position)
 
 
-func on_next_level(exit_type):
-	# TODO do something with exit_type
-	load_room(pop_random_room(current_area))
+func to_next_level(exit_type: Exit.ExitType):
+	var next_room : BaseRoomGenerator = room_generators[curr_room_type][exit_type].pick_random()
+	var room_size := Vector2i(randi_range(25, 50), randi_range(25, 50))
+	var room_data := next_room.generate_room(room_size, 1)
+	var used_tileset := next_room.get_used_tileset()
+	var tileset_source : TileSetAtlasSource = used_tileset.get_source(0)
 
-
-func pop_random_room(area_name:String) -> PackedScene:
-	assert(area_name in available_rooms.keys(), "invalid area name!")
-	assert(len(available_rooms[area_name]) > 0, "ran out of rooms for specified area!")
+	if !tileset_cach.has(used_tileset):
+		var id_to_tile := {}
+		for i:int in tileset_source.get_tiles_count():
+			var tile_data := tileset_source.get_tile_data(tileset_source.get_tile_id(i), 0)
+			if tile_data and tile_data.get_custom_data("id") != 0:
+				id_to_tile[tile_data.get_custom_data("id")] = tileset_source.get_tile_id(i)
+		tileset_cach[used_tileset] = id_to_tile
 	
-	var room_idx = randi_range(0, len(available_rooms[area_name]) - 1)
-	return available_rooms[area_name].pop_at(room_idx)
-
-
-func load_room(room:PackedScene) -> void:
-	if current_room != null:
+	if current_room:
 		current_room.queue_free()
-	
-	current_room = room.instantiate()
+	current_room = room_template.instantiate()
 	add_child(current_room)
+	current_room.tiles.tile_set = used_tileset
+
+	var id_to_tile : Dictionary = tileset_cach[used_tileset]
+	var all_coords : Array[Vector2i] = []
+	for i: int in room_size.x * room_size.y:
+		var coords := Vector2i(i % room_size.x, i / room_size.x)
+		all_coords.append(coords)
+		if map_element_overrides.has(room_data[i]):
+			var element : Node2D = map_element_overrides[room_data[i]].scene.instantiate()
+			current_room.map_layers.add_child(element)
+			element.position = current_room.tiles.map_to_local(coords)
+			room_data[i] = map_element_overrides[room_data[i]].replace
+		
+		if room_data[i] != 0:
+			current_room.tiles.set_cell(coords, 0, id_to_tile[room_data[i]])
 	
-	var cam_limits = current_room.get_cam_limits()
-	$Camera2D.limit_top = 0
-	$Camera2D.limit_left = 0
-	$Camera2D.limit_right = cam_limits.x
-	$Camera2D.limit_bottom = cam_limits.y
-	$Camera2D.reset_smoothing()
-	
-	assert(get_player() != null, "There is no player in room " + current_room.name)
+	for i in used_tileset.get_terrain_sets_count():
+		for j in used_tileset.get_terrains_count(i):
+			current_room.tiles.set_cells_terrain_connect(all_coords, i, j)
+			current_room.tiles.set_cells_terrain_connect(all_coords, i, j)
+	# TODO do something with exit_type
+# 	load_room(pop_random_room(current_area))
+#
+#
+# func pop_random_room(area_name:String) -> PackedScene:
+# 	assert(area_name in available_rooms.keys(), "invalid area name!")
+# 	assert(len(available_rooms[area_name]) > 0, "ran out of rooms for specified area!")
+#
+# 	var room_idx = randi_range(0, len(available_rooms[area_name]) - 1)
+# 	return available_rooms[area_name].pop_at(room_idx)
+
+
+# func load_room(room:PackedScene) -> void:
+# 	if current_room != null:
+# 		current_room.queue_free()
+#
+# 	current_room = room.instantiate()
+# 	add_child(current_room)
+#
+# 	var cam_limits = current_room.get_cam_limits()
+# 	$Camera2D.limit_top = 0
+# 	$Camera2D.limit_left = 0
+# 	$Camera2D.limit_right = cam_limits.x
+# 	$Camera2D.limit_bottom = cam_limits.y
+# 	$Camera2D.reset_smoothing()
+#
+# 	assert(get_player() != null, "There is no player in room " + current_room.name)
 
 
 	# TODO this function is not complete

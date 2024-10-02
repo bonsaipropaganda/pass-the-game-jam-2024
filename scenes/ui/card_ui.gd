@@ -6,8 +6,8 @@ signal clicked(card_ui:CardUI)
 const SCALE_MIN = 0.3
 const SCALE_MAX = 0.6
 
-var old_z_index = z_index
-var card_resource # Stored by reference, not value
+var old_z_index := z_index 
+var card_resource : CardResource # Stored by reference, not value
 
 
 func set_card_resource(card:CardResource):

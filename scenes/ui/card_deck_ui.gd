@@ -1,4 +1,4 @@
-# This is used for more than just the main deck, it displays cards in other UI also.
+## This is used for more than just the main deck, it displays cards in other UI also.
 extends Node2D
 
 const X_GAP = 30
@@ -6,7 +6,7 @@ const X_GAP = 30
 @onready var scene_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 @onready var card_ui_packed = preload("res://scenes/ui/card_ui.tscn")
 
-# It is up to the game_manager to call this when needed
+## It is up to the game_manager to call this when needed
 func update(cards:Array[CardResource], selected_card:CardResource):
 	# Note - quick and dirty way of implementing this function...
 	for c in get_children():

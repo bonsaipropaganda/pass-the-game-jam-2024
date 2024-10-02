@@ -1,6 +1,7 @@
 # The room is responsible for managing game elements that do not persist between rooms
 # For example, spawning in elements and determining when the room is cleared
 extends Node2D
+class_name BaseRoom
 
 @export var room_size = Vector2i(20, 11) # This is the minimum size, only go up from here
 @onready var animation_player: AnimationPlayer = $anim/AnimationPlayer
@@ -14,6 +15,8 @@ var enemy_count = randi_range(min_enemy_count, max_enemy_count) # This is then c
 	preload("res://scenes/enemy/base_enemy.tscn")
 ]
 
+@onready var tiles : TileMapLayer = $TileMap/Tiles
+@onready var map_layers : Node2D = $TileMap
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():

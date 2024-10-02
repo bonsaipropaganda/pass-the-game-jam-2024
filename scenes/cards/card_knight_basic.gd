@@ -4,9 +4,7 @@ class_name CardKnightBasic
 func _init() -> void:
 	action_count = 1
 	card_name = "Knight"
-	description = \
-"Move action: Move to tile in L-shape.
-Attack action: Attack tile in L-shape."
+	description = "Move action: Move to tile in L-shape. Attack action: Attack tile in L-shape."
 
 
 func get_available_positions(player_pos:Vector2i) -> Array[Vector2i]:
