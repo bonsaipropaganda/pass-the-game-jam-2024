@@ -3,43 +3,21 @@
 extends Node2D
 class_name BaseRoom
 
-@export var room_size = Vector2i(20, 11) # This is the minimum size, only go up from here
-@onready var animation_player: AnimationPlayer = $anim/AnimationPlayer
-
-@export var min_enemy_count = 0
-@export var max_enemy_count = 10
-var enemy_count = randi_range(min_enemy_count, max_enemy_count) # This is then clamped to the number of spawners in the room
-
-# This needs to be populated in the editor for every room
-@export var enemy_options:Array[PackedScene] = [
-	preload("res://scenes/enemy/base_enemy.tscn")
-]
+var enemy_count := 0
 
 @onready var tiles : TileMapLayer = $TileMap/Tiles
 @onready var map_layers : Node2D = $TileMap
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		spawn_enemies()
-		Global.connect("enemy_died", on_enemy_died)
-
+		Global.enemy_died.connect(on_enemy_died)
+		Global.enemy_spawned.connect(enemy_spawned)
 
 # Called by game manager to restrict camera movement
-func get_cam_limits() -> Vector2i:
-	assert(room_size.x >= 20, "Don't go below the minimum room size! " + name)
-	assert(room_size.y >= 11, "Don't go below the minimum room size! " + name)
-	return room_size * Global.TILE_SIZE
-
-
-func spawn_enemies():
-	var spawners = get_tree().get_nodes_in_group("enemy_spawner")
-	spawners.shuffle()
-	
-	enemy_count = min(enemy_count, len(spawners))
-	
-	for i in min(enemy_count, len(spawners)):
-		spawners[i].spawn(enemy_options.pick_random())
-
+# func get_cam_limits() -> Vector2i:
+# 	assert(room_size.x >= 20, "Don't go below the minimum room size! " + name)
+# 	assert(room_size.y >= 11, "Don't go below the minimum room size! " + name)
+# 	return room_size * Global.TILE_SIZE
 
 func on_enemy_died():
 	enemy_count -= 1
@@ -50,9 +28,10 @@ func on_enemy_died():
 		on_room_complete()
 
 
+func enemy_spawned():
+	enemy_count += 1
+
+
 func on_room_complete():
 	Global.emit_signal("room_complete")
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	animation_player.play("TEXT")

@@ -25,15 +25,10 @@ Please try to update it when you make relevant changes
 - Copy one of the basic cards like CardBasicKnight
 - Note it must inherit CardResource
 
-### How to add a new room (last updated on day 1)
-- Create a new scene
-- Tick the little chain icon in the top left "Instantiate Child Scene" and select `scenes/rooms/template_room.tscn`
-- Give your room a name, and save it in a folder appropriate to what area it belongs in
-- If you want to place walls, select the wall tilemap layer and select the 'Terrain' tab
-- The room has export variables that determine what enemies can spawn and stuff
-	- Select desired min/max enemy count
-	- Select the desired room size. Note you cannot make the room smaller than the default, as it is the minimum. Note a white rectangle in the editor will indicate the borders of the room.
-	- There is a list of enemies that can spawn in the room. To add a new one, click the plus button, then drag the scene of an enemy from the filesystem dock into the new element you created.
-- Place enemy spawners in the room
-- Place exits in the room so the player can continue when they beat the room
-- There is a list of rooms that will spawn in game_manager.tscn. Add your room to the list so it can appear during gameplay.
+### How to add a new room (last updated on day 4)
+- create a new script that inherits from `BaseRoomGenerator`
+- add that script to the `rooms` array in `game_manager.gd`
+- the room is described by a `PackedByteArray` for the tilemap and a dictionary of scenes for things like the player, enemies, and doors
+- you have to add the player and exit doors yourself!
+- use a combination of tilemap terrains and manually building patterns to create the room
+

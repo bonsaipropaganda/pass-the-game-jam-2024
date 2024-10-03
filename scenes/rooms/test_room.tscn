@@ -59,21 +59,20 @@ animations = [{
 }]
 
 [node name="TestRoom" instance=ExtResource("1_dxppu")]
-room_size = Vector2i(30, 11)
 
-[node name="EnemySpawner" parent="." index="4" instance=ExtResource("4_b4usu")]
+[node name="EnemySpawner" parent="." index="3" instance=ExtResource("4_b4usu")]
 position = Vector2(176, 48)
 
-[node name="EnemySpawner2" parent="." index="5" instance=ExtResource("4_b4usu")]
+[node name="EnemySpawner2" parent="." index="4" instance=ExtResource("4_b4usu")]
 position = Vector2(144, 96)
 
-[node name="RoomExit" parent="." index="6" instance=ExtResource("3_jvhe8")]
+[node name="RoomExit" parent="." index="5" instance=ExtResource("3_jvhe8")]
 position = Vector2(112, 16)
 
-[node name="RoomExit2" parent="." index="7" instance=ExtResource("3_jvhe8")]
+[node name="RoomExit2" parent="." index="6" instance=ExtResource("3_jvhe8")]
 position = Vector2(272, 0)
 
-[node name="anim" type="Node" parent="." index="8"]
+[node name="anim" type="Node" parent="." index="7"]
 
 [node name="AnimatedSprite2D" parent="anim" index="0" instance=ExtResource("4_0mjvj")]
 position = Vector2(104, 22)
@@ -99,7 +98,7 @@ frame_progress = 0.728541
 [node name="AnimatedSprite2D5" parent="anim" index="4" instance=ExtResource("6_2g8gm")]
 position = Vector2(24, 56)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
 position = Vector2(186, 90)
 stream = ExtResource("5_2aw5u")
 autoplay = true

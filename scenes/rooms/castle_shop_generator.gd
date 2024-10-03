@@ -28,7 +28,7 @@ func generate_room(dim: Vector2i, _danger_level: float) -> RoomData:
 
 	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0), room.position.y + int(room.size.y * 3.0 / 4))] = preload("res://scenes/player.tscn").instantiate()
 	var exit : Exit =  preload("res://scenes/rooms/room_exit.tscn").instantiate()
-	exit.exit_type = Exit.ExitType.BOSS
+	exit.exit_type = Exit.ExitType.MONEY_REWARD
 	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0), room.position.y - 1)] = exit
 	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0) - 1, room.position.y - 1)] = preload("res://scenes/rooms/torch.tscn").instantiate()
 	result.scenes[Vector2i(room.position.x + int(room.size.x / 2.0) + 1, room.position.y - 1)] = preload("res://scenes/rooms/torch.tscn").instantiate()

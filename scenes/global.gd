@@ -10,6 +10,9 @@ signal game_tick
 ## Emitted when an enemy dies, so the room can keep track of how many are left
 signal enemy_died
 
+## Emitted when an enemy is spawned so the room can keep track of how many are left
+signal enemy_spawned
+
 ## Emitted when all enemies in room have been killed
 signal room_complete
 
@@ -70,3 +73,6 @@ func fade_black(to:float, duration:float):
 	var tween = create_tween()
 	tween.tween_property($GlobalUI/FadeBlackRect, "color:a", to, duration)
 	await tween.finished
+
+func rand_point_in_rect(rect: Rect2i) -> Vector2i:
+	return Vector2i(randi_range(rect.position.x, rect.position.x + rect.size.x - 1), randi_range(rect.position.y, rect.position.y + rect.size.y - 1))

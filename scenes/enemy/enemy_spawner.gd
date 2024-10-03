@@ -6,7 +6,7 @@ func _ready() -> void:
 	$Sprite2D.visible = Engine.is_editor_hint()
 	
 	if not Engine.is_editor_hint():
-		pass # Code goes in here
+		pass
 
 
 func spawn(enemy_packed:PackedScene) -> BaseEmemy:

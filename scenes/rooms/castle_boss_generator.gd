@@ -1,5 +1,5 @@
 extends BaseRoomGenerator
-class_name CastleMoneyGenerator
+class_name CastleBossGenerator
 
 ## determines when this generator will be used
 func get_type() -> Exit.ExitType:

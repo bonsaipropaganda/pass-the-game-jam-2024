@@ -5,6 +5,10 @@ class_name BaseEmemy
 
 var hp = 2
 
+func _ready():
+	Global.enemy_spawned.emit()
+
+
 func take_damage(_hp_loss:int):
 	hp -= 1
 	if hp > 0:
@@ -13,7 +17,7 @@ func take_damage(_hp_loss:int):
 	else:
 		$AnimationPlayer.play("die")
 		await $AnimationPlayer.animation_finished
-		Global.emit_signal("enemy_died")
+		Global.enemy_died.emit()
 		queue_free()
 
 

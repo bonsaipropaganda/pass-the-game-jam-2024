@@ -1,4 +1,4 @@
-## This script maintains the overall game state that persists between individual rooms,
+## This script maintains the overall game state that persists between individual rooms,floor_sections.append([search_stack[0]]i
 ## as well as supporting most game logic not specific to individual entities
 extends Node2D
 class_name GameManager
@@ -29,6 +29,7 @@ var game_state := GameState.PLAYER_TURN
 var rooms : Array[GDScript] = [
 		preload("res://scenes/rooms/castle_shop_generator.gd"),
 		preload("res://scenes/rooms/castle_boss_generator.gd"),
+		preload("res://scenes/rooms/castle_money_generator.gd"),
 ]
 var room_generators := {}
 var room_template := preload("res://scenes/rooms/template_room.tscn")
@@ -119,7 +120,6 @@ func to_next_level(exit_type: Exit.ExitType):
 		
 		if room_data.tiles[i] != 0:
 			current_room.tiles.set_cell(coords, 0, id_to_tile[room_data.tiles[i]])
-			print(coords, id_to_tile[room_data.tiles[i]])
 	
 	for i in used_tileset.get_terrain_sets_count():
 		for j in used_tileset.get_terrains_count(i):
