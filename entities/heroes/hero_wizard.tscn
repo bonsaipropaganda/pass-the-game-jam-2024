@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b464rv5seurne"]
+
+[ext_resource type="Script" path="res://entities/heroes/hero_wizard.gd" id="1_47vte"]
+[ext_resource type="Texture2D" uid="uid://donwwtfx226cq" path="res://gfx/entities/heroes/knight/knight_idle_anim_f0.png" id="2_g26v2"]
+
+[node name="HeroWizard" type="Node2D"]
+script = ExtResource("1_47vte")
+
+[node name="TempSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.530255, 0.987423, 1)
+position = Vector2(8, 8)
+texture = ExtResource("2_g26v2")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ac0sxxnv6qe"]
+
+[ext_resource type="Script" path="res://items/cards/card_deck.gd" id="1_3m3tn"]
+[ext_resource type="PackedScene" uid="uid://b15b6agchfahl" path="res://items/cards/card.tscn" id="2_r1qoe"]
+
+[node name="CardDeck menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3m3tn")
+card_scene = ExtResource("2_r1qoe")

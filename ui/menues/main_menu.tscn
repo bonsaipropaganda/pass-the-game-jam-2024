@@ -1,0 +1,313 @@
+[gd_scene load_steps=8 format=3 uid="uid://wrl8qtpj08iw"]
+
+[ext_resource type="Script" path="res://ui/menues/main_menu.gd" id="1_egy55"]
+[ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
+[ext_resource type="Texture2D" uid="uid://c2hulywjpmr6q" path="res://gfx/ui/menues/coffe.png" id="2_hdcp8"]
+[ext_resource type="PackedScene" uid="uid://b4ad0kklx6pqb" path="res://places/test map/world.tscn" id="3_d443o"]
+[ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="3_m0xvr"]
+[ext_resource type="Texture2D" uid="uid://p66irrxqu5rq" path="res://gfx/ui/menues/credits_menu.jpg" id="3_uxp4h"]
+[ext_resource type="AudioStream" uid="uid://bnq73jdpkunkh" path="res://sfx/ui/menus/Heartbeat - Royalty Free Fantasy Music.mp3" id="5_04pcq"]
+
+[node name="Menus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egy55")
+scene_dungeon = ExtResource("2_cekuo")
+scene_test = ExtResource("3_d443o")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Main Menu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="Control" parent="UI/Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/Main Menu/Images"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.298
+anchor_right = 1.0
+anchor_bottom = 1.343
+offset_top = -0.359997
+offset_bottom = 2.25999
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m0xvr")
+expand_mode = 1
+
+[node name="Labels" type="Control" parent="UI/Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameNameLabel" type="RichTextLabel" parent="UI/Main Menu/Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 15
+text = "RETURN OF THE KING"
+
+[node name="Buttons" type="Control" parent="UI/Main Menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="StartButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0333333
+anchor_bottom = -0.0333333
+offset_left = 37.0
+offset_top = -12.0
+offset_right = 108.0
+offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/StartButton"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Start
+(Pre Grid Refactor)"
+metadata/_edit_lock_ = true
+
+[node name="Start2Button" type="TextureButton" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0222222
+anchor_bottom = -0.0222222
+offset_left = 37.0
+offset_top = -46.0
+offset_right = 108.0
+offset_bottom = -19.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/Start2Button"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Start
+(Post Grid Refactor)"
+metadata/_edit_lock_ = true
+
+[node name="CreditsButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0388889
+anchor_bottom = -0.0388889
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 128.0
+offset_bottom = 48.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/CreditsButton"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Credits"
+metadata/_edit_lock_ = true
+
+[node name="QuitButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0388889
+anchor_bottom = -0.0388889
+offset_left = 41.0
+offset_top = 37.0
+offset_right = 97.0
+offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/QuitButton"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Quit"
+metadata/_edit_lock_ = true
+
+[node name="Credits Menu" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="Control" parent="UI/Credits Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/Credits Menu/Images"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uxp4h")
+expand_mode = 1
+
+[node name="COFFE!!" type="TextureRect" parent="UI/Credits Menu/Images"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -74.0
+offset_right = 80.0
+offset_bottom = -34.0
+grow_vertical = 2
+texture = ExtResource("2_hdcp8")
+
+[node name="Labels" type="Control" parent="UI/Credits Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_right = 36.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 16
+text = "Credits"
+
+[node name="others" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -52.0
+offset_bottom = 52.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "-The Lost Eco
+- Edalyn Laird (ijo Ko)
+
+"
+
+[node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -56.5
+offset_right = 119.0
+offset_bottom = 56.5
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "- Coffe
+
+- More people"
+
+[node name="Buttons" type="Control" parent="UI/Credits Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="UI/Credits Menu/Buttons"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="UI/Credits Menu/Buttons/BackButton"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="background_music" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("5_04pcq")
+autoplay = true
+
+[connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]
+[connection signal="pressed" from="UI/Main Menu/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/Credits Menu/Buttons/BackButton" to="." method="_on_back_button_pressed"]

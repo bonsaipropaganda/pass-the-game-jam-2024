@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnh3pvpb8dcy5"]
+
+[ext_resource type="Script" path="res://entities/grid entities/room_exit.gd" id="1_30jgn"]
+[ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_xtujc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ajf1"]
+size = Vector2(16, 16)
+
+[node name="RoomExit" type="Node2D"]
+script = ExtResource("1_30jgn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_1ajf1")
+
+[node name="FullSpritesheet" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.535714)
+texture = ExtResource("2_xtujc")
+region_enabled = true
+region_rect = Rect2(95.8462, 84.0901, 31.6552, 28.2919)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

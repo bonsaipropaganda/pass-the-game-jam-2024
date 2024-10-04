@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Return of the King"
-run/main_scene="res://scenes/ui/main_menu.tscn"
+run/main_scene="res://ui/menues/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -37,7 +37,11 @@ window/stretch/scale_mode="integer"
 
 folder_colors={
 "res://0_autoloaded/": "red",
-"res://1_unsorted_gfx/": "orange"
+"res://1_static_utility_class/": "orange",
+"res://2_docs/": "blue",
+"res://entities/grid entities/test room/": "green",
+"res://gfx/test room/": "green",
+"res://places/test map/": "green"
 }
 
 [global_group]
@@ -49,7 +53,7 @@ player_area=""
 
 [gui]
 
-theme/custom_font="res://assets/Mystery Font.ttf"
+theme/custom_font="res://gfx/Fonts/Mystery Font.ttf"
 
 [input]
 

@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv2sj0tpmbdau"]
+
+[ext_resource type="Script" path="res://places/game_manager/game_manager.gd" id="1_2n5bb"]
+[ext_resource type="Script" path="res://places/game_manager/camera.gd" id="2_ap55l"]
+[ext_resource type="Script" path="res://ui/menues/controls_menu.gd" id="3_vvdls"]
+[ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
+[ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menues/take_damage_menu.tscn" id="5_8wkup"]
+
+[node name="Game Manager" type="Node2D"]
+script = ExtResource("1_2n5bb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("2_ap55l")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="Side Buttons" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestDamageButton" type="TextureButton" parent="UI/Side Buttons"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Side Buttons/TestDamageButton"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Take damage (test)"
+metadata/_edit_lock_ = true
+
+[node name="ControlsButton" type="TextureButton" parent="UI/Side Buttons"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 59.0
+grow_vertical = 0
+toggle_mode = true
+script = ExtResource("3_vvdls")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Side Buttons/ControlsButton"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Show controls"
+metadata/_edit_lock_ = true
+
+[node name="Controls_Menu" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlsLabel" type="RichTextLabel" parent="UI/Controls_Menu"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 42.0
+offset_right = 194.0
+offset_bottom = 60.0
+mouse_filter = 2
+text = "Controls:"
+
+[node name="ControlsLabel2" type="RichTextLabel" parent="UI/Controls_Menu"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 69.0
+offset_right = 240.0
+offset_bottom = 125.0
+mouse_filter = 2
+theme_override_constants/line_separation = 4
+theme_override_font_sizes/normal_font_size = 8
+text = "- Number keys: Select card to use
+- Left click: Move to tile, or attack enemy"
+
+[node name="CardDeck_Menu" parent="UI" instance=ExtResource("4_yh1ds")]
+unique_name_in_owner = true
+offset_left = 155.0
+offset_top = 180.0
+offset_right = 155.0
+offset_bottom = 180.0
+
+[node name="TakeDamage_Menu" parent="UI" instance=ExtResource("5_8wkup")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[connection signal="pressed" from="UI/Side Buttons/TestDamageButton" to="." method="_on_test_damage_button_pressed"]
+[connection signal="toggled" from="UI/Side Buttons/ControlsButton" to="UI/Side Buttons/ControlsButton" method="_on_toggled"]

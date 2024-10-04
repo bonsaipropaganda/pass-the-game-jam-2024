@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfsxx0r0misb3"]
+
+[ext_resource type="Script" path="res://ui/menues/take_damage_menu.gd" id="1_errf5"]
+[ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="2_ptwhf"]
+
+[node name="TakeDamage menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_errf5")
+
+[node name="CardDeck menu" parent="." instance=ExtResource("2_ptwhf")]
+offset_left = 156.0
+offset_top = 118.0
+offset_right = 156.0
+offset_bottom = 118.0
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 22.0
+offset_right = 299.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 12
+text = "You took damage.
+Pick a card to discard!"
+horizontal_alignment = 1
