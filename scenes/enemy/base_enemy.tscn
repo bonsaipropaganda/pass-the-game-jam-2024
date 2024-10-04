@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/enemy/base_enemy.gd" id="1_6ek4y"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/full spritesheet.png" id="2_m565o"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
 

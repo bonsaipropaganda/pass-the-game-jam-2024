@@ -79,9 +79,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="TextureButton" parent="."]
 offset_left = 36.0
-offset_top = 91.0
+offset_top = 75.0
 offset_right = 107.0
-offset_bottom = 118.0
+offset_bottom = 102.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="StartButton"]
@@ -92,7 +92,27 @@ mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
-text = "Start"
+text = "Start
+(Pre Grid Refactor)"
+metadata/_edit_lock_ = true
+
+[node name="Start2Button" type="TextureButton" parent="."]
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 107.0
+offset_bottom = 68.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="Start2Button"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Start
+(Post Grid Refactor)"
 metadata/_edit_lock_ = true
 
 [node name="CreditsButton" type="TextureButton" parent="."]
@@ -207,6 +227,7 @@ stream = ExtResource("5_04pcq")
 autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Start2Button" to="." method="_on_start_2_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

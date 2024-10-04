@@ -1,12 +1,11 @@
 ## This serves as an example of an enemy, although it does not actually attack you
 ## Other enemies can inherit this or whatever works best
-extends Node2D
-class_name BaseEmemy
+class_name BaseEmemy extends Node2D
 
 var hp = 2
 
 func _ready():
-	Global.enemy_spawned.emit()
+	SignalBus.enemy_spawned.emit()
 
 
 func take_damage(_hp_loss:int):
@@ -17,7 +16,7 @@ func take_damage(_hp_loss:int):
 	else:
 		$AnimationPlayer.play("die")
 		await $AnimationPlayer.animation_finished
-		Global.enemy_died.emit()
+		SignalBus.enemy_died.emit()
 		queue_free()
 
 

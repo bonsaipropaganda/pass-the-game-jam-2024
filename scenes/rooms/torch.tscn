@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/full spritesheet.png" id="1_kym0h"]
 
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ibmb"]
 atlas = ExtResource("1_kym0h")
 region = Rect2(96, 48, 16, 16)

@@ -10,14 +10,14 @@ var enemy_count := 0
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		Global.enemy_died.connect(on_enemy_died)
-		Global.enemy_spawned.connect(enemy_spawned)
+		SignalBus.enemy_died.connect(on_enemy_died)
+		SignalBus.enemy_spawned.connect(enemy_spawned)
 
 # Called by game manager to restrict camera movement
 # func get_cam_limits() -> Vector2i:
 # 	assert(room_size.x >= 20, "Don't go below the minimum room size! " + name)
 # 	assert(room_size.y >= 11, "Don't go below the minimum room size! " + name)
-# 	return room_size * Global.TILE_SIZE
+# 	return room_size * C.TILE_SIZE
 
 func on_enemy_died():
 	enemy_count -= 1
@@ -33,5 +33,4 @@ func enemy_spawned():
 
 
 func on_room_complete():
-	Global.emit_signal("room_complete")
-
+	SignalBus.room_complete.emit()

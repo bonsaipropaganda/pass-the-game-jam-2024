@@ -1,28 +1,19 @@
 ## A CardResource contains the data for a single card in the player's deck
 ## This should be inherited by all other cards
-extends Resource
-class_name CardResource
+class_name CardResource extends Resource
 
 var card_name : String
 var description : String
-var action_count : int
 
+## Should return an array of GLOBAL coords
+## central_coord will generally be the player's position
+func get_valid_coords(central_coord:Vector2i) -> Array[Vector2i]:
+	breakpoint; return [] ## dummy interface
 
-## Returned positions are relative to where the player is
-## Positions indicate where a card allows you to move/attack
-func get_available_positions(_player_pos:Vector2i) -> Array[Vector2i]:
-	return []
+## perform this card's unique action(s) at the target_coord
+func do_action(target_coord:Vector2i) -> void:
+	breakpoint ## dummy interface
 
-
-## Return whether action succeeded
-func do_move_action() -> bool:
-	return true
-
-
-## Return whether action succeeded
-func do_attack_action() -> bool:
-	return true
-
-
+## perform this card's unique discard effects
 func on_discard() -> void:
-	pass
+	breakpoint ## dummy interface

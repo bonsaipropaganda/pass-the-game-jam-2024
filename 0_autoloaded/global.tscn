@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbrjew2jc06ur"]
 
-[ext_resource type="Script" path="res://scenes/global.gd" id="1_tdeqc"]
+[ext_resource type="Script" path="res://0_autoloaded/global.gd" id="1_tdeqc"]
 [ext_resource type="PackedScene" uid="uid://dd8gx7ekcidr0" path="res://scenes/ui/tile_hover_rect.tscn" id="2_bq7pj"]
 
 [node name="Global" type="Node2D"]

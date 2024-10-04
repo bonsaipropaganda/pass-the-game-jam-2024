@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhyvl2gmd8gcl"]
+
+[ext_resource type="Script" path="res://entities/hero_paladin.gd" id="1_hcix4"]
+[ext_resource type="Texture2D" uid="uid://donwwtfx226cq" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_anim_f0.png" id="2_n42ex"]
+
+[node name="HeroPaladin" type="Node2D"]
+script = ExtResource("1_hcix4")
+
+[node name="TempSprite" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_n42ex")

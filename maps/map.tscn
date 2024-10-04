@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://yj661iall7v8"]
+
+[ext_resource type="Script" path="res://maps/map.gd" id="1_tsff2"]
+[ext_resource type="Texture2D" uid="uid://dngx2aa5wf7a" path="res://1_unsorted_gfx/init_tilemap.png" id="2_ta8ug"]
+[ext_resource type="Texture2D" uid="uid://bjilfd20d5ahk" path="res://1_unsorted_gfx/init_entities.png" id="3_isnqg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oge2r"]
+texture = ExtResource("2_ta8ug")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ae4ij"]
+sources/0 = SubResource("TileSetAtlasSource_oge2r")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4n618"]
+texture = ExtResource("3_isnqg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0rkjj"]
+sources/0 = SubResource("TileSetAtlasSource_4n618")
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_tsff2")
+
+[node name="InitTerrainMap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_ae4ij")
+
+[node name="InitEntitiesMap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_0rkjj")
+
+[node name="TerrainRoot" type="Node2D" parent="."]
+
+[node name="EntitiesRoot" type="Node2D" parent="."]

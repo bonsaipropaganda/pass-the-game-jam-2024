@@ -17,7 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scenes/global.tscn"
+E="*res://0_autoloaded/enums.gd"
+C="*res://0_autoloaded/constants.tscn"
+SignalBus="*res://0_autoloaded/signal_bus.gd"
+Global="*res://0_autoloaded/global.tscn"
+Constructor="*res://0_autoloaded/constructor.tscn"
+Ref="*res://0_autoloaded/ref.gd"
 
 [display]
 
@@ -28,9 +33,12 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
-[editor_plugins]
+[file_customization]
 
-enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
+folder_colors={
+"res://0_autoloaded/": "red",
+"res://1_unsorted_gfx/": "orange"
+}
 
 [global_group]
 
@@ -42,6 +50,19 @@ player_area=""
 [gui]
 
 theme/custom_font="res://assets/Mystery Font.ttf"
+
+[input]
+
+debug_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+debug_right_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 

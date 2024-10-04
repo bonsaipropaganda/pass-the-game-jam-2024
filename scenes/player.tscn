@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kfcieplqn3ap" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="2_dlncf"]
 [ext_resource type="Texture2D" uid="uid://dfnyu2au1agfw" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png" id="3_m54ue"]
 
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_prdr3"]
 atlas = ExtResource("2_dlncf")
 region = Rect2(0, 0, 16, 16)

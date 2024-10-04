@@ -1,6 +1,5 @@
 ## TODO: implement shop
-extends BaseRoomGenerator
-class_name CastleShopGenerator
+class_name CastleShopGenerator extends BaseRoomGenerator
 
 ## determins when this generator will be used
 func get_type() -> Exit.ExitType:

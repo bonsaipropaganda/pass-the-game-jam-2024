@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://scenes/take_damage_ui.tscn" id="3_xes4v"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="4_ny8rr"]
 
+
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_8grbe")
 

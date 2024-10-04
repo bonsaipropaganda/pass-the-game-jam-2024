@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://scenes/game_manager.tscn" id="1_qoir4"]
 [ext_resource type="Script" path="res://scenes/ui/controls_button.gd" id="3_sa5j2"]
 
+
 [node name="Main" type="Node2D"]
 metadata/_edit_lock_ = true
 

@@ -49,4 +49,3 @@ func generate_room(_dim: Vector2i, _danger_level: float) -> RoomData:
 ## returns the used TileSet. it should only have 1 source to make things easier to keep track of
 func get_used_tileset() -> TileSet:
 	return preload("res://scenes/rooms/castle_tile_set.tres")
-

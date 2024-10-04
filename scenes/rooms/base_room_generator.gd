@@ -1,5 +1,4 @@
-extends Resource
-class_name BaseRoomGenerator
+class_name BaseRoomGenerator extends Resource
 
 ## determines when this generator will be used
 func get_type() -> Exit.ExitType:

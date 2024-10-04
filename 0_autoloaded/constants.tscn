@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://e3blcykf7uep"]
+
+[ext_resource type="Script" path="res://0_autoloaded/constants.gd" id="1_qolk7"]
+
+[sub_resource type="Curve" id="Curve_vddy3"]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Constants" type="Node"]
+script = ExtResource("1_qolk7")
+ENTITY_HOP_CURVE = SubResource("Curve_vddy3")
