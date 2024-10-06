@@ -247,9 +247,9 @@ mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
-text = "-The Lost Eco
+text = "- The Lost Eco
 - Edalyn Laird (ijo Ko)
-
+- Este aka Crownie
 "
 
 [node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]

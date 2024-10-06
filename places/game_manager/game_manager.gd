@@ -43,6 +43,7 @@ var max_player_cards = 3 # Note - currently this doesn't do anything
 var discarded_cards : Array[CardResource] = []
 
 var selected_card : CardResource = players_cards[0] : set = set_selected_card
+var selected_card_idx : int = 0 # index of the current card, for selection on mouse scroll event
 var current_room : BaseRoom
 # var current_area = available_rooms.keys()[0]
 
@@ -185,11 +186,28 @@ func set_selected_card(to):
 
 
 func _input(event: InputEvent) -> void:
+	
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode >= KEY_1 and event.keycode <= KEY_9:
 			var num_pressed = event.keycode - KEY_0
 			if num_pressed - 1 < len(players_cards):
-				selected_card = players_cards[num_pressed - 1] # Calls setter
+				selected_card_idx = num_pressed - 1
+				selected_card = players_cards[selected_card_idx] # Calls setter
+		elif event.keycode >= KEY_KP_1 and event.keycode <= KEY_KP_9:
+			var num_pressed = event.keycode - KEY_KP_0
+			if num_pressed - 1 < len(players_cards):
+				selected_card_idx = num_pressed - 1
+				selected_card = players_cards[selected_card_idx] # Calls setter
+		
+	if event is InputEventMouseButton and event.is_pressed():
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			if selected_card_idx + 1 < len(players_cards):
+				selected_card_idx += 1
+				selected_card = players_cards[selected_card_idx] # Calls setter
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			if selected_card_idx - 1 >= 0:
+				selected_card_idx -= 1
+				selected_card = players_cards[selected_card_idx] # Calls setter
 
 
 func _process(_delta: float) -> void:

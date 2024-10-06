@@ -28,6 +28,7 @@ offset_left = 19.0
 offset_top = 25.0
 offset_right = 299.0
 offset_bottom = 41.0
+theme_override_constants/outline_size = 4
 text = "Please read README_FIRST.md"
 horizontal_alignment = 1
 
@@ -36,6 +37,7 @@ offset_left = 19.0
 offset_top = 146.0
 offset_right = 299.0
 offset_bottom = 181.0
+theme_override_constants/outline_size = 4
 text = "left click to move units
 right click to edit terrain"
 horizontal_alignment = 1
