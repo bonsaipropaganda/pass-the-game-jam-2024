@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://0_autoloaded/global.gd" id="1_tdeqc"]
 [ext_resource type="PackedScene" uid="uid://dd8gx7ekcidr0" path="res://ui/terrain/tile_hover_rect.tscn" id="2_bq7pj"]
 
-
 [node name="Global" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_tdeqc")
@@ -17,7 +16,7 @@ collide_with_areas = true
 [node name="TileHoverRect" parent="." instance=ExtResource("2_bq7pj")]
 auto_translate_mode = 2
 z_index = 2
-color = Color(0.96, 0.96, 0.96, 0)
+color = Color(1, 1, 1, 0)
 
 [node name="GlobalUI" type="CanvasLayer" parent="."]
 layer = 100

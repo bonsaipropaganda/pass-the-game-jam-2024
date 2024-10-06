@@ -3,7 +3,6 @@
 extends Node2D ## class_name Global (Autoloaded)
 #---------------------------------------------------------------------------------------------------
 
-
 #---------------------------------------------------------------------------------------------------
 ## boolean check on whether or not the coord is valid or out of bounds
 func is_valid(coord:Vector2i) -> bool:

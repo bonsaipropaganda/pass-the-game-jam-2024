@@ -55,4 +55,4 @@ animations = [{
 [node name="Torch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_f8aux")
 autoplay = "default"
-frame_progress = 0.800756
+frame_progress = 0.044953

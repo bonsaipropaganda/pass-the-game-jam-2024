@@ -48,7 +48,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igc1p"]
 size = Vector2(13, 13)
 
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ppniw")
 autoplay = "default"
 frame_progress = 0.532779

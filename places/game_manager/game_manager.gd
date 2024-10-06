@@ -48,6 +48,7 @@ var current_room : BaseRoom
 
 
 func _ready() -> void:
+	
 	for i : GDScript in rooms:
 		var inst = i.new()
 		assert(inst is BaseRoomGenerator, "all scrips assigned to rooms must inherit BaseRoomGenerator")
@@ -205,7 +206,7 @@ func _process(_delta: float) -> void:
 					change_game_state(GameState.BUSY)
 					hide_available_actions()
 					if Global.is_enemy_on_tile(mouse_coord):
-						get_player().get_node("AnimationPlayer").play("attack")
+						get_player().get_node("AnimationPlayer2").play("attack")
 						await Global.attack_enemy_at_tile(mouse_coord, 1)
 					else:
 						await p.move(mouse_coord)
