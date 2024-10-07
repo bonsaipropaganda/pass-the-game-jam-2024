@@ -4,10 +4,11 @@ const tile_hover_packed = preload("res://ui/terrain/tile_hover_rect.tscn")
 const TILE_HOVER_COLOR_VALID = Color("ffffff44")
 const TILE_HOVER_COLOR_INVALID = Color("00000000") # Don't show invalid tiles for now
 
+var inventory: Inventory = Inventory.new()
 
 func move(to:Vector2i):
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.5)
+	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.3)
 	await tween.finished
 
 
