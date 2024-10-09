@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b3kdipdfm3vmp"]
 
-[ext_resource type="Script" path="res://entities/enemies/base_enemy.gd" id="1_6ek4y"]
+[ext_resource type="Script" path="res://entities/enemies/enemy_bat.gd" id="1_aucsa"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_m565o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
@@ -154,7 +154,7 @@ _data = {
 }
 
 [node name="BaseEnemy" type="Node2D"]
-script = ExtResource("1_6ek4y")
+script = ExtResource("1_aucsa")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["enemy_area"]]
 collision_layer = 2

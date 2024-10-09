@@ -99,7 +99,7 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	
 	for i in fight_rooms:
 		for j in 3:
-			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/base_enemy.tscn").instantiate()
+			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_slime.tscn").instantiate()
 	
 	var door_pos := Global.rand_point_in_rect(exit_room)
 	while result.tiles[door_pos.x + door_pos.y * dim.x] == 1 or result.tiles[door_pos.x + door_pos.y * dim.x] == 2:

@@ -9,6 +9,7 @@ var move_tween:Tween
 var tween_from_pos:Vector2
 var tween_to_pos:Vector2
 var inverted_hop:bool = false
+
 #---------------------------------------------------------------------------------------------------
 func construct(coord:Vector2i) -> void:
 	global_coord = coord
