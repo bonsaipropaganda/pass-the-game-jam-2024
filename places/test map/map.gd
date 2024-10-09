@@ -25,7 +25,7 @@ func _ready() -> void: Ref.map = self
 func move_entity(from_coord:Vector2i, to_coord:Vector2i) -> void:
 	assert(get_coord_data(from_coord).entity != null)
 	assert(get_coord_data(to_coord).entity == null)
-	
+	print("hello")
 	var entity_to_move:Entity = get_coord_data(from_coord).entity
 	get_coord_data(from_coord).remove_entity()
 	get_coord_data(to_coord).insert_entity(entity_to_move)

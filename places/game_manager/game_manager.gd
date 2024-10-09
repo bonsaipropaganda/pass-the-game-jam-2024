@@ -70,6 +70,7 @@ func _ready() -> void:
 	SignalBus.next_level.connect(to_next_level)
 	SignalBus.enemy_spawned.connect(on_enemy_spawn)
 	SignalBus.enemy_died.connect(on_enemy_death)
+	SignalBus.player_takes_damage.connect(_discard_card)
 	
 	to_next_level(Exit.ExitType.SHOP) # Spawn in the initial level
 
@@ -240,9 +241,8 @@ func _process(_delta: float) -> void:
 		
 		GameState.ENEMY_TURN:
 			change_game_state(GameState.BUSY)
-			for i in enemies_alive:			
-				var coords:Array[Vector2i] = i.get_valid_coords()
-				var new_coord = coords[randi() % coords.size()]
+			for i in enemies_alive:	
+				var new_coord = i.get_coord()		
 				await i.move(new_coord)
 				
 			
@@ -252,8 +252,10 @@ func _process(_delta: float) -> void:
 			change_game_state(GameState.PLAYER_TURN)
 
 
-func _on_test_damage_button_pressed() -> void:
-	
+func _on_test_damage_button_pressed():
+	_discard_card()
+
+func _discard_card() -> void:
 	# Once we choose a card to discard, this lambda is called
 	var card_choice_callback = func (card_choice:CardResource):
 		card_choice.on_discard()

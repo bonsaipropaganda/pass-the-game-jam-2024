@@ -19,7 +19,7 @@ func take_damage(_hp_loss:int):
 		SignalBus.enemy_died.emit(self)
 		queue_free()
 
-func get_valid_coords() -> Array[Vector2i]: 
+func get_coord() -> Vector2i: 
 	var pos = Utils.global_pos_to_coord(global_position)
 	var valid_coords:Array[Vector2i] = []
 	
@@ -37,13 +37,13 @@ func get_valid_coords() -> Array[Vector2i]:
 			continue
 			
 		if target_tile == Utils.global_pos_to_coord(get_tree().get_first_node_in_group("player").global_position):
-			print("hit!")
-			continue##todo: return only this
+			attack_player()
+			return pos##current pos
 			
 		if Global.is_floor_tile(target_tile):
 			valid_coords.append(target_tile)
-	
-	return valid_coords
+			
+	return valid_coords[randi() % valid_coords.size()]
 	
 func move(to:Vector2i):
 	var tween = create_tween()
@@ -52,4 +52,4 @@ func move(to:Vector2i):
 
 
 func attack_player():
-	pass
+	get_tree().get_first_node_in_group("player").take_damage()

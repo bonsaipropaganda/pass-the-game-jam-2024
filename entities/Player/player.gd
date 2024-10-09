@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 	
 	
 func take_damage():
-	pass
+	SignalBus.player_takes_damage.emit()
 	
