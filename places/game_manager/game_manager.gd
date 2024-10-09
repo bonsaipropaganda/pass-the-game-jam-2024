@@ -47,6 +47,7 @@ var selected_card_idx : int = 0 # index of the current card, for selection on mo
 var current_room : BaseRoom
 # var current_area = available_rooms.keys()[0]
 
+var enemies_alive: Array[BaseEnemy]
 
 func _ready() -> void:
 	
@@ -67,10 +68,17 @@ func _ready() -> void:
 	%CardDeck_Menu.update(players_cards, selected_card)
 	
 	SignalBus.next_level.connect(to_next_level)
+	SignalBus.enemy_spawned.connect(on_enemy_spawn)
+	SignalBus.enemy_died.connect(on_enemy_death)
 	
 	to_next_level(Exit.ExitType.SHOP) # Spawn in the initial level
 
-
+func on_enemy_death(enemy:BaseEnemy) -> void:
+	enemies_alive.erase(enemy)
+	
+func on_enemy_spawn(enemy:BaseEnemy) -> void:
+	enemies_alive.append(enemy)
+	
 func get_player() -> Node2D:
 	return get_tree().get_first_node_in_group("player")
 
@@ -231,7 +239,15 @@ func _process(_delta: float) -> void:
 					change_game_state(GameState.ENEMY_TURN)
 		
 		GameState.ENEMY_TURN:
-			# TODO
+			change_game_state(GameState.BUSY)
+			for i in enemies_alive:			
+				var coords:Array[Vector2i] = i.get_valid_coords()
+				var new_coord = coords[randi() % coords.size()]
+				await i.move(new_coord)
+				
+			
+			
+			
 			SignalBus.game_tick.emit()
 			change_game_state(GameState.PLAYER_TURN)
 

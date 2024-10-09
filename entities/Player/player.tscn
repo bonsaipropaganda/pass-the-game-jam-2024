@@ -1,9 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://3o1v1gb0lhhg"]
+[gd_scene load_steps=15 format=3 uid="uid://3o1v1gb0lhhg"]
 
 [ext_resource type="Script" path="res://entities/Player/player.gd" id="1_1wplv"]
 [ext_resource type="Texture2D" uid="uid://kfcieplqn3ap" path="res://gfx/entities/heroes/knight/knight_idle_spritesheet.png" id="2_dlncf"]
-[ext_resource type="PackedScene" uid="uid://bdk3tfgo51ivx" path="res://items/basic_sword.tscn" id="4_m35s6"]
-[ext_resource type="Script" path="res://items/basic_sword.gd" id="5_ln2n5"]
 [ext_resource type="Script" path="res://entities/Player/inventory.gd" id="5_n8jhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_prdr3"]
@@ -148,8 +146,3 @@ libraries = {
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("5_n8jhy")
-
-[node name="BasicSword" parent="Inventory" instance=ExtResource("4_m35s6")]
-position = Vector2(8, 2)
-script = ExtResource("5_ln2n5")
-item_data = null

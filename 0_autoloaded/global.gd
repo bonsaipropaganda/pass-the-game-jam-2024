@@ -120,6 +120,19 @@ func is_enemy_on_tile(tile_pos:Vector2i) -> bool:
 	var col = $TestRaycast.get_collider()
 	return (col != null) and col.is_in_group("enemy_area")
 
+func is_player_on_tile(tile_pos:Vector2i) -> bool:
+	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 1 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	
+	var col = $TestRaycast.get_collider()
+	
+	print("check")
+	if (col != null) : 
+		print("g1")
+		if col.is_in_group("player_area") : print("g2")
+		
+	return (col != null) and col.is_in_group("player_area")
 
 func attack_enemy_at_tile(tile_pos:Vector2i, damage:int):
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
