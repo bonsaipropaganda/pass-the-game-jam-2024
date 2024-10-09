@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7cm07luj2kni"]
+[gd_scene load_steps=11 format=3 uid="uid://b7cm07luj2kni"]
 
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="1_qahkm"]
+[ext_resource type="Script" path="res://entities/grid entities/chest.gd" id="2_7y5p7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldm8r"]
 atlas = ExtResource("1_qahkm")
@@ -48,12 +49,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igc1p"]
 size = Vector2(13, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bh5"]
+size = Vector2(16, 16)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_ppniw")
 autoplay = "default"
 frame_progress = 0.532779
+script = ExtResource("2_7y5p7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visibility_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_igc1p")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["chest_area"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_h3bh5")
+debug_color = Color(0.7, 0, 0.315, 0.419608)

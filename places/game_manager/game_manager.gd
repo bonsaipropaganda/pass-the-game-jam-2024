@@ -4,6 +4,8 @@ class_name GameManager extends Node2D
 
 const tile_hover_rect_packed = preload("res://ui/terrain/tile_hover_rect.tscn")
 
+const POSSIBLE_CARDS_COUNT = 3
+
 enum GameState {
 	BUSY, # Indicates not to do anything in _process()
 	PLAYER_TURN,
@@ -71,6 +73,7 @@ func _ready() -> void:
 	SignalBus.enemy_spawned.connect(on_enemy_spawn)
 	SignalBus.enemy_died.connect(on_enemy_death)
 	SignalBus.player_takes_damage.connect(_discard_card)
+	##SignalBus.chest_opened.connect(
 	
 	to_next_level(Exit.ExitType.SHOP) # Spawn in the initial level
 
@@ -92,6 +95,7 @@ func get_player_tile_pos() -> Vector2i:
 
 
 func to_next_level(exit_type: Exit.ExitType):
+	enemies_alive.clear()
 	var next_room : BaseRoomGenerator = room_generators[curr_room_type][exit_type].pick_random()
 	var room_size := Vector2i(randi_range(25, 50), randi_range(25, 50))
 	if room_size.y % 2 == 1:
@@ -235,6 +239,10 @@ func _process(_delta: float) -> void:
 					if Global.is_enemy_on_tile(mouse_coord):
 						get_player().get_node("AnimationPlayer2").play("attack")
 						await Global.attack_enemy_at_tile(mouse_coord, 1)
+					elif Global.is_chest_on_tile(mouse_coord):
+						Global.open_chest(mouse_coord)
+						players_cards.append(_get_new_card())
+						%CardDeck_Menu.update(players_cards, players_cards.back())
 					else:
 						await p.move(mouse_coord)
 					change_game_state(GameState.ENEMY_TURN)
@@ -245,12 +253,19 @@ func _process(_delta: float) -> void:
 				var new_coord = i.get_coord()		
 				await i.move(new_coord)
 				
-			
-			
-			
 			SignalBus.game_tick.emit()
 			change_game_state(GameState.PLAYER_TURN)
 
+func _get_new_card() -> CardResource:
+	match (randi() % POSSIBLE_CARDS_COUNT):
+		0: 
+			return CardKingBasic.new()
+		1: 
+			return CardKnightBasic.new()
+		2: 
+			return CardPawnBasic.new()
+		_: 
+			return CardPawnBasic.new() #it is twice to avoid error (dummy me)
 
 func _on_test_damage_button_pressed():
 	_discard_card()

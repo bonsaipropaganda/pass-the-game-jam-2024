@@ -21,7 +21,7 @@ func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	
 	for offset in offsets:
 		var target_tile = player_pos + offset
-		if Global.is_floor_tile(target_tile):
+		if Global.is_floor_tile(target_tile) or Global.is_chest_on_tile(target_tile):
 			valid_coords.append(target_tile)
 	
 	return valid_coords

@@ -102,8 +102,13 @@ func contains_exit_door(coord:Vector2i) -> bool: return contains_entity_specific
 
 
 
-
-
+##should be called only if certain -> after calling is_chest_on_tile() method
+func open_chest(tile_pos:Vector2i):
+	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	
+	$TestRaycast.get_collider().get_parent().open()
 
 
 func is_floor_tile(tile_pos:Vector2i) -> bool:
@@ -120,19 +125,13 @@ func is_enemy_on_tile(tile_pos:Vector2i) -> bool:
 	var col = $TestRaycast.get_collider()
 	return (col != null) and col.is_in_group("enemy_area")
 
-func is_player_on_tile(tile_pos:Vector2i) -> bool:
+func is_chest_on_tile(tile_pos:Vector2i) -> bool:
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
-	$TestRaycast.collision_mask = 1 # ObjectLayer
+	$TestRaycast.collision_mask = 2 # ObjectLayer
 	$TestRaycast.force_raycast_update()
 	
 	var col = $TestRaycast.get_collider()
-	
-	print("check")
-	if (col != null) : 
-		print("g1")
-		if col.is_in_group("player_area") : print("g2")
-		
-	return (col != null) and col.is_in_group("player_area")
+	return (col != null) and col.is_in_group("chest_area")
 
 func attack_enemy_at_tile(tile_pos:Vector2i, damage:int):
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)

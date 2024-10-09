@@ -1,5 +1,3 @@
-## This serves as an example of an enemy, although it does not actually attack you
-## Other enemies can inherit this or whatever works best
 class_name BaseEnemy extends Node2D
 
 var hp = 2

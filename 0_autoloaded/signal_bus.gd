@@ -19,3 +19,5 @@ signal next_level(level_type: Exit.ExitType)
 signal terrain_changed
 
 signal player_takes_damage
+
+signal chest_opened

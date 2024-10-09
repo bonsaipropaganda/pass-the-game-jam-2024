@@ -54,6 +54,7 @@ player=""
 enemy_area=""
 enemy_spawner=""
 player_area=""
+chest_area=""
 
 [gui]
 
