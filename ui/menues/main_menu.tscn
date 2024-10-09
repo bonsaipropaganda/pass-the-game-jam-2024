@@ -250,6 +250,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "- The Lost Eco
 - Edalyn Laird (ijo Ko)
 - Este aka Crownie
+-Wiktor aka TheWizzard
 "
 
 [node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]

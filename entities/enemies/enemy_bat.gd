@@ -8,7 +8,6 @@ func _ready():
 	specific_type = E.EntitySpecificType.BAT
 
 
-##every mob overrides this function
 func get_coord() -> Vector2i: 
 	var pos = Utils.global_pos_to_coord(global_position)
 	var valid_coords:Array[Vector2i] = []
@@ -23,7 +22,7 @@ func get_coord() -> Vector2i:
 			
 		if target_tile == Utils.global_pos_to_coord(get_tree().get_first_node_in_group("player").global_position):
 			attack_player()
-			return pos #current pos
+			return pos # returns just current pos, as it is needed by game_manager
 			
 		if Global.is_floor_tile(target_tile):
 			valid_coords.append(target_tile)

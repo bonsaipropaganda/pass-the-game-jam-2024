@@ -256,6 +256,7 @@ func _process(_delta: float) -> void:
 			SignalBus.game_tick.emit()
 			change_game_state(GameState.PLAYER_TURN)
 
+# returns random card / logic is here for fast prototyping - feel free to change
 func _get_new_card() -> CardResource:
 	match (randi() % POSSIBLE_CARDS_COUNT):
 		0: 

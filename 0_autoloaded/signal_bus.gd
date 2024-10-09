@@ -18,6 +18,6 @@ signal next_level(level_type: Exit.ExitType)
 ## Emitted at runtime if the terrain is changed so that other terrain scenes can update their visuals
 signal terrain_changed
 
+## Emitted for game_manager to handle post-hit discarding 
 signal player_takes_damage
 
-signal chest_opened

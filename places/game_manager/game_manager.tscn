@@ -93,7 +93,7 @@ mouse_filter = 2
 theme_override_constants/line_separation = 4
 theme_override_font_sizes/normal_font_size = 8
 text = "- Number keys: Select card to use
-- Left click: Move to tile, or attack enemy"
+- Left click: Move to tile, open chest or attack enemy"
 
 [node name="CardDeck_Menu" parent="UI" instance=ExtResource("4_yh1ds")]
 unique_name_in_owner = true

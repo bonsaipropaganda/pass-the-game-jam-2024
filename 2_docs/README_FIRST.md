@@ -16,8 +16,21 @@ Here are some quick info to help get faster whats going on :
 	
 	Good luck !
 
-----------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+## DAY 11 NOTES (Wiktor aka TheWizzard)
+#---------------------------------------------------------------------------------------------------
+	Log: 
+	-Added Enemies movement and attack logic
+	-Chest logic 
+	all logical ofc
+	
+	Important notes:
+	-In my latest commit as I used all enemy classes to provide different movement systems it broke use of 'world.tscn'(Post Grid Refactor)
+	as I strongly recomend you to checkout this - go to commit d637bd6
+	then if you want to go around this you need to replace inheritance of enemy classes from "base_enemy" to "entity" and cut all its dependences
 
+	sorry for all inconvinence 
+	and most importantly have Fun!
 #---------------------------------------------------------------------------------------------------
 ## DAY 5 NOTES (BricksParts)
 #---------------------------------------------------------------------------------------------------

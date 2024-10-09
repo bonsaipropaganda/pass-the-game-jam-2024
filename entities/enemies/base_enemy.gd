@@ -15,6 +15,8 @@ func take_damage(_hp_loss:int):
 		SignalBus.enemy_died.emit(self)
 		queue_free()
 
+# selects to which file move or if attack
+# every enemy overrides this function
 func get_coord() -> Vector2i: 
 	return Utils.global_pos_to_coord(global_position)
 	
