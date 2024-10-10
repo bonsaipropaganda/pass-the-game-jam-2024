@@ -6,9 +6,9 @@
 
 [sub_resource type="Resource" id="Resource_21nu2"]
 script = ExtResource("2_grk0m")
-goblin_weight = 100.0
-slime_weight = 100.0
-bat_weight = 100.0
+goblin_weight = null
+slime_weight = null
+bat_weight = null
 
 [node name="Map" instance=ExtResource("1_wfoqq")]
 _min_enemy_count = 5

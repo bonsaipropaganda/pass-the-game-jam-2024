@@ -19,6 +19,7 @@ offset_bottom = -97.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "Name"
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="."]
@@ -29,6 +30,7 @@ offset_bottom = -15.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 text = "Description"
 
 [node name="ColorRect" type="ColorRect" parent="."]
