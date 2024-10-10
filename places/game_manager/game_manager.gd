@@ -38,8 +38,7 @@ var tileset_cache := {}
 var players_cards : Array[CardResource] = [
 	CardKingBasic.new(),
 	CardKnightBasic.new(),
-	CardPawnBasic.new(),
-	CardPlanB.new()
+	CardPawnBasic.new()
 ]
 
 var discarded_cards : Array[CardResource] = []
