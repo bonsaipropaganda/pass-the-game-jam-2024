@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://0_autoloaded/constants.gd" id="1_qolk7"]
 
 [sub_resource type="Curve" id="Curve_vddy3"]
-_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(0.674121, 1), 0.385322, 0.385322, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="Constants" type="Node"]

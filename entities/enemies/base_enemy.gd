@@ -8,7 +8,7 @@ func _ready():
 
 func take_damage(_hp_loss:int):
 	hp -= 1
-	if hp < 0:
+	if hp <= 0:
 		SignalBus.enemy_died.emit(self)
 		queue_free()
 

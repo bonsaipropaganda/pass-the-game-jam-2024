@@ -8,7 +8,9 @@ var inventory: Inventory = Inventory.new()
 
 func move(to:Vector2i):
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.3)
+	var target_position:= Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0)
+	var distance = global_position.distance_to(target_position)
+	tween.tween_property(self, "global_position", target_position, distance*0.01)
 	await tween.finished
 
 

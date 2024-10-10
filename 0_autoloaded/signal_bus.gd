@@ -20,4 +20,3 @@ signal terrain_changed
 
 ## Emitted for game_manager to handle post-hit discarding 
 signal player_takes_damage
-

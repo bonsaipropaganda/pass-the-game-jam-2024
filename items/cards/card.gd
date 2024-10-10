@@ -36,13 +36,13 @@ func _on_color_rect_mouse_entered() -> void:
 	old_z_index = z_index
 	z_index = 100
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(SCALE_MAX, SCALE_MAX), 0.3).from_current()
+	tween.tween_property(self, "scale", Vector2(SCALE_MAX, SCALE_MAX), 0.25).from_current().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 
 
 func _on_color_rect_mouse_exited() -> void:
 	z_index = old_z_index
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(SCALE_MIN, SCALE_MIN), 0.3).from_current()
+	tween.tween_property(self, "scale", Vector2(SCALE_MIN, SCALE_MIN), 0.25).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:

@@ -4,7 +4,7 @@ class_name GameManager extends Node2D
 
 const tile_hover_rect_packed = preload("res://ui/terrain/tile_hover_rect.tscn")
 
-const POSSIBLE_CARDS_COUNT = 3
+const POSSIBLE_CARDS_COUNT = 5
 
 enum GameState {
 	BUSY, # Indicates not to do anything in _process()
@@ -39,20 +39,19 @@ var players_cards : Array[CardResource] = [
 	CardKingBasic.new(),
 	CardKnightBasic.new(),
 	CardPawnBasic.new(),
+	CardPlanB.new()
 ]
-var max_player_cards = 3 # Note - currently this doesn't do anything
 
 var discarded_cards : Array[CardResource] = []
 
 var selected_card : CardResource = players_cards[0] : set = set_selected_card
-var selected_card_idx : int = 0 # index of the current card, for selection on mouse scroll event
 var current_room : BaseRoom
 # var current_area = available_rooms.keys()[0]
 
 var enemies_alive: Array[BaseEnemy]
 
 func _ready() -> void:
-	
+	Global.game_manager = self
 	for i : GDScript in rooms:
 		var inst = i.new()
 		assert(inst is BaseRoomGenerator, "all scrips assigned to rooms must inherit BaseRoomGenerator")
@@ -67,7 +66,7 @@ func _ready() -> void:
 		
 		room_generators[inst.get_area()][inst.get_type()].append(inst)
 	
-	%CardDeck_Menu.update(players_cards, selected_card)
+	refresh_card_deck()
 	
 	SignalBus.next_level.connect(to_next_level)
 	SignalBus.enemy_spawned.connect(on_enemy_spawn)
@@ -190,13 +189,17 @@ func change_game_state(to:GameState):
 
 func set_selected_card(to):
 	selected_card = to
-	%CardDeck_Menu.update(players_cards, selected_card)
+	refresh_card_deck()
 	
 	# _process() will update this for us, doing it here will cause visual bug
 	if game_state != GameState.BUSY:
 		hide_available_actions()
 		show_available_actions()
 
+func refresh_card_deck():
+	if not selected_card in players_cards:
+		selected_card = players_cards.pick_random()
+	%CardDeck_Menu.update(players_cards,selected_card)
 
 func _input(event: InputEvent) -> void:
 	
@@ -204,23 +207,19 @@ func _input(event: InputEvent) -> void:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_9:
 			var num_pressed = event.keycode - KEY_0
 			if num_pressed - 1 < len(players_cards):
-				selected_card_idx = num_pressed - 1
-				selected_card = players_cards[selected_card_idx] # Calls setter
+				selected_card = players_cards[num_pressed - 1] # Calls setter
 		elif event.keycode >= KEY_KP_1 and event.keycode <= KEY_KP_9:
 			var num_pressed = event.keycode - KEY_KP_0
 			if num_pressed - 1 < len(players_cards):
-				selected_card_idx = num_pressed - 1
-				selected_card = players_cards[selected_card_idx] # Calls setter
+				selected_card = players_cards[num_pressed - 1] # Calls setter
 		
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if selected_card_idx + 1 < len(players_cards):
-				selected_card_idx += 1
-				selected_card = players_cards[selected_card_idx] # Calls setter
+			if players_cards.find(selected_card) + 1 < len(players_cards):
+				selected_card = players_cards[players_cards.find(selected_card)+1] # Calls setter
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if selected_card_idx - 1 >= 0:
-				selected_card_idx -= 1
-				selected_card = players_cards[selected_card_idx] # Calls setter
+			if players_cards.find(selected_card) - 1 >= 0:
+				selected_card = players_cards[players_cards.find(selected_card)-1] # Calls setter
 
 
 func _process(_delta: float) -> void:
@@ -232,7 +231,7 @@ func _process(_delta: float) -> void:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var mouse_coord:Vector2i = Utils.global_pos_to_coord(get_global_mouse_position())
 				var p = get_player()
-				
+				selected_card.do_action(get_player_tile_pos())
 				if (mouse_coord in selected_card.get_valid_coords(get_player_tile_pos())):
 					change_game_state(GameState.BUSY)
 					hide_available_actions()
@@ -242,7 +241,8 @@ func _process(_delta: float) -> void:
 					elif Global.is_chest_on_tile(mouse_coord):
 						Global.open_chest(mouse_coord)
 						players_cards.append(_get_new_card())
-						%CardDeck_Menu.update(players_cards, players_cards.back())
+						selected_card = players_cards.back()
+						refresh_card_deck()
 					else:
 						await p.move(mouse_coord)
 					change_game_state(GameState.ENEMY_TURN)
@@ -260,12 +260,17 @@ func _process(_delta: float) -> void:
 func _get_new_card() -> CardResource:
 	match (randi() % POSSIBLE_CARDS_COUNT):
 		0: 
-			return CardKingBasic.new()
-		1: 
 			return CardKnightBasic.new()
-		2: 
+		1: 
 			return CardPawnBasic.new()
+		2:
+			return CardBishopBasic.new()
+		3:
+			return CardRookBasic.new()
+		4:
+			return CardPlanB.new()
 		_: 
+			printerr("POSSIBLE_CARDS_COUNT TOO HIGH! val:%s" % POSSIBLE_CARDS_COUNT)
 			return CardPawnBasic.new() #it is twice to avoid error (dummy me)
 
 func _on_test_damage_button_pressed():

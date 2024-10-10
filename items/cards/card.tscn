@@ -23,6 +23,7 @@ bbcode_enabled = true
 text = "Name"
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(69, 0)
 offset_left = -34.0
 offset_top = -106.0
 offset_right = 35.0
