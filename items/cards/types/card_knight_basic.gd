@@ -2,7 +2,10 @@ class_name CardKnightBasic extends CardResource
 
 func _init() -> void:
 	card_name = "Knight"
-	description = "Move action: Move to tile in L-shape. Attack action: Attack tile in L-shape."
+	description = """[color=cyan]Move Shape:[/color] 
+	L-Shape.
+[color=pink]Attack Shape:[/color] 
+	L-Shape."""
 
 func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	var valid_coords:Array[Vector2i] = []

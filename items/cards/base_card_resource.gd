@@ -12,8 +12,8 @@ func get_valid_coords(central_coord:Vector2i) -> Array[Vector2i]:
 
 ## perform this card's unique action(s) at the target_coord
 func do_action(target_coord:Vector2i) -> void:
-	breakpoint ## dummy interface
+	pass ## dummy interface
 
 ## perform this card's unique discard effects
 func on_discard() -> void:
-	breakpoint ## dummy interface
+	pass ## dummy interface

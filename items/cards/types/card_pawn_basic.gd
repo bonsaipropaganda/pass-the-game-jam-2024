@@ -2,7 +2,7 @@ class_name CardPawnBasic extends CardResource
 
 func _init() -> void:
 	card_name = "Pawn"
-	description = "This card has no effect. It can only be discarded."
+	description = "[color=gray]This card has no effect.[/color]"
 
 # I am making this one do nothing since it is the only chess piece
 # that has a different movement and attack pattern, and I don't have time to write that abstraction.

@@ -2,8 +2,12 @@ class_name CardKingBasic extends CardResource
 
 func _init() -> void:
 	card_name = "King"
-	description = "[color=red]If this card is discarded, you die![/color] Move action: " +\
-		"Move to any adjacent tile. Attack action: Attack any adjacent enemy."
+	description = """[color=cyan]Move Shape:[/color] 
+	3x3 Grid. 
+[color=pink]Attack Shape:[/color] 
+	3x3 Grid.
+[color=red]On Discard:[/color]
+	Lose."""
 
 func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	var valid_coords:Array[Vector2i] = []
