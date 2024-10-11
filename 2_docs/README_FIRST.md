@@ -2,19 +2,13 @@
 
 This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
+Latest change on the top
 
 #---------------------------------------------------------------------------------------------------
-## DAY 8 NOTES (Este aka Crownie)
+## DAY 13 NOTES (Geazas)
 #---------------------------------------------------------------------------------------------------
-
-Here are some quick info to help get faster whats going on :
-	
-	-> the game is top down, tile/turn/card -based. Cards let you move and attack according to different patterns, and taking damage make you discard one of them.
-	-> As of now, the game implements 2 systems. The earliest implemented (with the card movement system kinda working) is the 'game_manager.tscn' scene. The latest one is the 'world.tscn' scene, instancing 'test_map.tscn' ; no card system for this one, but the ability to procedurally generate rooms and move / swap entities and the player.
-	
-	=> This is state of the game when I started my turn. I don't really understand everything that's going on, so I'll leave to the next devs (hopefully more experienced than me for this game genre) the choice of either focusing on one of the 2 current options, or merge them together. Considering I'm pretty inexperienced with this game style and don't wanna mess things up even more, I'm focusing my turn on adding input options and other small quality of life improvements. 
-	
-	Good luck !
+I had trouble running the pre-grid refactor the first time, managed to resolve by just reloading the project
+if you have the same problem, give it a try. 
 
 #---------------------------------------------------------------------------------------------------
 ## DAY 11 NOTES (Wiktor aka TheWizzard)
@@ -31,6 +25,20 @@ Here are some quick info to help get faster whats going on :
 
 	sorry for all inconvinence 
 	and most importantly have Fun!
+
+#---------------------------------------------------------------------------------------------------
+## DAY 8 NOTES (Este aka Crownie)
+#---------------------------------------------------------------------------------------------------
+
+Here are some quick info to help get faster whats going on :
+	
+	-> the game is top down, tile/turn/card -based. Cards let you move and attack according to different patterns, and taking damage make you discard one of them.
+	-> As of now, the game implements 2 systems. The earliest implemented (with the card movement system kinda working) is the 'game_manager.tscn' scene. The latest one is the 'world.tscn' scene, instancing 'test_map.tscn' ; no card system for this one, but the ability to procedurally generate rooms and move / swap entities and the player.
+	
+	=> This is state of the game when I started my turn. I don't really understand everything that's going on, so I'll leave to the next devs (hopefully more experienced than me for this game genre) the choice of either focusing on one of the 2 current options, or merge them together. Considering I'm pretty inexperienced with this game style and don't wanna mess things up even more, I'm focusing my turn on adding input options and other small quality of life improvements. 
+	
+	Good luck !
+
 #---------------------------------------------------------------------------------------------------
 ## DAY 5 NOTES (BricksParts)
 #---------------------------------------------------------------------------------------------------
