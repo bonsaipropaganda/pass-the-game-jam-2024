@@ -4,7 +4,7 @@ func _init() -> void:
 	card_name = "Plan B"
 	description = """Allows you to run away to a nearby empty tile
 [color=cyan]Move Shape:[/color]
-	4x4 Grid.
+	9x9 Grid.
 [color=red]Discard on use.[/color]"""
 
 func do_action(pos :Vector2i):
