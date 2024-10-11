@@ -86,9 +86,9 @@ anchors_preset = -1
 anchor_top = -0.0333333
 anchor_bottom = -0.0333333
 offset_left = 37.0
-offset_top = -12.0
+offset_top = -46.01
 offset_right = 108.0
-offset_bottom = 15.0
+offset_bottom = -19.01
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/StartButton"]
@@ -100,19 +100,18 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
 text = "Start
-(Pre Grid Refactor)"
+(Normal)"
 metadata/_edit_lock_ = true
 
 [node name="Start2Button" type="TextureButton" parent="UI/Main Menu/Buttons"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.0222222
 anchor_bottom = -0.0222222
 offset_left = 37.0
-offset_top = -46.0
+offset_top = -16.675
 offset_right = 108.0
-offset_bottom = -19.0
+offset_bottom = 10.325
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/Start2Button"]
 layout_mode = 0
@@ -123,7 +122,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
 text = "Start
-(Post Grid Refactor)"
+(Funky Grid Refractor)"
 metadata/_edit_lock_ = true
 
 [node name="CreditsButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
