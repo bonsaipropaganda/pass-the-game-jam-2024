@@ -4,18 +4,45 @@ This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
 #---------------------------------------------------------------------------------------------------
-## DAY 8 NOTES (Este aka Crownie)
+## DAY 14 NOTES (Geazas)
 #---------------------------------------------------------------------------------------------------
-
-Here are some quick info to help get faster whats going on :
+	Some folks already write some details about the game below, but I think I can explain a bit more for a good start
+	Tutorial:
+	- On start, there's 'Normal' and 'Funky Grid refactor' button. Gameplay right now is on 'Normal' button
+	- You start with King/Knight/Pawn cards, each card can make you move differently like chess move
+	- You can move by selecting the card (using number keys or scroll) then click on the green marks
+	- You start on the SPAWN room, the proceed to the MONEY room on exit
+	- You will find monsters that can attack you, causing you to drop 1 card of your choice
+	- You gain 1 random new card when opening a chest
 	
-	-> the game is top down, tile/turn/card -based. Cards let you move and attack according to different patterns, and taking damage make you discard one of them.
-	-> As of now, the game implements 2 systems. The earliest implemented (with the card movement system kinda working) is the 'game_manager.tscn' scene. The latest one is the 'world.tscn' scene, instancing 'test_map.tscn' ; no card system for this one, but the ability to procedurally generate rooms and move / swap entities and the player.
+	Notes:
+	I find grid system to be complicated, even with the refactored one. I decided to continue with
+	the pre-refactor grid system because integrating the refactored one with current gameplay will be quite hard.
 	
-	=> This is state of the game when I started my turn. I don't really understand everything that's going on, so I'll leave to the next devs (hopefully more experienced than me for this game genre) the choice of either focusing on one of the 2 current options, or merge them together. Considering I'm pretty inexperienced with this game style and don't wanna mess things up even more, I'm focusing my turn on adding input options and other small quality of life improvements. 
+	Explaination about (pre-refactored) grid system, which might save you some time
+	- There are RoomGenerator classes, each of them can return RoomData when call `generate_room()`
+	- RoomData has `tiles` which is 1D array but is representing a 2D map of tiles
+		- ex. [1, 1, 1, 1, 1, 1] with room dimension Vect2i(3, 2) represents [[1, 1, 1], [1, 1, 1]]
+		- each number represents diffrent tile, we have only 0,1 for floor and 17 for walls right now
+	- Every room generation happens at `game_manager` at the function `to_next_level`
+	- `game_manager` reads RoomData and generate a room starting on-top of the template `template_room.tscn`
+	- It draws tiles at runtime on the tilemap inside `template_room.tscn` according to the data from `RoomData.tiles`
+	- Then, it places scenes as the children of the tilemap from `RoomData.scenes`
+	- `game_manager` determines the room dimension, unless overriden using `dim_override` in RoomData
 	
-	Good luck !
-
+	More notes:
+	- If you got an error on start when opening the normal gameplay, try restart godot once.
+	- There's inventory/item system which has some code but not implemented in the gameplay yet
+	- GameManager is the 'god class' most game logic happens there
+	- MONEY room is just room with Monsters, a Chest, and an Exit. Not room with money as the name suggests
+	
+	My contribution:
+	- Added money system, money UI
+	- Added shop item, when player click on it with enough money, a random card will be added to player deck
+	- Added SPAWN room type and `castle_spawn_generator.gd`, change the initial room type from SHOP to SPAWN
+	- Removed room's area logic for simpler code, we have only 1 area which is "castle" right now
+	- Monster now drop 1 money on death
+	
 #---------------------------------------------------------------------------------------------------
 ## DAY 11 NOTES (Wiktor aka TheWizzard)
 #---------------------------------------------------------------------------------------------------
@@ -31,6 +58,21 @@ Here are some quick info to help get faster whats going on :
 
 	sorry for all inconvinence 
 	and most importantly have Fun!
+
+#---------------------------------------------------------------------------------------------------
+## DAY 8 NOTES (Este aka Crownie)
+#---------------------------------------------------------------------------------------------------
+
+Here are some quick info to help get faster whats going on :
+	
+	-> the game is top down, tile/turn/card -based. Cards let you move and attack according to different patterns, and taking damage make you discard one of them.
+	-> As of now, the game implements 2 systems. The earliest implemented (with the card movement system kinda working) is the 'game_manager.tscn' scene. The latest one is the 'world.tscn' scene, instancing 'test_map.tscn' ; no card system for this one, but the ability to procedurally generate rooms and move / swap entities and the player.
+	
+	=> This is state of the game when I started my turn. I don't really understand everything that's going on, so I'll leave to the next devs (hopefully more experienced than me for this game genre) the choice of either focusing on one of the 2 current options, or merge them together. Considering I'm pretty inexperienced with this game style and don't wanna mess things up even more, I'm focusing my turn on adding input options and other small quality of life improvements. 
+	
+	Good luck !
+
+
 #---------------------------------------------------------------------------------------------------
 ## DAY 5 NOTES (BricksParts)
 #---------------------------------------------------------------------------------------------------

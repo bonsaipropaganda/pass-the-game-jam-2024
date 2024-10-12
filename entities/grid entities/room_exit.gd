@@ -1,14 +1,7 @@
 extends Node2D
 class_name Exit
 
-enum ExitType {
-	CARD_REWARD,
-	MONEY_REWARD,
-	SHOP,
-	BOSS,
-}
-
-@export var exit_type := ExitType.CARD_REWARD
+@export var next_room_type := E.RoomType.CARD_REWARD
 
 
 func _ready() -> void:
@@ -23,6 +16,6 @@ func on_room_complete() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
 		await get_tree().create_timer(0.4).timeout # Let the player stand all the way on the tile. This is just a quick hack.
-		# to use exit type enum in other scripts, do Exit.ExitType.TYPE
-		# you can set the type of the variables that use it as int or Exit.ExitType
-		SignalBus.next_level.emit(exit_type)
+		# to use exit type enum in other scripts, do E.RoomType.TYPE
+		# you can set the type of the variables that use it as int or E.RoomType
+		SignalBus.next_level.emit(next_room_type)

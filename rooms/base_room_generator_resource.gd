@@ -1,8 +1,8 @@
 class_name BaseRoomGenerator extends Resource
 
 ## determines when this generator will be used
-func get_type() -> Exit.ExitType:
-	return Exit.ExitType.MONEY_REWARD
+func get_type() -> E.RoomType:
+	return E.RoomType.MONEY_REWARD
 
 
 ## determines the area that the generator belongs to
@@ -26,6 +26,6 @@ func get_used_tileset() -> TileSet:
 
 
 class RoomData extends RefCounted:
-	var tiles : PackedByteArray
-	var scenes : Dictionary # {coords (Vector2i) : scene (Node)}
+	var tiles: PackedByteArray
+	var scenes: Dictionary # {coords (Vector2i) : scene (Node)}
 	var dim_override := Vector2i.ZERO

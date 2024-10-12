@@ -2,8 +2,8 @@ extends BaseRoomGenerator
 class_name CastleMoneyGenerator
 
 ## determines when this generator will be used
-func get_type() -> Exit.ExitType:
-	return Exit.ExitType.MONEY_REWARD
+func get_type() -> E.RoomType:
+	return E.RoomType.MONEY_REWARD
 
 
 ## determines the area that the generator belongs to
@@ -18,27 +18,27 @@ func get_area() -> String:
 ## 17 - 32 walls
 ## add to this however you need
 func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
-	var rooms : Array[Rect2i]
+	var rooms: Array[Rect2i]
 	for i in 5:
 		rooms.append(Rect2i(randi_range(2, dim.x - 15), randi_range(2, dim.y - 15), randi_range(5, 9), randi_range(5, 9)))
 	
-	var start_room : Rect2i = rooms.pick_random()
-	var exit_room : Rect2i = rooms.pick_random()
-	var treasure_room : Rect2i = rooms.pick_random()
-	var fight_rooms : Array[Rect2i] = []
+	var start_room: Rect2i = rooms.pick_random()
+	var exit_room: Rect2i = rooms.pick_random()
+	var treasure_room: Rect2i = rooms.pick_random()
+	var fight_rooms: Array[Rect2i] = []
 	for i in danger_level:
 		fight_rooms.append(rooms.pick_random())
 	
 	var result := RoomData.new()
 	result.tiles.resize(dim.x * dim.y)
 	
-	var floor_tiles : Array[int] = []
+	var floor_tiles: Array[int] = []
 	
 	for i in result.tiles.size():
 		var x = i % dim.x
 		var y = i / dim.x
 		
-		if rooms.any(func(a: Rect2i)-> bool:
+		if rooms.any(func(a: Rect2i) -> bool:
 				return a.has_point(Vector2i(x, y))):
 			result.tiles[i] = ((i + y) % 2) + 1
 			floor_tiles.append(i)
@@ -46,17 +46,17 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 			result.tiles[i] = 17
 	
 	# detect separated sections of floor
-	var floor_sections : Array[Array] = []
+	var floor_sections: Array[Array] = []
 	var scanned := {}
 	while not floor_tiles.is_empty():
-		var search_stack : Array[int] = [floor_tiles.pop_back()]
+		var search_stack: Array[int] = [floor_tiles.pop_back()]
 		scanned[search_stack[0]] = true
-		var floor_section : Array[int] = [search_stack[0]]
+		var floor_section: Array[int] = [search_stack[0]]
 		floor_tiles.erase(search_stack[0])
 		
 		while not search_stack.is_empty():
-			var pos : int = search_stack.pop_back()
-			var adj : Array[int] = [
+			var pos: int = search_stack.pop_back()
+			var adj: Array[int] = [
 				pos - 1,
 				pos + 1,
 				pos - dim.x,
@@ -89,7 +89,7 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 		var x = i % dim.x
 		var y = i / dim.x
 		
-		if rooms.any(func(a: Rect2i)-> bool:
+		if rooms.any(func(a: Rect2i) -> bool:
 				return a.has_point(Vector2i(x, y))):
 			result.tiles[i] = ((i + y) % 2) + 1
 			floor_tiles.append(i)
@@ -101,18 +101,18 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 		for j in 3:
 			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_goblin.tscn").instantiate()
 	
-	var door_pos :Vector2i = Global.rand_point_in_rect(exit_room)
+	var door_pos: Vector2i = Global.rand_point_in_rect(exit_room)
 	while result.tiles[door_pos.x + door_pos.y * dim.x] == 1 or result.tiles[door_pos.x + door_pos.y * dim.x] == 2:
 		door_pos.y -= 1
 	
-	var exit : Exit = preload("res://entities/grid entities/room_exit.tscn").instantiate()
+	var exit: Exit = preload("res://entities/grid entities/room_exit.tscn").instantiate()
 	match randi_range(0, 2):
 		0:
-			exit.exit_type = Exit.ExitType.MONEY_REWARD
+			exit.next_room_type = E.RoomType.MONEY_REWARD
 		1:
-			exit.exit_type = Exit.ExitType.SHOP
+			exit.next_room_type = E.RoomType.SHOP
 		2:
-			exit.exit_type = Exit.ExitType.BOSS
+			exit.next_room_type = E.RoomType.BOSS
 	result.scenes[door_pos] = exit
 	return result
 

@@ -98,19 +98,6 @@ func contains_slime(coord:Vector2i) -> bool: return contains_entity_specific_typ
 func contains_bat(coord:Vector2i) -> bool: return contains_entity_specific_type(E.EntitySpecificType.BAT, coord)
 func contains_exit_door(coord:Vector2i) -> bool: return contains_entity_specific_type(E.EntitySpecificType.EXIT_DOOR, coord)
 #---------------------------------------------------------------------------------------------------
-
-
-
-
-##should be called only if certain -> after calling is_chest_on_tile() method
-func open_chest(tile_pos:Vector2i):
-	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
-	$TestRaycast.collision_mask = 2 # ObjectLayer
-	$TestRaycast.force_raycast_update()
-	
-	$TestRaycast.get_collider().get_parent().open()
-
-
 func is_floor_tile(tile_pos:Vector2i) -> bool:
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
 	$TestRaycast.collision_mask = 1 # WallLayer
@@ -133,14 +120,38 @@ func is_chest_on_tile(tile_pos:Vector2i) -> bool:
 	var col = $TestRaycast.get_collider()
 	return (col != null) and col.is_in_group("chest_area")
 
+func is_shop_item_on_tile(tile_pos: Vector2i) -> bool:
+	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	
+	var col = $TestRaycast.get_collider()
+	return (col != null) and col.is_in_group("shop_item_area")
+
 func attack_enemy_at_tile(tile_pos:Vector2i, damage:int):
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
 	$TestRaycast.collision_mask = 2 # ObjectLayer
 	$TestRaycast.force_raycast_update()
-	var col = $TestRaycast.get_collider()
-	if col.is_in_group("enemy_area"):
-		await col.get_parent().take_damage(damage)
+	var enemy = $TestRaycast.get_collider().get_parent() as BaseEnemy
+	await enemy.take_damage(damage)
 
+##should be called only if certain -> after calling is_chest_on_tile() method
+func open_chest(tile_pos:Vector2i):
+	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	var chest = $TestRaycast.get_collider().get_parent() as Chest
+	chest.open()
+	
+	
+func buy_shop_item(tile_pos:Vector2i):
+	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
+	$TestRaycast.collision_mask = 2 # ObjectLayer
+	$TestRaycast.force_raycast_update()
+	var shop_item = $TestRaycast.get_collider().get_parent() as ShopItem
+	shop_item.buy()
+		
+		
 # To is between 0 and 1
 func fade_black(to:float, duration:float):
 	assert(to >= 0.0 and to <= 1.0)

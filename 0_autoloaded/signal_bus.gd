@@ -13,7 +13,7 @@ signal enemy_spawned
 signal room_complete
 
 ## Emitted when the room is exited and a new one needs to be loaded
-signal next_level(level_type: Exit.ExitType)
+signal next_level(level_type: E.RoomType)
 
 ## Emitted at runtime if the terrain is changed so that other terrain scenes can update their visuals
 signal terrain_changed

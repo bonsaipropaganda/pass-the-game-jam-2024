@@ -1,6 +1,8 @@
 class_name BaseEnemy extends Entity
 
-var hp
+var hp := 1
+# money dropped on death
+var reward := 1
 
 func _ready():
 	SignalBus.enemy_spawned.emit(self)
@@ -11,9 +13,6 @@ func take_damage(_hp_loss:int):
 	if hp <= 0:
 		SignalBus.enemy_died.emit(self)
 		queue_free()
-
-func construct(coord :Vector2i):
-	pass
 
 # selects to which file move or if attack
 # every enemy overrides this function
