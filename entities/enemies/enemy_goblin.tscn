@@ -1,10 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://df81e4sd0fqba"]
+[gd_scene load_steps=15 format=3 uid="uid://df81e4sd0fqba"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_goblin.gd" id="1_pevj5"]
-[ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_ur1o6"]
+[ext_resource type="Texture2D" uid="uid://bmd7qdq3drsys" path="res://gfx/entities/pawn_sheet.png" id="2_gdalc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua1dm"]
+atlas = ExtResource("2_gdalc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5egs"]
+atlas = ExtResource("2_gdalc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hxh1"]
+atlas = ExtResource("2_gdalc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tu28"]
+atlas = ExtResource("2_gdalc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tn4gy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua1dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5egs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hxh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tu28")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Animation" id="Animation_sb625"]
 resource_name = "Attack"
@@ -164,14 +200,10 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_p5i1p")
 debug_color = Color(0.7, 0, 0.315, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -8)
-texture = ExtResource("2_ur1o6")
+sprite_frames = SubResource("SpriteFrames_tn4gy")
 centered = false
-flip_h = true
-hframes = 6
-region_enabled = true
-region_rect = Rect2(-0.00566101, 14.9272, 96.0222, 16.9818)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

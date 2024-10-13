@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://culymj2kms04e"]
 
-[ext_resource type="Texture2D" uid="uid://5g3gsgd2a8dm" path="res://gfx/terrain/area_dungeon_tilemap.png" id="1_cuaoh"]
+[ext_resource type="Texture2D" uid="uid://brarcdtutytpx" path="res://gfx/terrain/dungeon_tilemap.png" id="1_84o7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1xal"]
-texture = ExtResource("1_cuaoh")
+texture = ExtResource("1_84o7a")
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/terrain = 1
@@ -209,6 +209,8 @@ texture = ExtResource("1_cuaoh")
 5:2/0/terrains_peering_bit/right_side = 0
 5:2/0/terrains_peering_bit/top_side = 0
 5:2/0/terrains_peering_bit/top_right_corner = 0
+3:1/0 = 0
+4:1/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

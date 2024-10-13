@@ -1,53 +1,85 @@
-[gd_scene load_steps=15 format=3 uid="uid://3o1v1gb0lhhg"]
+[gd_scene load_steps=18 format=3 uid="uid://3o1v1gb0lhhg"]
 
 [ext_resource type="Script" path="res://entities/Player/player.gd" id="1_1wplv"]
-[ext_resource type="Texture2D" uid="uid://kfcieplqn3ap" path="res://gfx/entities/heroes/knight/knight_idle_spritesheet.png" id="2_dlncf"]
+[ext_resource type="Texture2D" uid="uid://cukd8xul6fmq" path="res://gfx/entities/player_sheet.png" id="2_onmdn"]
+[ext_resource type="Texture2D" uid="uid://c2gino6i3s2ae" path="res://gfx/entities/player_test.png" id="4_x6xvk"]
 [ext_resource type="Script" path="res://entities/Player/inventory.gd" id="5_n8jhy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_prdr3"]
-atlas = ExtResource("2_dlncf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjsso"]
+atlas = ExtResource("2_onmdn")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbdf4"]
-atlas = ExtResource("2_dlncf")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoeeo"]
-atlas = ExtResource("2_dlncf")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ue1mj"]
-atlas = ExtResource("2_dlncf")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5sd2"]
-atlas = ExtResource("2_dlncf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mn8n"]
+atlas = ExtResource("2_onmdn")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e6que"]
-atlas = ExtResource("2_dlncf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_scfb6"]
+atlas = ExtResource("2_onmdn")
 region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxjg2"]
+atlas = ExtResource("2_onmdn")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adc76"]
+atlas = ExtResource("2_onmdn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fghk"]
+atlas = ExtResource("2_onmdn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07vog"]
+atlas = ExtResource("2_onmdn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8v2"]
+atlas = ExtResource("2_onmdn")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dgdb1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_prdr3")
+"texture": SubResource("AtlasTexture_bjsso")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tbdf4")
+"texture": SubResource("AtlasTexture_3mn8n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hoeeo")
+"texture": SubResource("AtlasTexture_scfb6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ue1mj")
+"texture": SubResource("AtlasTexture_pxjg2")
+}],
+"loop": false,
+"name": &"Dead",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adc76")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m5sd2")
+"texture": SubResource("AtlasTexture_adc76")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e6que")
+"texture": SubResource("AtlasTexture_3fghk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07vog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07vog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fghk")
 }],
 "loop": true,
 "name": &"Idle",
@@ -123,6 +155,7 @@ _data = {
 script = ExtResource("1_1wplv")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_dgdb1")
 animation = &"Idle"
 autoplay = "Idle"
@@ -146,3 +179,9 @@ libraries = {
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("5_n8jhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_x6xvk")
