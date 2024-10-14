@@ -17,5 +17,4 @@ func open():
 		Global.game_manager.refresh_card_deck()
 		self.play("open")
 		await animation_finished
-	else:
 		is_open = true
