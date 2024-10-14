@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bllfg4ny4hiub"]
+
+[ext_resource type="Texture2D" uid="uid://dx2ao8sd6guix" path="res://gfx/items/coins/coin_shimmer/coin shimmer 00.png" id="1_pqekl"]
+[ext_resource type="Texture2D" uid="uid://co7cdihr75vnv" path="res://gfx/items/coins/coin_shimmer/coin shimmer 01.png" id="2_2afa6"]
+[ext_resource type="Texture2D" uid="uid://c3u13k1mqjd1f" path="res://gfx/items/coins/coin_shimmer/coin shimmer 02.png" id="3_re322"]
+[ext_resource type="Texture2D" uid="uid://dy3g1yqedeqpj" path="res://gfx/items/coins/coin_shimmer/coin shimmer 03.png" id="4_irbhj"]
+[ext_resource type="Texture2D" uid="uid://cl2jipee1cdqh" path="res://gfx/items/coins/coin_shimmer/coin shimmer 04.png" id="5_q7gnf"]
+[ext_resource type="Texture2D" uid="uid://cfx1tbiyr44xy" path="res://gfx/items/coins/coin_shimmer/coin shimmer 05.png" id="6_0a5bo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ac378"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pqekl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2afa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_re322")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_irbhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q7gnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0a5bo")
+}],
+"loop": true,
+"name": &"coin_shimmer",
+"speed": 5.0
+}]
+
+[node name="CoinShimmer" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ac378")
+animation = &"coin_shimmer"

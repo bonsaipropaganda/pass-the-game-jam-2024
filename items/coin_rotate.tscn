@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce78dbvj63njr"]
+
+[ext_resource type="Texture2D" uid="uid://b6iuygnijg0j5" path="res://gfx/items/coins/coin_rotating/coin rotate 00.png" id="1_w2bx3"]
+[ext_resource type="Texture2D" uid="uid://b21hsclvc40xy" path="res://gfx/items/coins/coin_rotating/coin rotate 01.png" id="2_ekpom"]
+[ext_resource type="Texture2D" uid="uid://bw6jectfi3b76" path="res://gfx/items/coins/coin_rotating/coin rotate 02.png" id="3_mih10"]
+[ext_resource type="Texture2D" uid="uid://dxh070qlpm51y" path="res://gfx/items/coins/coin_rotating/coin rotate 03.png" id="4_5v3bh"]
+[ext_resource type="Texture2D" uid="uid://ogk0o7filpc4" path="res://gfx/items/coins/coin_rotating/coin rotate 04.png" id="5_jgs5q"]
+[ext_resource type="Texture2D" uid="uid://bvea6m0c7jhal" path="res://gfx/items/coins/coin_rotating/coin rotate 05.png" id="6_hfb22"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcgvx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w2bx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ekpom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mih10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5v3bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jgs5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hfb22")
+}],
+"loop": true,
+"name": &"coin_rotate",
+"speed": 5.0
+}]
+
+[node name="CoinRotate" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xcgvx")
+animation = &"coin_rotate"
