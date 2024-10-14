@@ -99,8 +99,8 @@ size = Vector2(16, 16)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_ppniw")
+animation = &"open"
 autoplay = "default"
-frame_progress = 0.80402
 script = ExtResource("2_7y5p7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
