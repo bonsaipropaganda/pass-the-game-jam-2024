@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wrl8qtpj08iw"]
+[gd_scene load_steps=7 format=3 uid="uid://wrl8qtpj08iw"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b4ad0kklx6pqb" path="res://places/test map/world.tscn" id="3_d443o"]
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="3_m0xvr"]
 [ext_resource type="Texture2D" uid="uid://p66irrxqu5rq" path="res://gfx/ui/menues/credits_menu.jpg" id="3_uxp4h"]
-[ext_resource type="AudioStream" uid="uid://bnq73jdpkunkh" path="res://sfx/ui/menus/Heartbeat - Royalty Free Fantasy Music.mp3" id="5_04pcq"]
 
 [node name="Menus" type="Control"]
 layout_mode = 3
@@ -300,12 +299,6 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
 text = "Back"
 metadata/_edit_lock_ = true
-
-[node name="sfx" type="Node" parent="."]
-
-[node name="background_music" type="AudioStreamPlayer" parent="sfx"]
-stream = ExtResource("5_04pcq")
-autoplay = true
 
 [connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]

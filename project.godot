@@ -23,6 +23,7 @@ SignalBus="*res://0_autoloaded/signal_bus.gd"
 Global="*res://0_autoloaded/global.tscn"
 Constructor="*res://0_autoloaded/constructor.tscn"
 Ref="*res://0_autoloaded/ref.gd"
+MusicManager="*res://0_autoloaded/music_manager.tscn"
 
 [display]
 
