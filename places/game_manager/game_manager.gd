@@ -40,7 +40,7 @@ var players_cards: Array[CardResource] = [
 
 var discarded_cards: Array[CardResource] = []
 
-var selected_card: CardResource = players_cards[0]: set = set_selected_card
+var selected_card: int = 0
 var current_room: BaseRoom
 # var current_area = available_rooms.keys()[0]
 
@@ -60,15 +60,16 @@ func _ready() -> void:
 		if room_generators.has(generator.get_type()):
 			room_generators[generator.get_type()].append(generator)
 	
-	refresh_card_deck()
-	
 	SignalBus.next_level.connect(to_next_level)
 	SignalBus.enemy_spawned.connect(on_enemy_spawn)
 	SignalBus.enemy_died.connect(on_enemy_death)
 	SignalBus.player_takes_damage.connect(_discard_card)
 	##SignalBus.chest_opened.connect(
-	
+
 	to_next_level(E.RoomType.SPAWN) # Spawn in the initial level
+
+	_select_card(0)
+	$"%CardDeck_Menu".card_selected.connect(_select_card)
 
 func on_enemy_death(enemy: BaseEnemy) -> void:
 	money += enemy.reward
@@ -159,9 +160,11 @@ func hide_available_actions():
 
 
 func show_available_actions():
+	hide_available_actions()
+
 	var player_pos = Utils.global_pos_to_coord(get_player().global_position)
 
-	for tile_pos in selected_card.get_valid_coords(player_pos):
+	for tile_pos in players_cards[selected_card].get_valid_coords(player_pos):
 		var rect = tile_hover_rect_packed.instantiate()
 		
 		if Global.is_enemy_on_tile(tile_pos): rect.color = C.ENEMY_HOVER_COLOR
@@ -183,39 +186,37 @@ func change_game_state(to: GameState):
 	game_state = to
 
 
-func set_selected_card(to):
+func add_card(card: CardResource) -> void:
+	players_cards.append(card)
+	_select_card(len(players_cards) - 1)
+
+
+func _select_card(to: int):
+	if to < 0 or to >= len(players_cards):
+		return
+
 	selected_card = to
-	refresh_card_deck()
-	
-	# _process() will update this for us, doing it here will cause visual bug
+	%CardDeck_Menu.update(players_cards, selected_card)
+
 	if game_state != GameState.BUSY:
-		hide_available_actions()
 		show_available_actions()
 
-func refresh_card_deck():
-	if not selected_card in players_cards:
-		selected_card = players_cards.pick_random()
-	%CardDeck_Menu.update(players_cards, selected_card)
 
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode >= KEY_1 and event.keycode <= KEY_9:
 			var num_pressed = event.keycode - KEY_0
-			if num_pressed - 1 < len(players_cards):
-				selected_card = players_cards[num_pressed - 1] # Calls setter
+			_select_card(num_pressed - 1)
 		elif event.keycode >= KEY_KP_1 and event.keycode <= KEY_KP_9:
 			var num_pressed = event.keycode - KEY_KP_0
-			if num_pressed - 1 < len(players_cards):
-				selected_card = players_cards[num_pressed - 1] # Calls setter
+			_select_card(num_pressed - 1)
 		
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if players_cards.find(selected_card) + 1 < len(players_cards):
-				selected_card = players_cards[players_cards.find(selected_card) + 1] # Calls setter
+			_select_card(selected_card - 1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if players_cards.find(selected_card) - 1 >= 0:
-				selected_card = players_cards[players_cards.find(selected_card) - 1] # Calls setter
+			_select_card(selected_card + 1)
 
 
 func _process(_delta: float) -> void:
@@ -227,8 +228,8 @@ func _process(_delta: float) -> void:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var mouse_coord: Vector2i = Utils.global_pos_to_coord(get_global_mouse_position())
 				var p = get_player()
-				selected_card.do_action(get_player_tile_pos())
-				if (mouse_coord in selected_card.get_valid_coords(get_player_tile_pos())):
+				players_cards[selected_card].do_action(get_player_tile_pos())
+				if (mouse_coord in players_cards[selected_card].get_valid_coords(get_player_tile_pos())):
 					change_game_state(GameState.BUSY)
 					hide_available_actions()
 					if Global.is_enemy_on_tile(mouse_coord):
@@ -260,12 +261,10 @@ func _discard_card() -> void:
 	var card_choice_callback = func(card_choice: CardResource):
 		card_choice.on_discard()
 		players_cards.erase(card_choice)
-		if len(players_cards):
-			 # TODO - I'm not handling what happens if we discard the selected card, so I'm just ensuring you always select king after taking damage
-			selected_card = players_cards[0]
 		Global.fade_black(0, 0.5)
 		%TakeDamage_Menu.visible = false
 		get_tree().paused = false
+		_select_card(0)
 	
 	%TakeDamage_Menu.visible = true
 	get_tree().paused = true

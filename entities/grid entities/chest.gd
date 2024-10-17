@@ -12,9 +12,8 @@ var card: CardResource = [
 
 func open():
 	if is_open == false:
-		Global.game_manager.players_cards.append(card)
-		Global.game_manager.selected_card = Global.game_manager.players_cards.back()
-		Global.game_manager.refresh_card_deck()
+		Global.game_manager.add_card(card)
+
 		self.play("open")
 		await animation_finished
 		is_open = true

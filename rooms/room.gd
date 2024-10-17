@@ -19,7 +19,7 @@ func _ready() -> void:
 # 	assert(room_size.y >= 11, "Don't go below the minimum room size! " + name)
 # 	return room_size * C.TILE_SIZE
 
-func on_enemy_died():
+func on_enemy_died(_enemy: BaseEnemy):
 	enemy_count -= 1
 	
 	assert(enemy_count >= 0, "enemy count below zero somehow")

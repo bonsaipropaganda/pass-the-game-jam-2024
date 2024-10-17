@@ -6,7 +6,7 @@ signal game_tick
 
 ## Emitted when an enemy dies, so the room can keep track of how many are left
 @warning_ignore("unused_signal")
-signal enemy_died
+signal enemy_died (enemy : BaseEnemy)
 
 ## Emitted when an enemy is spawned so the room can keep track of how many are left
 @warning_ignore("unused_signal")
