@@ -238,8 +238,13 @@ func _process(_delta: float) -> void:
 						await Global.attack_enemy_at_tile(mouse_coord, 1)
 					elif Global.is_chest_on_tile(mouse_coord):
 						Global.open_chest(mouse_coord)
+						$ChestSoundPlayer.play()
 					elif Global.is_shop_item_on_tile(mouse_coord):
-						Global.buy_shop_item(mouse_coord)
+						var bought = Global.buy_shop_item(mouse_coord)
+
+						if bought:
+							$ChestSoundPlayer.play()
+							$MoneySoundPlayer.play()
 					else:
 						await p.move(mouse_coord)
 					change_game_state(GameState.ENEMY_TURN)

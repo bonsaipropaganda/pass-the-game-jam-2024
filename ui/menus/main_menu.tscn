@@ -310,10 +310,15 @@ offset_bottom = 211.0
 theme_override_fonts/font = SubResource("SystemFont_twpjc")
 text = "Hey! Whoever's doing the polish, these need to be attributed. Thanks!
 
+godotengine.org/license
+
 knifesha by aboe -- https://freesound.org/p/4476/ -- License: Attribution 3.0
 
 (Technically these don't NEED to be attributed but it's nice to anyway)
-Knight Footsteps on Gravel (With Chainmail) by Ali_6868 -- https://freesound.org/p/21609/ -- License: Creative Commons 0"
+Knight Footsteps on Gravel (With Chainmail) by Ali_6868 -- https://freesound.org/p/21609/ -- License: Creative Commons 0
+dorm door opening.wav by pagancow -- https://freesound.org/s/15419/ -- License: Creative Commons 0
+DoorSqueaking.wav by Hotlavaman -- https://freesound.org/s/108672/ -- License: Creative Commons 0
+Bag of Coins Drop by haulaway -- https://freesound.org/s/733333/ -- License: Creative Commons 0"
 
 [connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]

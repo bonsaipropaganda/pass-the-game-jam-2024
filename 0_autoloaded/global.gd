@@ -144,12 +144,12 @@ func open_chest(tile_pos:Vector2i):
 	chest.open()
 	
 	
-func buy_shop_item(tile_pos:Vector2i):
+func buy_shop_item(tile_pos:Vector2i) -> bool:
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
 	$TestRaycast.collision_mask = 2 # ObjectLayer
 	$TestRaycast.force_raycast_update()
 	var shop_item = $TestRaycast.get_collider().get_parent() as ShopItem
-	shop_item.buy()
+	return shop_item.buy()
 		
 		
 # To is between 0 and 1
