@@ -4,13 +4,15 @@ This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
 ## Day 19 NOTES (Fusion)
+
 Bugs found:
 
 - Knight jump into top right corner of starting room takes you to another room.
 	This happens in other levels, when near the door, I think it might happen
 	when the knight can move to the door.
+	On second thought this may be intended functionality, I'm not sure.
 
-- Bishop and rook (and others probably) can go through walls
+- Bishop and rook (and others probably) can go through walls.
 
 - Cannot open chest with knight
 
