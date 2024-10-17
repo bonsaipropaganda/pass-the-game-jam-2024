@@ -234,7 +234,7 @@ func _process(_delta: float) -> void:
 					change_game_state(GameState.BUSY)
 					hide_available_actions()
 					if Global.is_enemy_on_tile(mouse_coord):
-						get_player().get_node("AnimationPlayer2").play("attack")
+						get_player().attack()
 						await Global.attack_enemy_at_tile(mouse_coord, 1)
 					elif Global.is_chest_on_tile(mouse_coord):
 						Global.open_chest(mouse_coord)

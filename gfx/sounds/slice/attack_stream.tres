@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://ierrx2t3qhua"]
+
+[ext_resource type="AudioStream" uid="uid://djdq6g3tussln" path="res://gfx/sounds/slice/69477__aboe__knifesha1.wav" id="1_stc02"]
+[ext_resource type="AudioStream" uid="uid://c1r2vyqglbfh3" path="res://gfx/sounds/slice/69478__aboe__knifesha2.wav" id="2_pnlqn"]
+[ext_resource type="AudioStream" uid="uid://8d58bn6r7rwe" path="res://gfx/sounds/slice/69479__aboe__knifesha3.wav" id="3_1x7cm"]
+[ext_resource type="AudioStream" uid="uid://dbx5evnqfp7h" path="res://gfx/sounds/slice/69480__aboe__knifesha4.wav" id="4_4p32c"]
+[ext_resource type="AudioStream" uid="uid://cvhu0ogh2pnm3" path="res://gfx/sounds/slice/69481__aboe__knifesha5.wav" id="5_lua0m"]
+[ext_resource type="AudioStream" uid="uid://b462ymx2jq7kk" path="res://gfx/sounds/slice/69482__aboe__knifesha6.wav" id="6_53aht"]
+
+[resource]
+streams_count = 6
+stream_0/stream = ExtResource("1_stc02")
+stream_1/stream = ExtResource("2_pnlqn")
+stream_2/stream = ExtResource("3_1x7cm")
+stream_3/stream = ExtResource("4_4p32c")
+stream_4/stream = ExtResource("5_lua0m")
+stream_5/stream = ExtResource("6_53aht")

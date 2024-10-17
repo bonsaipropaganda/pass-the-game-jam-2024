@@ -34,3 +34,6 @@ func _process(_delta: float) -> void:
 func take_damage():
 	SignalBus.player_takes_damage.emit()
 	
+func attack() -> void:
+	$AnimationPlayer2.play("attack")
+	$AttackPlayer.play()
