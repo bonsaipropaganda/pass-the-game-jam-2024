@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://wrl8qtpj08iw"]
 
-[ext_resource type="Script" path="res://ui/menues/main_menu.gd" id="1_egy55"]
+[ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
 [ext_resource type="Texture2D" uid="uid://c2hulywjpmr6q" path="res://gfx/ui/menues/coffe.png" id="2_hdcp8"]
 [ext_resource type="PackedScene" uid="uid://b4ad0kklx6pqb" path="res://places/test map/world.tscn" id="3_d443o"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfsxx0r0misb3"]
 
-[ext_resource type="Script" path="res://ui/menues/take_damage_menu.gd" id="1_errf5"]
+[ext_resource type="Script" path="res://ui/menus/take_damage_menu.gd" id="1_errf5"]
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="2_ptwhf"]
 
 [node name="TakeDamage menu" type="Control"]

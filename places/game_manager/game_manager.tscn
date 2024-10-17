@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://places/game_manager/game_manager.gd" id="1_2n5bb"]
 [ext_resource type="Script" path="res://places/game_manager/camera.gd" id="2_ap55l"]
-[ext_resource type="Script" path="res://ui/menues/controls_menu.gd" id="3_vvdls"]
+[ext_resource type="Script" path="res://ui/menus/controls_menu.gd" id="3_vvdls"]
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
-[ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menues/take_damage_menu.tscn" id="5_8wkup"]
+[ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menus/take_damage_menu.tscn" id="5_8wkup"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_2n5bb")
