@@ -3,5 +3,6 @@
 [ext_resource type="AudioStream" uid="uid://bnq73jdpkunkh" path="res://sfx/ui/menus/Heartbeat - Royalty Free Fantasy Music.mp3" id="1_oqjl3"]
 
 [node name="MusicManager" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_oqjl3")
 autoplay = true
