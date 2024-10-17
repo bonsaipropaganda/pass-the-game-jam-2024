@@ -12,8 +12,10 @@ var card: CardResource = [
 
 func open():
 	if is_open == false:
+		is_open = true
+
 		Global.game_manager.add_card(card)
+		$ChestSoundPlayer.play()
 
 		self.play("open")
 		await animation_finished
-		is_open = true

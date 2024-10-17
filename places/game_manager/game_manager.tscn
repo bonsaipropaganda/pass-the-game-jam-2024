@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://ui/menus/controls_menu.gd" id="3_vvdls"]
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
 [ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menus/take_damage_menu.tscn" id="5_8wkup"]
-[ext_resource type="AudioStream" uid="uid://d1rm8x7ygkvcw" path="res://gfx/sounds/chest_open.wav" id="6_o7qbg"]
 [ext_resource type="AudioStream" uid="uid://lpj2nsfrkwcs" path="res://gfx/sounds/money.wav" id="7_ucwsi"]
+[ext_resource type="AudioStream" uid="uid://d065pasljhqvh" path="res://gfx/sounds/door_open.wav" id="8_c3qh0"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_2n5bb")
@@ -116,11 +116,13 @@ offset_bottom = 16.0
 theme_override_font_sizes/font_size = 8
 text = "Money: 0"
 
-[node name="ChestSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_o7qbg")
+[node name="DoorOpenPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_c3qh0")
+volume_db = -2.0
 
 [node name="MoneySoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ucwsi")
+volume_db = 0.07
 
 [connection signal="pressed" from="UI/Side Buttons/TestDamageButton" to="." method="_on_test_damage_button_pressed"]
 [connection signal="toggled" from="UI/Side Buttons/ControlsButton" to="UI/Side Buttons/ControlsButton" method="_on_toggled"]

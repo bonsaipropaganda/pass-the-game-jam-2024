@@ -35,8 +35,7 @@ var tileset_cache := {}
 var players_cards: Array[CardResource] = [
 	CardKingBasic.new(),
 	CardKnightBasic.new(),
-	CardPawnBasic.new(),
-	CardPlanB.new()
+	CardPawnBasic.new()
 ]
 
 var discarded_cards: Array[CardResource] = []
@@ -71,6 +70,9 @@ func _ready() -> void:
 
 	_select_card(0)
 	$"%CardDeck_Menu".card_selected.connect(_select_card)
+
+	SignalBus.next_level.connect(func(_x): $DoorOpenPlayer.play())
+
 
 func on_enemy_death(enemy: BaseEnemy) -> void:
 	money += enemy.reward
@@ -189,7 +191,7 @@ func change_game_state(to: GameState):
 
 func add_card(card: CardResource) -> void:
 	players_cards.append(card)
-	_select_card(len(players_cards) - 1)
+	_select_card(selected_card)
 
 
 func _select_card(to: int):
@@ -238,12 +240,10 @@ func _process(_delta: float) -> void:
 						await Global.attack_enemy_at_tile(mouse_coord, 1)
 					elif Global.is_chest_on_tile(mouse_coord):
 						Global.open_chest(mouse_coord)
-						$ChestSoundPlayer.play()
 					elif Global.is_shop_item_on_tile(mouse_coord):
 						var bought = Global.buy_shop_item(mouse_coord)
 
 						if bought:
-							$ChestSoundPlayer.play()
 							$MoneySoundPlayer.play()
 					else:
 						await p.move(mouse_coord)

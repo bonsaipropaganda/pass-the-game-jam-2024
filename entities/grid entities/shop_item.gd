@@ -19,6 +19,7 @@ func buy() -> bool:
 	if Global.game_manager.money >= price:
 		Global.game_manager.money -= price
 		Global.game_manager.add_card(card)
+		$ChestSoundPlayer.play
 		queue_free()
 		return true
 	else:
