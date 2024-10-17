@@ -35,7 +35,8 @@ var tileset_cache := {}
 var players_cards: Array[CardResource] = [
 	CardKingBasic.new(),
 	CardKnightBasic.new(),
-	CardPawnBasic.new()
+	CardPawnBasic.new(),
+	CardPlanB.new()
 ]
 
 var discarded_cards: Array[CardResource] = []
@@ -270,3 +271,9 @@ func _discard_card() -> void:
 	get_tree().paused = true
 	Global.fade_black(0.6, 0.5)
 	%TakeDamage_Menu.show_cards(players_cards, card_choice_callback)
+
+
+func discard_card_resource(card: CardResource) -> void:
+	card.on_discard()
+	players_cards.erase(card)
+	_select_card(0)

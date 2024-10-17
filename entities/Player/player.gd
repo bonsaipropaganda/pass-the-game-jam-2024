@@ -7,6 +7,7 @@ const TILE_HOVER_COLOR_INVALID = Color("00000000") # Don't show invalid tiles fo
 var inventory: Inventory = Inventory.new()
 
 func move(to:Vector2i):
+	$FootstepsPlayer.play()
 	var tween = create_tween()
 	var target_position:= Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0)
 	var distance = global_position.distance_to(target_position)

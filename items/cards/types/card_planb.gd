@@ -9,8 +9,7 @@ func _init() -> void:
 
 func do_action(_pos :Vector2i):
 	await SignalBus.game_tick
-	Global.game_manager.players_cards.erase(Global.game_manager.selected_card)
-	Global.game_manager.refresh_card_deck()
+	Global.game_manager.discard_card_resource(self)
 
 func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	var valid_coords:Array[Vector2i] = []

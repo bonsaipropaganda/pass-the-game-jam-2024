@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://3o1v1gb0lhhg"]
+[gd_scene load_steps=19 format=3 uid="uid://3o1v1gb0lhhg"]
 
 [ext_resource type="Script" path="res://entities/Player/player.gd" id="1_1wplv"]
 [ext_resource type="Texture2D" uid="uid://cukd8xul6fmq" path="res://gfx/entities/player_sheet.png" id="2_onmdn"]
 [ext_resource type="Texture2D" uid="uid://c2gino6i3s2ae" path="res://gfx/entities/player_test.png" id="4_x6xvk"]
+[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://gfx/sounds/footsteps/footsteps_stream.tres" id="5_k5i8r"]
 [ext_resource type="Script" path="res://entities/Player/inventory.gd" id="5_n8jhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjsso"]
@@ -185,3 +186,8 @@ visible = false
 position = Vector2(0, -3)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_x6xvk")
+
+[node name="FootstepsPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_k5i8r")
+volume_db = -2.0

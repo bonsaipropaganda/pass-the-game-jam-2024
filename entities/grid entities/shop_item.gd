@@ -18,9 +18,7 @@ func _ready() -> void:
 func buy():
 	if Global.game_manager.money >= price:
 		Global.game_manager.money -= price
-		Global.game_manager.players_cards.append(card)
-		Global.game_manager.selected_card = Global.game_manager.players_cards.back()
-		Global.game_manager.refresh_card_deck()
+		Global.game_manager.add_card(card)
 		queue_free()
 	else:
 		# TODO: maybe some animation + sfx to inform that player don't have enough money

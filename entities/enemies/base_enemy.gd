@@ -30,6 +30,7 @@ func get_coord() -> Vector2i:
 	return Utils.global_pos_to_coord(global_position)
 	
 func move(to:Vector2i):
+	$FootstepsPlayer.play()
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.15)
 	await tween.finished

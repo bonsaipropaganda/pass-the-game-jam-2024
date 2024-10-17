@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccs3fn41mf7sx"]
+[gd_scene load_steps=11 format=3 uid="uid://ccs3fn41mf7sx"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_bat.gd" id="1_o5336"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_kdq2q"]
+[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://gfx/sounds/footsteps/footsteps_stream.tres" id="3_exrec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
@@ -178,3 +179,8 @@ libraries = {
 "": SubResource("AnimationLibrary_db4j4")
 }
 autoplay = "Idle"
+
+[node name="FootstepsPlayer" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("3_exrec")
+volume_db = -2.0
