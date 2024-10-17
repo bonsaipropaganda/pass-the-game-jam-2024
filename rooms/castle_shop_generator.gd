@@ -19,7 +19,10 @@ func generate_room(dim: Vector2i, _danger_level: float) -> RoomData:
 	
 	for i in result.tiles.size():
 		var x := i % dim.x
+
+		@warning_ignore("integer_division")
 		var y := i / dim.x
+		
 		if not room.has_point(Vector2i(x, y)):
 			result.tiles[i] = 17
 		else:

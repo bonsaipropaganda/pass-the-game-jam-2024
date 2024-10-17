@@ -28,6 +28,8 @@ func generate_room(_dim: Vector2i, _danger_level: float) -> RoomData:
 	result.tiles.resize(result.dim_override.x * result.dim_override.y)
 	for i in result.tiles.size():
 		var x = i % result.dim_override.x
+		
+		@warning_ignore("integer_division")
 		var y = i / result.dim_override.x
 		
 		if rooms.any(func(a: Rect2i) -> bool:

@@ -7,11 +7,11 @@ var description : String
 
 ## Should return an array of GLOBAL coords
 ## central_coord will generally be the player's position
-func get_valid_coords(central_coord:Vector2i) -> Array[Vector2i]:
+func get_valid_coords(_central_coord:Vector2i) -> Array[Vector2i]:
 	breakpoint; return [] ## dummy interface
 
 ## perform this card's unique action(s) at the target_coord
-func do_action(target_coord:Vector2i) -> void:
+func do_action(_target_coord:Vector2i) -> void:
 	pass ## dummy interface
 
 ## perform this card's unique discard effects

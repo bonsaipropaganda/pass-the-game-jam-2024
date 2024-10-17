@@ -26,7 +26,7 @@ func draw_mouse_hover() -> void:
 		Global.get_node("TileHoverRect").color = TILE_HOVER_COLOR_INVALID
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	draw_mouse_hover()
 	
 	

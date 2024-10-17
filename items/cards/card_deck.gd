@@ -12,7 +12,7 @@ func update(cards:Array[CardResource], selected_card:CardResource):
 	for c in get_children():
 		c.queue_free()
 	
-	var card_start_x = (scene_width / 2) - ((len(cards)-1) * (X_GAP) / 2)
+	var card_start_x = (scene_width / 2.0) - ((len(cards)-1.0) * (X_GAP) / 2.0)
 	
 	for i in len(cards):
 		var card = card_scene.instantiate()

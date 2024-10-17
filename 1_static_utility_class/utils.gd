@@ -2,6 +2,7 @@ class_name Utils extends Node
 #---------------------------------------------------------------------------------------------------
 ## converts global position to the overlapping tile coordinate
 static func global_pos_to_coord(global_position:Vector2) -> Vector2i:
+	@warning_ignore("narrowing_conversion")
 	return Vector2i(global_position.x / C.TILE_SIZE, global_position.y / C.TILE_SIZE)
 #---------------------------------------------------------------------------------------------------
 static func coord_to_global_pos(global_coord:Vector2i) -> Vector2:
@@ -11,6 +12,7 @@ static func coord_to_global_pos(global_coord:Vector2i) -> Vector2:
 static func rotate_vec2i(vec2i:Vector2i, degrees_clockwise:int) -> Vector2i:
 	assert(degrees_clockwise % 90 == 0, "rotate_vec2i() only rotates by multiples of 90 degrees")
 	
+	@warning_ignore("integer_division")
 	var num_rotations = (degrees_clockwise / 90) % 4
 	match num_rotations:
 		0: return vec2i # No rotation
@@ -42,8 +44,11 @@ static func get_target_rotations_with_mirror(vec2i:Vector2i) -> Array[Vector2i]:
 static func weighted_randomness(array_of_float_weights:Array[float]) -> int:
 	for weight_float in array_of_float_weights: assert(weight_float >= 0)
 	
-	var weight_sum:float
-	for weight in array_of_float_weights: weight_sum += weight
+	var weight_sum := 0.0
+
+	for weight in array_of_float_weights: 
+		weight_sum += weight
+
 	if weight_sum == 0: return randi_range(0, array_of_float_weights.size() - 1)
 	
 	var float_to_check:float = randf_range(0, weight_sum)
@@ -62,8 +67,8 @@ static func string_map_to_vec2i_array(string_map:String) -> Array[Vector2i]:
 	var vec2i_array:Array[Vector2i] = []
 	
 	var current_coord:= Vector2i(0,0)
-	for char in string_map:
-		match char:
+	for character in string_map:
+		match character:
 			"_":
 				current_coord.x += 1
 			

@@ -121,6 +121,7 @@ func to_next_level(room_type: E.RoomType):
 	var id_to_tile: Dictionary = tileset_cache[used_tileset]
 	var all_coords: Array[Vector2i] = []
 	for i: int in room_size.x * room_size.y:
+		@warning_ignore("integer_division")
 		var coords := Vector2i(i % room_size.x, i / room_size.x)
 		all_coords.append(coords)
 		

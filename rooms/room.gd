@@ -28,7 +28,7 @@ func on_enemy_died():
 		on_room_complete()
 
 
-func enemy_spawned():
+func enemy_spawned(_enemy: BaseEnemy):
 	enemy_count += 1
 
 

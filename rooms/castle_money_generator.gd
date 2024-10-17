@@ -36,6 +36,8 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	
 	for i in result.tiles.size():
 		var x = i % dim.x
+
+		@warning_ignore("integer_division")
 		var y = i / dim.x
 		
 		if rooms.any(func(a: Rect2i) -> bool:
@@ -87,6 +89,8 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	
 	for i in result.tiles.size():
 		var x = i % dim.x
+
+		@warning_ignore("integer_division")
 		var y = i / dim.x
 		
 		if rooms.any(func(a: Rect2i) -> bool:

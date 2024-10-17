@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 
 var selected_entity:Entity
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_right_click"):
 		var click_coord:Vector2i = Utils.global_pos_to_coord(get_global_mouse_position())
 		

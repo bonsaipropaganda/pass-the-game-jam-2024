@@ -7,7 +7,7 @@ func _init() -> void:
 	9x9 Grid.
 [color=red]Discard on use.[/color]"""
 
-func do_action(pos :Vector2i):
+func do_action(_pos :Vector2i):
 	await SignalBus.game_tick
 	Global.game_manager.players_cards.erase(Global.game_manager.selected_card)
 	Global.game_manager.refresh_card_deck()
