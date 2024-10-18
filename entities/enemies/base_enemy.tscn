@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b3kdipdfm3vmp"]
 
-[ext_resource type="Script" path="res://entities/enemies/enemy_bat.gd" id="1_aucsa"]
+[ext_resource type="Script" path="res://entities/enemies/base_enemy.gd" id="1_q2u70"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_m565o"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_ew3uc"]
 [ext_resource type="PackedScene" uid="uid://dqgd3b181co1l" path="res://entities/enemies/health_bar.tscn" id="3_k7maa"]
@@ -155,9 +155,8 @@ _data = {
 "take_damage": SubResource("Animation_b5tuu")
 }
 
-[node name="BaseEnemy" type="Node2D" node_paths=PackedStringArray("health_bar")]
-script = ExtResource("1_aucsa")
-health_bar = NodePath("Sprite2D/Health Bar")
+[node name="BaseEnemy" type="Node2D"]
+script = ExtResource("1_q2u70")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["enemy_area"]]
 collision_layer = 2

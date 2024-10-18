@@ -174,7 +174,7 @@ centered = false
 flip_h = true
 hframes = 6
 region_enabled = true
-region_rect = Rect2(-0.00566101, 14.9272, 96.0222, 16.9818)
+region_rect = Rect2(0.0951157, 48.7353, 95.9427, 15.1101)
 
 [node name="Health Bar" parent="Sprite2D" node_paths=PackedStringArray("collision_shape") instance=ExtResource("3_ogmkw")]
 collision_shape = NodePath("../../Hurtbox/CollisionShape2D")

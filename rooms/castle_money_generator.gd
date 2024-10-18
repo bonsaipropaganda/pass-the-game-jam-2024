@@ -101,9 +101,12 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	result.scenes[Global.rand_point_in_rect(start_room)] = preload("res://entities/Player/player.tscn").instantiate()
 	result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/chest.tscn").instantiate()
 	
+	var enemy_count = 1
 	for i in fight_rooms:
-		for j in 3:
+		for j in enemy_count:
 			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_goblin.tscn").instantiate()
+			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_slime.tscn").instantiate()
+			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_bat.tscn").instantiate()
 	
 	var door_pos: Vector2i = Global.rand_point_in_rect(exit_room)
 	while result.tiles[door_pos.x + door_pos.y * dim.x] == 1 or result.tiles[door_pos.x + door_pos.y * dim.x] == 2:
