@@ -272,7 +272,7 @@ text = "- The Lost Eco
 - Edalyn Laird (ijo Ko)
 - Este aka Crownie
 -Wiktor aka TheWizzard
-"
+- zwometer"
 
 [node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
 layout_mode = 1
@@ -289,7 +289,10 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
 text = "- Coffe
 
-- More people"
+- More people
+
+.-SO MANY PEOPLE
+who forgot to put their names here"
 
 [node name="Buttons" type="Control" parent="UI/Credits Menu"]
 layout_mode = 1
