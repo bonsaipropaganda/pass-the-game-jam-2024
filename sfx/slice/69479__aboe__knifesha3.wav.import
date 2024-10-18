@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8d58bn6r7rwe"
-path="res://.godot/imported/69479__aboe__knifesha3.wav-931bf004c166f16e907ea7107c9e31c2.sample"
+path="res://.godot/imported/69479__aboe__knifesha3.wav-7da83c4b3cf9a386e9c6e3e3c99c8bd9.sample"
 
 [deps]
 
-source_file="res://gfx/sounds/slice/69479__aboe__knifesha3.wav"
-dest_files=["res://.godot/imported/69479__aboe__knifesha3.wav-931bf004c166f16e907ea7107c9e31c2.sample"]
+source_file="res://sfx/slice/69479__aboe__knifesha3.wav"
+dest_files=["res://.godot/imported/69479__aboe__knifesha3.wav-7da83c4b3cf9a386e9c6e3e3c99c8bd9.sample"]
 
 [params]
 

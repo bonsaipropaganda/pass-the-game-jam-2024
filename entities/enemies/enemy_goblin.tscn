@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_goblin.gd" id="1_pevj5"]
 [ext_resource type="Texture2D" uid="uid://bmd7qdq3drsys" path="res://gfx/entities/pawn_sheet.png" id="2_gdalc"]
-[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://gfx/sounds/footsteps/footsteps_stream.tres" id="3_4v0lm"]
+[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_4v0lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)

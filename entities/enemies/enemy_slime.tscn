@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_slime.gd" id="1_yp88l"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_26yct"]
-[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://gfx/sounds/footsteps/footsteps_stream.tres" id="3_24x8w"]
+[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_24x8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)

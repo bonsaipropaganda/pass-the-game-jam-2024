@@ -271,11 +271,18 @@ func _discard_card() -> void:
 		%TakeDamage_Menu.visible = false
 		get_tree().paused = false
 		_select_card(0)
+		$HeartbeatPlayer.stop()
+		MusicManager.volume_db = 0
 	
 	%TakeDamage_Menu.visible = true
 	get_tree().paused = true
 	Global.fade_black(0.6, 0.5)
 	%TakeDamage_Menu.show_cards(players_cards, card_choice_callback)
+	$DamagePlayer.play()
+	MusicManager.volume_db = -4
+
+	await get_tree().create_timer(0.4).timeout
+	$HeartbeatPlayer.play()
 
 
 func discard_card_resource(card: CardResource) -> void:

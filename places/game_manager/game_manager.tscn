@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv2sj0tpmbdau"]
+[gd_scene load_steps=10 format=3 uid="uid://cv2sj0tpmbdau"]
 
 [ext_resource type="Script" path="res://places/game_manager/game_manager.gd" id="1_2n5bb"]
 [ext_resource type="Script" path="res://places/game_manager/camera.gd" id="2_ap55l"]
 [ext_resource type="Script" path="res://ui/menus/controls_menu.gd" id="3_vvdls"]
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
 [ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menus/take_damage_menu.tscn" id="5_8wkup"]
-[ext_resource type="AudioStream" uid="uid://lpj2nsfrkwcs" path="res://gfx/sounds/money.wav" id="7_ucwsi"]
-[ext_resource type="AudioStream" uid="uid://d065pasljhqvh" path="res://gfx/sounds/door_open.wav" id="8_c3qh0"]
+[ext_resource type="AudioStream" uid="uid://lpj2nsfrkwcs" path="res://sfx/money.wav" id="7_ucwsi"]
+[ext_resource type="AudioStream" uid="uid://d065pasljhqvh" path="res://sfx/door_open.wav" id="8_c3qh0"]
+[ext_resource type="AudioStream" uid="uid://dxut7li7yqyr5" path="res://sfx/heartbeat.wav" id="8_dj4j2"]
+[ext_resource type="AudioStream" uid="uid://7yr6k3jf6o5s" path="res://sfx/damage.wav" id="9_84syp"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_2n5bb")
@@ -123,6 +125,12 @@ volume_db = -2.0
 [node name="MoneySoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ucwsi")
 volume_db = 0.07
+
+[node name="HeartbeatPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dj4j2")
+
+[node name="DamagePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_84syp")
 
 [connection signal="pressed" from="UI/Side Buttons/TestDamageButton" to="." method="_on_test_damage_button_pressed"]
 [connection signal="toggled" from="UI/Side Buttons/ControlsButton" to="UI/Side Buttons/ControlsButton" method="_on_toggled"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="1_ng2uu"]
 [ext_resource type="Script" path="res://entities/grid entities/shop_item.gd" id="2_nk31k"]
-[ext_resource type="AudioStream" uid="uid://d1rm8x7ygkvcw" path="res://gfx/sounds/chest_open.wav" id="3_jswtk"]
+[ext_resource type="AudioStream" uid="uid://d1rm8x7ygkvcw" path="res://sfx/chest_open.wav" id="3_jswtk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldm8r"]
 atlas = ExtResource("1_ng2uu")
