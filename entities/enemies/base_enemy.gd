@@ -1,15 +1,20 @@
 class_name BaseEnemy extends Entity
 
-var hp := 1
+@export var health_bar : HealthBar
+
+var max_hp := 1
+var hp := max_hp
 # money dropped on death
 var reward := 1
 
 func _ready():
 	SignalBus.enemy_spawned.emit(self)
+	health_bar.update(hp, max_hp)
 
 
 func take_damage(_hp_loss:int):
 	hp -= 1
+	health_bar.update(hp, max_hp)
 	if hp <= 0:
 		SignalBus.enemy_died.emit(self)
 		# trigger coin animation before death of enemy

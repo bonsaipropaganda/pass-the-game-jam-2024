@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqgd3b181co1l"]
+
+[ext_resource type="Script" path="res://entities/enemies/health_bar.gd" id="1_ysemx"]
+
+[node name="Health Bar" type="ColorRect"]
+color = Color(0.611765, 0, 0, 1)
+script = ExtResource("1_ysemx")

@@ -2,7 +2,8 @@ class_name EnemySlime extends BaseEnemy
 
 func _ready():
 	super()
-	hp = 1
+	max_hp = 1
+	hp = max_hp
 	
 	type = E.EntityType.ENEMY
 	specific_type = E.EntitySpecificType.SLIME

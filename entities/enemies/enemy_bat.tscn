@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccs3fn41mf7sx"]
+[gd_scene load_steps=12 format=3 uid="uid://ccs3fn41mf7sx"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_bat.gd" id="1_o5336"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_kdq2q"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_exrec"]
+[ext_resource type="PackedScene" uid="uid://dqgd3b181co1l" path="res://entities/enemies/health_bar.tscn" id="3_j3uri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
@@ -154,8 +155,9 @@ _data = {
 "take_damage": SubResource("Animation_b5tuu")
 }
 
-[node name="EnemyBat" type="Node2D"]
+[node name="EnemyBat" type="Node2D" node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_o5336")
+health_bar = NodePath("Sprite2D/Health Bar")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["enemy_area"]]
 collision_layer = 2
@@ -173,6 +175,13 @@ flip_h = true
 hframes = 6
 region_enabled = true
 region_rect = Rect2(-0.00566101, 14.9272, 96.0222, 16.9818)
+
+[node name="Health Bar" parent="Sprite2D" node_paths=PackedStringArray("collision_shape") instance=ExtResource("3_j3uri")]
+offset_left = 25.0
+offset_top = 47.0
+offset_right = 25.0
+offset_bottom = 47.0
+collision_shape = NodePath("../../Hurtbox/CollisionShape2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

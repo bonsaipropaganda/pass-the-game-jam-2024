@@ -2,7 +2,8 @@ class_name EnemyGoblin extends BaseEnemy
 
 func _ready():
 	super()
-	hp = 2
+	max_hp = 2
+	hp = max_hp
 	
 	type = E.EntityType.ENEMY
 	specific_type = E.EntitySpecificType.GOBLIN

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://df81e4sd0fqba"]
+[gd_scene load_steps=17 format=3 uid="uid://df81e4sd0fqba"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_goblin.gd" id="1_pevj5"]
 [ext_resource type="Texture2D" uid="uid://bmd7qdq3drsys" path="res://gfx/entities/pawn_sheet.png" id="2_gdalc"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_4v0lm"]
+[ext_resource type="PackedScene" uid="uid://dqgd3b181co1l" path="res://entities/enemies/health_bar.tscn" id="3_txhkh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
@@ -190,8 +191,9 @@ _data = {
 "take_damage": SubResource("Animation_b5tuu")
 }
 
-[node name="EnemyGoblin" type="Node2D"]
+[node name="EnemyGoblin" type="Node2D" node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_pevj5")
+health_bar = NodePath("Sprite2D/Health Bar")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["enemy_area"]]
 collision_layer = 2
@@ -205,6 +207,9 @@ debug_color = Color(0.7, 0, 0.315, 0.419608)
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_tn4gy")
 centered = false
+
+[node name="Health Bar" parent="Sprite2D" node_paths=PackedStringArray("collision_shape") instance=ExtResource("3_txhkh")]
+collision_shape = NodePath("../../Hurtbox/CollisionShape2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

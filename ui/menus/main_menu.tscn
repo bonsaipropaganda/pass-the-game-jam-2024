@@ -79,52 +79,72 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_top = 7.79
+offset_right = 176.645
+offset_bottom = 134.66
 grow_vertical = 2
 
 [node name="StartButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
+layout_direction = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.0333333
-anchor_bottom = -0.0333333
-offset_left = 37.0
-offset_top = -46.01
-offset_right = 108.0
-offset_bottom = -19.01
+anchor_left = 0.169832
+anchor_top = -0.494916
+anchor_right = 0.169832
+anchor_bottom = -0.494916
+offset_right = 71.0
+offset_bottom = 27.0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/StartButton"]
 layout_mode = 0
-offset_right = 253.0
-offset_bottom = 31.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 81.0
+offset_bottom = 24.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
-text = "Start
-(Normal)"
-metadata/_edit_lock_ = true
+text = "Start Game"
 
 [node name="Start2Button" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.0222222
 anchor_bottom = -0.0222222
-offset_left = 37.0
-offset_top = -16.675
-offset_right = 108.0
-offset_bottom = 10.325
+offset_left = 31.0
+offset_top = -26.9707
+offset_right = 292.0
+offset_bottom = 9.02933
+metadata/_edit_group_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/Start2Button"]
 layout_mode = 0
-offset_right = 253.0
-offset_bottom = 31.0
+offset_left = 1.0
+offset_top = 2.21
+offset_right = 254.0
+offset_bottom = 33.21
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.427042, 0.544275, 0.57883, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
-text = "Start
-(Funky Grid Refractor)"
-metadata/_edit_lock_ = true
+text = "Funky Grid Refractor"
+
+[node name="Label2" type="RichTextLabel" parent="UI/Main Menu/Buttons/Start2Button"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 14.21
+offset_right = 265.0
+offset_bottom = 38.21
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.946323, 0.964381, 0.969955, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 9
+text = "This was an experiment that never got anywhere, so if you are looking to play this game, don't click this."
 
 [node name="CreditsButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
