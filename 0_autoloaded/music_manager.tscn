@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp7ro8q4313bh"]
-
-[ext_resource type="AudioStream" uid="uid://bnq73jdpkunkh" path="res://sfx/ui/menus/Heartbeat - Royalty Free Fantasy Music.mp3" id="1_oqjl3"]
-
-[node name="MusicManager" type="AudioStreamPlayer"]
-process_mode = 3
-stream = ExtResource("1_oqjl3")
-autoplay = true

@@ -190,6 +190,66 @@ theme_override_font_sizes/normal_font_size = 12
 text = "Quit"
 metadata/_edit_lock_ = true
 
+[node name="SfxVolumeSlider" type="HSlider" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.806
+anchor_top = 0.587
+anchor_right = 1.806
+anchor_bottom = 0.587
+offset_left = -112.021
+offset_top = -9.47269
+offset_right = -0.0209045
+offset_bottom = 9.52731
+min_value = -80.0
+max_value = 6.0
+step = 0.5
+value = -6.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/SfxVolumeSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.485
+anchor_bottom = 0.485
+offset_left = -85.0
+offset_top = -8.215
+offset_bottom = 7.785
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "SFX Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="UI/Main Menu/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.806
+anchor_top = 0.447
+anchor_right = 1.806
+anchor_bottom = 0.447
+offset_left = -112.021
+offset_top = -9.5009
+offset_right = -0.0209045
+offset_bottom = 9.4991
+min_value = -80.0
+max_value = 6.0
+step = 0.5
+value = -6.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/MusicVolumeSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.485
+anchor_bottom = 0.485
+offset_left = -85.0
+offset_top = -8.215
+offset_bottom = 7.785
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Music Volume"
+
 [node name="Credits Menu" type="Control" parent="UI"]
 unique_name_in_owner = true
 visible = false
@@ -259,7 +319,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -125.0
+offset_left = -160.0
 offset_top = -52.0
 offset_bottom = 52.0
 grow_horizontal = 0
@@ -271,17 +331,18 @@ theme_override_font_sizes/normal_font_size = 12
 text = "- The Lost Eco
 - Edalyn Laird (ijo Ko)
 - Este aka Crownie
--Wiktor aka TheWizzard
-- zwometer"
+- Wiktor aka TheWizzard
+- zwometer
+- Ohhnyx"
 
 [node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -56.5
-offset_right = 119.0
-offset_bottom = 56.5
+offset_top = -56.0
+offset_right = 160.0
+offset_bottom = 57.0
 grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -348,8 +409,25 @@ HeartBeatNEW.aif by Woodingp -- https://freesound.org/s/116642/ -- License: Crea
 Punch Sounds by uEffects -- https://freesound.org/s/208791/ -- License: Creative Commons 0
 Voice_AdultMale_PainGrunts_13.wav by MrFossy -- https://freesound.org/s/547192/ -- License: Creative Commons 0"
 
+[node name="FadeRectangle" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="mouse_entered" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]
+[connection signal="mouse_entered" from="UI/Main Menu/Buttons/CreditsButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="UI/Main Menu/Buttons/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="UI/Main Menu/Buttons/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="mouse_entered" from="UI/Credits Menu/Buttons/BackButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Credits Menu/Buttons/BackButton" to="." method="_on_back_button_pressed"]

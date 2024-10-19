@@ -3,7 +3,41 @@
 This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
+
+#---------------------------------------------------------------------------------------------------
+## DAY 21 NOTES (Ohhnyx)
+#---------------------------------------------------------------------------------------------------
+
+//
+IF YOU GET like 80 ERRORS AFTER CLONING THE PROJECT
+reloading didn't work for me as others suggested,
+what worked is clearing all the changes that were made automatically by
+godot (import files and project file) and rebooting the engine.
+//
+
+I created a small audio management system.
+You can find an example scene of it in the docs folder.
+it should cover your needs. If it doesn't, you can either modify it or not use it!
+if you don't use it, please still set up your audiostreamplayers to output in the correct audio bus.
+
+I have refactored part of the scenes to use the sound system
+(Careful not to break things if you try to do it to other existing scenes)
+I also added a bunch of sfx. Change them if you want!
+
+ALSO IF THE CLICK ON TILE HIVER IS ANNOYING -> player.gd line 29
+
+Also added a splash screen, because why not?
+
+This was really fun, thanks to the organizers and thanks to y'all fellow devs<3
+
+BUGS FOUND AND A FEW IDEAS:
+	- generation is sometimes broken. Had non-connected rooms and rooms with no door
+	- seing what we're gonna buy in the shop would be nice. There's already a lot of random in the game
+	- more enemies per room? pretty pleaaaaase?
+
+#---------------------------------------------------------------------------------------------------
 ## Day 19 NOTES (Fusion)
+#---------------------------------------------------------------------------------------------------
 
 Bugs found:
 

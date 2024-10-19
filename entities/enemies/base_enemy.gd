@@ -17,6 +17,7 @@ func take_damage(_hp_loss:int):
 	health_bar.update(hp, max_hp)
 	if hp <= 0:
 		SignalBus.enemy_died.emit(self)
+		AudioManager.sfx_play(AudioManager.sfx_enum.KILL, 0.2, 3.0)
 		# trigger coin animation before death of enemy
 		var coin = preload("res://items/coin_rotate.tscn").instantiate()
 		add_child(coin)

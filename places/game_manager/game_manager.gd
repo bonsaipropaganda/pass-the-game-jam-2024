@@ -71,7 +71,7 @@ func _ready() -> void:
 	_select_card(0)
 	$"%CardDeck_Menu".card_selected.connect(_select_card)
 
-	SignalBus.next_level.connect(func(_x): $DoorOpenPlayer.play())
+	SignalBus.next_level.connect(func(_x): AudioManager.sfx_play(AudioManager.sfx_enum.DOOR_OPEN, 0.1, -2.0))
 
 
 func on_enemy_death(enemy: BaseEnemy) -> void:
@@ -200,7 +200,7 @@ func _select_card(to: int):
 
 	selected_card = to
 	%CardDeck_Menu.update(players_cards, selected_card)
-
+	AudioManager.sfx_play(AudioManager.sfx_enum.PAPER_2, 0.2, -6.0)
 	if game_state != GameState.BUSY:
 		show_available_actions()
 
@@ -244,7 +244,7 @@ func _process(_delta: float) -> void:
 						var bought = Global.buy_shop_item(mouse_coord)
 
 						if bought:
-							$MoneySoundPlayer.play()
+							AudioManager.sfx_play(AudioManager.sfx_enum.MONEY, 0.2, -2.0)
 					else:
 						await p.move(mouse_coord)
 					change_game_state(GameState.ENEMY_TURN)
@@ -262,6 +262,7 @@ func _process(_delta: float) -> void:
 func _on_test_damage_button_pressed():
 	_discard_card()
 
+var heartbeat_sid:int
 func _discard_card() -> void:
 	# Once we choose a card to discard, this lambda is called
 	var card_choice_callback = func(card_choice: CardResource):
@@ -271,18 +272,18 @@ func _discard_card() -> void:
 		%TakeDamage_Menu.visible = false
 		get_tree().paused = false
 		_select_card(0)
-		$HeartbeatPlayer.stop()
-		MusicManager.volume_db = 0
+		AudioManager.sfx_stop(heartbeat_sid, 0.7)
+		AudioManager.music_set_volume(0.0)
 	
 	%TakeDamage_Menu.visible = true
 	get_tree().paused = true
 	Global.fade_black(0.6, 0.5)
 	%TakeDamage_Menu.show_cards(players_cards, card_choice_callback)
-	$DamagePlayer.play()
-	MusicManager.volume_db = -4
+	AudioManager.sfx_play(AudioManager.sfx_enum.DAMAGE)
+	AudioManager.music_set_volume(-4)
 
 	await get_tree().create_timer(0.4).timeout
-	$HeartbeatPlayer.play()
+	heartbeat_sid = AudioManager.sfx_play(AudioManager.sfx_enum.HEARTBEAT, 0.0)
 
 
 func discard_card_resource(card: CardResource) -> void:

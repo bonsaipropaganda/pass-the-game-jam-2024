@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5mclp2bes5g3"]
+
+[sub_resource type="GDScript" id="GDScript_rlfle"]
+resource_name = "audiomanager_example"
+script/source = "extends Node2D
+
+# This is a small usage example for the audio manager.
+# I thought this would be clearer than an explanation in the readmefirst
+
+# USE THE AUDIOMANAGER IF
+#  - you wanna change the current music
+#  - you wanna easily play a sound fx (with possible volume/pitch randomization
+
+# DONT USE THE AUDIO MANAGER IF
+#  - you want more complex logic/round robins (multiple variants)/positional sound
+
+
+# IF YOU WANNA ADD SOUNDS OR MUSIC
+# The script \"res://0_autoloaded/audio_manager.gd\" is doing all the preloading.
+# Add your song or sfx in the corresponding array and add an entry in the corresponding enum.
+
+func _on_music_1_pressed() -> void:
+	# plays the MENUE music with a fade of 0.5 seconds
+	AudioManager.music_transition_to(AudioManager.song_enum.MENU, 0.5)
+
+func _on_music_2_pressed() -> void:
+	# plays the GAMEPLAY1 music with a fade of 3.0 seconds.
+	# automatically fades out the previously playing track if there is one
+	AudioManager.music_transition_to(AudioManager.song_enum.GAMEPLAY_1, 3.0)
+
+
+func _on_chest_open_pressed() -> void:
+	#plays the CHEST_OPEN sound with a random pitch variation of 0.15 and a volume at -3db
+	AudioManager.sfx_play(AudioManager.sfx_enum.CHEST_OPEN, 0.15, -3.0)
+
+
+var heartbeat_sid:int
+func _on_heartbeat_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		# Starting heartbeat.
+		# Since it's a looping sound, we keep it's stream id on order to stop it later
+		heartbeat_sid = AudioManager.sfx_play(AudioManager.sfx_enum.HEARTBEAT)
+	
+	else:
+		AudioManager.sfx_stop(heartbeat_sid, 6.0)
+"
+
+[node name="AudiomanagerExample" type="Node2D"]
+script = SubResource("GDScript_rlfle")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 181.0
+
+[node name="music_1" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.144
+anchor_top = 0.171
+anchor_right = 0.456
+anchor_bottom = 0.304
+offset_left = -0.0800018
+offset_top = 0.0489998
+offset_right = -64.92
+offset_bottom = -4.024
+text = "Play music 1"
+
+[node name="music_2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.508
+anchor_right = 0.437
+anchor_bottom = 0.613
+offset_top = 0.0519943
+offset_right = 0.160004
+offset_bottom = 5.047
+text = "Play music 2"
+
+[node name="chest_open" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.572
+anchor_top = 0.343
+anchor_right = 0.897
+anchor_bottom = 0.475
+offset_left = -0.0400085
+offset_top = -0.083004
+offset_right = -0.0400085
+offset_bottom = 0.0249939
+text = "Open a chest"
+
+[node name="heartbeat" type="CheckButton" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.534
+anchor_top = 0.729
+anchor_right = 0.962
+anchor_bottom = 0.862
+offset_left = 1.12
+offset_top = 0.0509949
+offset_right = 0.159973
+offset_bottom = -0.0220032
+text = "heartbeat!"
+
+[connection signal="pressed" from="Control/music_1" to="." method="_on_music_1_pressed"]
+[connection signal="pressed" from="Control/music_2" to="." method="_on_music_2_pressed"]
+[connection signal="pressed" from="Control/chest_open" to="." method="_on_chest_open_pressed"]
+[connection signal="toggled" from="Control/heartbeat" to="." method="_on_heartbeat_toggled"]

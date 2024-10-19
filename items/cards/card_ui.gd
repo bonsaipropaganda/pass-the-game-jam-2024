@@ -33,6 +33,7 @@ func _ready() -> void:
 
 # We use colorrect to get mouse because it is a control, and captures the input
 func _on_color_rect_mouse_entered() -> void:
+	AudioManager.sfx_play(AudioManager.sfx_enum.PAPER_1, 0.2, -6.0)
 	old_z_index = z_index
 	z_index = 100
 	var tween = create_tween()
@@ -47,4 +48,5 @@ func _on_color_rect_mouse_exited() -> void:
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		
 		clicked.emit(card_resource)

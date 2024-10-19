@@ -1,0 +1,69 @@
+[gd_scene load_steps=27 format=3 uid="uid://dp7ro8q4313bh"]
+
+[ext_resource type="Script" path="res://0_autoloaded/audio_manager.gd" id="1_qwuow"]
+[ext_resource type="AudioStream" uid="uid://bqd7ip107fei5" path="res://sfx/ost/menu.wav" id="2_o0lma"]
+[ext_resource type="AudioStream" uid="uid://d1rm8x7ygkvcw" path="res://sfx/chest_open.wav" id="2_yyocr"]
+[ext_resource type="AudioStream" uid="uid://b0fc581s10ttu" path="res://sfx/ost/gameplay_1.wav" id="3_0wggl"]
+[ext_resource type="AudioStream" uid="uid://7yr6k3jf6o5s" path="res://sfx/damage.wav" id="3_csryy"]
+[ext_resource type="AudioStream" uid="uid://dxut7li7yqyr5" path="res://sfx/heartbeat.wav" id="4_j37rq"]
+[ext_resource type="AudioStream" uid="uid://d065pasljhqvh" path="res://sfx/door_open.wav" id="5_jp1am"]
+[ext_resource type="AudioStream" uid="uid://lpj2nsfrkwcs" path="res://sfx/money.wav" id="6_fhciw"]
+[ext_resource type="AudioStream" uid="uid://ierrx2t3qhua" path="res://sfx/slice/attack_stream.tres" id="9_o4eek"]
+[ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="10_l645a"]
+[ext_resource type="AudioStream" uid="uid://4l6i207brldn" path="res://sfx/ui/button_RR1.wav" id="11_gtyh5"]
+[ext_resource type="AudioStream" uid="uid://bqxus5rk8m1st" path="res://sfx/ui/button_RR2.wav" id="12_5i2mx"]
+[ext_resource type="AudioStream" uid="uid://cyiwc3gsgvvq5" path="res://sfx/ui/button_RR3.wav" id="13_uhmwc"]
+[ext_resource type="AudioStream" uid="uid://d248p6tcm37dp" path="res://sfx/ui/select.wav" id="14_3aety"]
+[ext_resource type="AudioStream" uid="uid://ba13b53jk35s1" path="res://sfx/kill.wav" id="14_7n1oo"]
+[ext_resource type="AudioStream" uid="uid://b2abknflfn4p0" path="res://sfx/ui/paper_1.wav" id="16_lgeic"]
+[ext_resource type="AudioStream" uid="uid://dqw6jnnj551mb" path="res://sfx/ui/paper_2.wav" id="17_c8c8p"]
+[ext_resource type="AudioStream" uid="uid://3o06sno3q7ha" path="res://sfx/ui/paper_1_RR2.wav" id="17_pw0ka"]
+[ext_resource type="AudioStream" uid="uid://cyl5njtk4o3dn" path="res://sfx/ui/paper_1_RR3.wav" id="18_rh0oe"]
+[ext_resource type="AudioStream" uid="uid://c3jsuvra7r7f1" path="res://sfx/ui/paper_2_RR2.wav" id="20_r7mpl"]
+[ext_resource type="AudioStream" uid="uid://osiylkiuisi0" path="res://sfx/ui/paper_2_RR3.wav" id="21_hh7fr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t2sco"]
+random_pitch = 1.1
+random_volume_offset_db = 0.4
+streams_count = 3
+stream_0/stream = ExtResource("11_gtyh5")
+stream_1/stream = ExtResource("12_5i2mx")
+stream_2/stream = ExtResource("13_uhmwc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_17ife"]
+streams_count = 3
+stream_0/stream = ExtResource("16_lgeic")
+stream_1/stream = ExtResource("17_pw0ka")
+stream_2/stream = ExtResource("18_rh0oe")
+stream_2/weight = 0.5
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_benpb"]
+streams_count = 3
+stream_0/stream = ExtResource("17_c8c8p")
+stream_1/stream = ExtResource("20_r7mpl")
+stream_2/stream = ExtResource("21_hh7fr")
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_2lmti"]
+polyphony = 2
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_ir5qx"]
+polyphony = 64
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_qwuow")
+streams_songs = Array[AudioStream]([ExtResource("2_o0lma"), ExtResource("3_0wggl")])
+streams_sfx = Array[AudioStream]([ExtResource("2_yyocr"), ExtResource("3_csryy"), ExtResource("4_j37rq"), ExtResource("5_jp1am"), ExtResource("6_fhciw"), ExtResource("9_o4eek"), ExtResource("10_l645a"), SubResource("AudioStreamRandomizer_t2sco"), ExtResource("14_3aety"), ExtResource("14_7n1oo"), SubResource("AudioStreamRandomizer_17ife"), SubResource("AudioStreamRandomizer_benpb")])
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPolyphonic_2lmti")
+autoplay = true
+max_polyphony = 2
+bus = &"Music"
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPolyphonic_ir5qx")
+autoplay = true
+max_polyphony = 16
+bus = &"Sfx"
