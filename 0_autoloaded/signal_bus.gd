@@ -27,3 +27,7 @@ signal terrain_changed
 ## Emitted for game_manager to handle post-hit discarding 
 @warning_ignore("unused_signal")
 signal player_takes_damage
+
+## Emitted when card_king_basic.gd _on_discard is called
+@warning_ignore("unused_signal")
+signal game_over

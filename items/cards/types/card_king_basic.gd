@@ -34,6 +34,7 @@ func on_discard() -> void:
 
 	AudioManager.sfx_play(AudioManager.sfx_enum.KILL, 0.2, 3.0)
 	# vv let's make a death sound as a start! vv
-	assert(false, "You died! Currently there is no death functionality so I'm just gonna kill your game.")
+	SignalBus.game_over.emit()
+	#assert(false, "You died! Currently there is no death functionality so I'm just gonna kill your game.")
 	
 	

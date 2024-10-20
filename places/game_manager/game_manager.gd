@@ -64,6 +64,7 @@ func _ready() -> void:
 	SignalBus.enemy_spawned.connect(on_enemy_spawn)
 	SignalBus.enemy_died.connect(on_enemy_death)
 	SignalBus.player_takes_damage.connect(_discard_card)
+	SignalBus.game_over.connect(_on_game_over)
 	##SignalBus.chest_opened.connect(
 
 	to_next_level(E.RoomType.SPAWN) # Spawn in the initial level
@@ -290,3 +291,10 @@ func discard_card_resource(card: CardResource) -> void:
 	card.on_discard()
 	players_cards.erase(card)
 	_select_card(0)
+
+# called when card_king_basic.gd _on_discard is called
+func _on_game_over():
+	# if there is no delay here there will be an error 
+	# due to other things still trying to access the scene tree and changing it too quickly. just trust me we need it ;)
+	await get_tree().create_timer(.3).timeout
+	get_tree().change_scene_to_packed(preload("res://ui/menus/death_menu.tscn"))
