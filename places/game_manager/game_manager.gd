@@ -294,6 +294,9 @@ func discard_card_resource(card: CardResource) -> void:
 
 # called when card_king_basic.gd _on_discard is called
 func _on_game_over():
+	# making mostly everything invisble to avoid clicking on tiles and causing null errors
+	get_tree().current_scene.visible = false
+	
 	# if there is no delay here there will be an error 
 	# due to other things still trying to access the scene tree and changing it too quickly. just trust me we need it ;)
 	await get_tree().create_timer(.3).timeout
