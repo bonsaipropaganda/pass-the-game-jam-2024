@@ -46,6 +46,14 @@ var current_room: BaseRoom
 
 var enemies_alive: Array[BaseEnemy]
 
+var rooms_cleared = 0:
+	set(value):
+		rooms_cleared = value
+		if rooms_cleared % 7 == 0:
+			danger_level += 1
+
+var danger_level = 1
+
 var money := 0: 
 	set(v):
 		money = v
@@ -94,6 +102,7 @@ func get_player_tile_pos() -> Vector2i:
 
 
 func to_next_level(room_type: E.RoomType):
+	rooms_cleared += 1
 	enemies_alive.clear()
 	var next_room: BaseRoomGenerator = room_generators[room_type].pick_random()
 	var room_size := Vector2i(randi_range(25, 50), randi_range(25, 50))
@@ -102,7 +111,7 @@ func to_next_level(room_type: E.RoomType):
 	if room_size.x % 2 == 1:
 		room_size.x += 1
 	
-	var room_data := next_room.generate_room(room_size, 1)
+	var room_data := next_room.generate_room(room_size, danger_level)
 	if room_data.dim_override != Vector2i.ZERO:
 		room_size = room_data.dim_override
 	
@@ -300,4 +309,6 @@ func _on_game_over():
 	# if there is no delay here there will be an error 
 	# due to other things still trying to access the scene tree and changing it too quickly. just trust me we need it ;)
 	await get_tree().create_timer(.3).timeout
+	# sometimes there is an error here: "Cannot call method 'change_scene_to_packed' on a null value."
+	# no idea why
 	get_tree().change_scene_to_packed(preload("res://ui/menus/death_menu.tscn"))
