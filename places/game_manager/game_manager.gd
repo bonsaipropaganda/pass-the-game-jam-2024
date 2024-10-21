@@ -18,6 +18,7 @@ var init_rooms_generators: Array[GDScript] = [
 	preload("res://rooms/castle_money_generator.gd"),
 	preload("res://rooms/castle_shop_generator.gd"),
 	preload("res://rooms/castle_boss_generator.gd"),
+	preload("res://rooms/castle_coin_room_generator.gd")
 ]
 
 ## map from RoomType to possible room generators, will be populated in _ready
@@ -27,6 +28,7 @@ var room_generators = {
 	E.RoomType.MONEY_REWARD: [],
 	E.RoomType.BOSS: [],
 	E.RoomType.SHOP: [],
+	E.RoomType.COIN: []
 }
 
 var room_template := preload("res://rooms/template_room.tscn")

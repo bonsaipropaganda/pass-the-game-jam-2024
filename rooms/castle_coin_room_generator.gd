@@ -1,9 +1,8 @@
 extends BaseRoomGenerator
-class_name CastleMoneyGenerator
-
+class_name CastleCoinRoomGenerator
 ## determines when this generator will be used
 func get_type() -> E.RoomType:
-	return E.RoomType.MONEY_REWARD
+	return E.RoomType.COIN
 
 
 ## determines the area that the generator belongs to
@@ -19,14 +18,14 @@ func get_area() -> String:
 ## add to this however you need
 func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	var rooms: Array[Rect2i]
-	for i in 5:
+	for i in 3:
 		rooms.append(Rect2i(randi_range(2, dim.x - 15), randi_range(2, dim.y - 15), randi_range(5, 9), randi_range(5, 9)))
 	
 	var start_room: Rect2i = rooms.pick_random()
 	var exit_room: Rect2i = rooms.pick_random()
 	var treasure_room: Rect2i = rooms.pick_random()
 	var fight_rooms: Array[Rect2i] = []
-	for i in Global.game_manager.danger_level:
+	for i in danger_level:
 		fight_rooms.append(rooms.pick_random())
 	
 	var result := RoomData.new()
@@ -99,31 +98,26 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 			floor_tiles.append(i)
 	
 	result.scenes[Global.rand_point_in_rect(start_room)] = preload("res://entities/Player/player.tscn").instantiate()
-	result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/chest.tscn").instantiate()
-	for i in danger_level:
-		result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/spikes.tscn").instantiate()
+	for i in 4:
+		result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/coin.tscn").instantiate()
 	
 	var enemy_count = 1
 	for i in fight_rooms:
 		for j in enemy_count:
-			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_goblin.tscn").instantiate()
 			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_slime.tscn").instantiate()
-			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_bat.tscn").instantiate()
+			result.scenes[Global.rand_point_in_rect(i)] = preload("res://entities/enemies/enemy_slime.tscn").instantiate()
+
 	
 	var door_pos: Vector2i = Global.rand_point_in_rect(exit_room)
 	while result.tiles[door_pos.x + door_pos.y * dim.x] == 1 or result.tiles[door_pos.x + door_pos.y * dim.x] == 2:
 		door_pos.y -= 1
 	
 	var exit: Exit = preload("res://entities/grid entities/room_exit.tscn").instantiate()
-	match randi_range(0, 3):
+	match randi_range(0, 1):
 		0:
-			exit.next_room_type = E.RoomType.MONEY_REWARD
-		1:
 			exit.next_room_type = E.RoomType.SHOP
-		2:
+		1:
 			exit.next_room_type = E.RoomType.BOSS
-		3:
-			exit.next_room_type = E.RoomType.COIN
 	result.scenes[door_pos] = exit
 	return result
 

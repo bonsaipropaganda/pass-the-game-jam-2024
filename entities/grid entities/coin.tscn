@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4842km34fdwn"]
+
+[ext_resource type="Script" path="res://entities/grid entities/coin.gd" id="1_kf18c"]
+[ext_resource type="Texture2D" uid="uid://b6iuygnijg0j5" path="res://gfx/items/coins/coin_rotating/coin rotate 00.png" id="2_7it5u"]
+[ext_resource type="Texture2D" uid="uid://b21hsclvc40xy" path="res://gfx/items/coins/coin_rotating/coin rotate 01.png" id="3_yhwd5"]
+[ext_resource type="Texture2D" uid="uid://bw6jectfi3b76" path="res://gfx/items/coins/coin_rotating/coin rotate 02.png" id="4_3r18a"]
+[ext_resource type="Texture2D" uid="uid://dxh070qlpm51y" path="res://gfx/items/coins/coin_rotating/coin rotate 03.png" id="5_drbit"]
+[ext_resource type="Texture2D" uid="uid://ogk0o7filpc4" path="res://gfx/items/coins/coin_rotating/coin rotate 04.png" id="6_3xxdx"]
+[ext_resource type="Texture2D" uid="uid://bvea6m0c7jhal" path="res://gfx/items/coins/coin_rotating/coin rotate 05.png" id="7_2al6k"]
+[ext_resource type="Texture2D" uid="uid://c13wwrpibrmuu" path="res://gfx/items/coins/coin_rotating/coin rotate 06.png" id="8_ax5yh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sily8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7it5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yhwd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3r18a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_drbit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3xxdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2al6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ax5yh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv1r8"]
+size = Vector2(12, 12)
+
+[node name="Coin" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_kf18c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sily8")
+frame_progress = 0.604859
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nv1r8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

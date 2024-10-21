@@ -10,6 +10,9 @@ Please try to update it when you make relevant changes
 Log:
 - Couldn't find any major game breaking bugs.
 - added player death screen.
+- added spikes
+- added a loose coin grid entity that can be added to any room
+- added a coin room
 
 
 #---------------------------------------------------------------------------------------------------
