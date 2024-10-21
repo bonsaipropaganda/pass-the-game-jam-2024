@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv2sj0tpmbdau"]
+[gd_scene load_steps=7 format=3 uid="uid://cv2sj0tpmbdau"]
 
 [ext_resource type="Script" path="res://places/game_manager/game_manager.gd" id="1_2n5bb"]
 [ext_resource type="Script" path="res://places/game_manager/camera.gd" id="2_ap55l"]
+[ext_resource type="PackedScene" uid="uid://1l48g2fcdhc4" path="res://ui/menus/death_menu.tscn" id="3_7o05k"]
 [ext_resource type="Script" path="res://ui/menus/controls_menu.gd" id="3_vvdls"]
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
 [ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menus/take_damage_menu.tscn" id="5_8wkup"]
@@ -114,6 +115,8 @@ offset_right = 40.0
 offset_bottom = 16.0
 theme_override_font_sizes/font_size = 8
 text = "Money: 0"
+
+[node name="DeathMenu" parent="." instance=ExtResource("3_7o05k")]
 
 [connection signal="pressed" from="UI/Side Buttons/TestDamageButton" to="." method="_on_test_damage_button_pressed"]
 [connection signal="toggled" from="UI/Side Buttons/ControlsButton" to="UI/Side Buttons/ControlsButton" method="_on_toggled"]

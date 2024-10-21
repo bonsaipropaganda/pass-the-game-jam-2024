@@ -3,22 +3,14 @@ extends Control
 @onready var scene_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 @export var scene_main_menu : PackedScene
 
-func _ready() -> void:
-	$UI/FadeRectangle.show()
-	#fade from black using FadeRectangle
-	var tween = get_tree().create_tween()
-	tween.tween_property(
-		$UI/FadeRectangle,
-		"color",
-		Color(1.0, 1.0, 1.0, 0.0),
-		1.0 # 1 second
-	).set_trans(Tween.TRANS_CUBIC)
-
+func start():
+	$"UI/Main Menu/Labels/RoomsClearedLabel".text = "Rooms Cleared: " + str(Global.game_manager.rooms_cleared)
+	$UI.visible = true
 
 func _on_main_menu_button_pressed() -> void:
 	AudioManager.music_transition_to(AudioManager.song_enum.GAMEPLAY_1, 3.0)
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
-	get_tree().change_scene_to_packed(scene_main_menu)
+	get_tree().change_scene_to_file("res://ui/menus/main_menu.tscn")
 
 func _on_quit_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)

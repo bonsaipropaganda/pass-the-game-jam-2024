@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="4_5cjqs"]
 
 [node name="DeathMenu" type="Control"]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +16,7 @@ script = ExtResource("1_llixi")
 scene_main_menu = ExtResource("2_2y7e2")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Main Menu" type="Control" parent="UI"]
 layout_mode = 3
@@ -67,6 +69,21 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 15
 text = "YOU LOST YOUR KING"
+
+[node name="RoomsClearedLabel" type="RichTextLabel" parent="UI/Main Menu/Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 74.0
+offset_right = 80.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Rooms Cleared:"
 
 [node name="Buttons" type="Control" parent="UI/Main Menu"]
 layout_mode = 1
