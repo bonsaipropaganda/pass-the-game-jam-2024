@@ -152,6 +152,7 @@ _data = {
 }
 
 [node name="Player" type="Node2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_1wplv")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]

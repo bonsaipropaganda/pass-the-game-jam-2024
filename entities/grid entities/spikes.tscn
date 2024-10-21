@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3476yc4fdrnx"]
+
+[ext_resource type="Texture2D" uid="uid://cd2g7oua4uu62" path="res://gfx/terrain/floor/spikes_anim_f0.png" id="1_b4461"]
+[ext_resource type="Script" path="res://entities/grid entities/spikes.gd" id="1_rtlma"]
+[ext_resource type="Texture2D" uid="uid://d1pp0gfa17ymu" path="res://gfx/terrain/floor/spikes_anim_f1.png" id="2_7awod"]
+[ext_resource type="Texture2D" uid="uid://d2erhch12e27y" path="res://gfx/terrain/floor/spikes_anim_f2.png" id="3_sqbix"]
+[ext_resource type="Texture2D" uid="uid://hje7c8omm4kh" path="res://gfx/terrain/floor/spikes_anim_f3.png" id="4_ensot"]
+[ext_resource type="Texture2D" uid="uid://bkv54v5i0hfs5" path="res://gfx/terrain/floor/spikes_anim_f4.png" id="5_prrqg"]
+[ext_resource type="Texture2D" uid="uid://cfypffa16b4tw" path="res://gfx/terrain/floor/spikes_anim_f5.png" id="6_707hm"]
+[ext_resource type="Texture2D" uid="uid://bssbesbnhm1ul" path="res://gfx/terrain/floor/spikes_anim_f6.png" id="7_fy3e0"]
+[ext_resource type="Texture2D" uid="uid://bj0220jlvrgbg" path="res://gfx/terrain/floor/spikes_anim_f7.png" id="8_4mhew"]
+[ext_resource type="Texture2D" uid="uid://cv75opqra3yi" path="res://gfx/terrain/floor/spikes_anim_f8.png" id="9_106gf"]
+[ext_resource type="Texture2D" uid="uid://37aeuj282lst" path="res://gfx/terrain/floor/spikes_anim_f9.png" id="10_bej5n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sily8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b4461")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7awod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sqbix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ensot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_prrqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_707hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fy3e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4mhew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_106gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bej5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv1r8"]
+size = Vector2(12, 12)
+
+[node name="Spikes" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_rtlma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sily8")
+frame_progress = 0.547233
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nv1r8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

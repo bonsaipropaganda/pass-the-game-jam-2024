@@ -26,7 +26,7 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	var exit_room: Rect2i = rooms.pick_random()
 	var treasure_room: Rect2i = rooms.pick_random()
 	var fight_rooms: Array[Rect2i] = []
-	for i in danger_level:
+	for i in Global.game_manager.danger_level:
 		fight_rooms.append(rooms.pick_random())
 	
 	var result := RoomData.new()
@@ -100,6 +100,8 @@ func generate_room(dim: Vector2i, danger_level: float) -> RoomData:
 	
 	result.scenes[Global.rand_point_in_rect(start_room)] = preload("res://entities/Player/player.tscn").instantiate()
 	result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/chest.tscn").instantiate()
+	for i in danger_level:
+		result.scenes[Global.rand_point_in_rect(treasure_room)] = preload("res://entities/grid entities/spikes.tscn").instantiate()
 	
 	var enemy_count = 1
 	for i in fight_rooms:
