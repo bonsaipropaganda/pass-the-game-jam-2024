@@ -7,12 +7,16 @@ Please try to update it when you make relevant changes
 #---------------------------------------------------------------------------------------------------
 ## DAY 22 NOTES (bonsaipropaganda)
 #---------------------------------------------------------------------------------------------------
+
 Log:
 - Couldn't find any major game breaking bugs.
 - added player death screen.
 - added spikes
-- added a loose coin grid entity that can be added to any room
-- added a coin room
+- increased difficulty slowly by increasing the "danger level" and causing that to spawn more enemies after 7 rooms
+- added a coin grid entity that can be added to any room
+- added a coin room for that coin grid entity
+
+pro tip: the game_manager scene is where all the action is.
 
 
 #---------------------------------------------------------------------------------------------------
