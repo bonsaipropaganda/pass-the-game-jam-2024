@@ -13,5 +13,5 @@ func show_cards(cards:Array[CardResource], card_choice_callback:Callable):
 		shuffled.pop_back()
 	
 	$"CardDeck menu".update(shuffled, 0)
-	for card in $"CardDeck menu".get_children():
+	for card in $"CardDeck menu".get_cards():
 		card.connect("clicked", card_choice_callback) # Once you click a card, it calls the function passed in

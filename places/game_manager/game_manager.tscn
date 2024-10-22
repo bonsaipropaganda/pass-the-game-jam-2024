@@ -100,10 +100,14 @@ text = "- Number keys: Select card to use
 
 [node name="CardDeck_Menu" parent="UI" instance=ExtResource("4_yh1ds")]
 unique_name_in_owner = true
-offset_left = 155.0
-offset_top = 180.0
-offset_right = 155.0
-offset_bottom = 180.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+hide_cards = true
 
 [node name="TakeDamage_Menu" parent="UI" instance=ExtResource("5_8wkup")]
 unique_name_in_owner = true

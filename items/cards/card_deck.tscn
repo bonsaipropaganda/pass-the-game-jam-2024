@@ -8,3 +8,5 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3m3tn")
 card_scene = ExtResource("2_r1qoe")
+
+[node name="Deck" type="Node2D" parent="."]

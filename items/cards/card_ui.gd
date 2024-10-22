@@ -1,6 +1,8 @@
 extends Node2D
 class_name CardUI
 
+signal mouse_entered()
+signal mouse_exited()
 signal clicked(card_ui:CardUI)
 
 const SCALE_MIN = 0.3
@@ -8,7 +10,7 @@ const SCALE_MAX = 0.6
 
 var old_z_index := z_index 
 var card_resource : CardResource # Stored by reference, not value
-
+var hovered: bool = false
 
 func set_card_resource(card:CardResource):
 	card_resource = card
@@ -33,6 +35,8 @@ func _ready() -> void:
 
 # We use colorrect to get mouse because it is a control, and captures the input
 func _on_color_rect_mouse_entered() -> void:
+	mouse_entered.emit()
+	hovered = true
 	AudioManager.sfx_play(AudioManager.sfx_enum.PAPER_1, 0.2, -6.0)
 	old_z_index = z_index
 	z_index = 100
@@ -41,6 +45,8 @@ func _on_color_rect_mouse_entered() -> void:
 
 
 func _on_color_rect_mouse_exited() -> void:
+	mouse_exited.emit()
+	hovered = false
 	z_index = old_z_index
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(SCALE_MIN, SCALE_MIN), 0.25).from_current().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
