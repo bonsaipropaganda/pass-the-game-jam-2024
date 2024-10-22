@@ -1,37 +1,52 @@
 [gd_scene load_steps=11 format=3 uid="uid://c4842km34fdwn"]
 
 [ext_resource type="Script" path="res://entities/grid entities/coin.gd" id="1_kf18c"]
-[ext_resource type="Texture2D" uid="uid://b6iuygnijg0j5" path="res://gfx/items/coins/coin_rotating/coin rotate 00.png" id="2_7it5u"]
-[ext_resource type="Texture2D" uid="uid://b21hsclvc40xy" path="res://gfx/items/coins/coin_rotating/coin rotate 01.png" id="3_yhwd5"]
-[ext_resource type="Texture2D" uid="uid://bw6jectfi3b76" path="res://gfx/items/coins/coin_rotating/coin rotate 02.png" id="4_3r18a"]
-[ext_resource type="Texture2D" uid="uid://dxh070qlpm51y" path="res://gfx/items/coins/coin_rotating/coin rotate 03.png" id="5_drbit"]
-[ext_resource type="Texture2D" uid="uid://ogk0o7filpc4" path="res://gfx/items/coins/coin_rotating/coin rotate 04.png" id="6_3xxdx"]
-[ext_resource type="Texture2D" uid="uid://bvea6m0c7jhal" path="res://gfx/items/coins/coin_rotating/coin rotate 05.png" id="7_2al6k"]
-[ext_resource type="Texture2D" uid="uid://c13wwrpibrmuu" path="res://gfx/items/coins/coin_rotating/coin rotate 06.png" id="8_ax5yh"]
+[ext_resource type="Texture2D" uid="uid://dbdlepsgd55tq" path="res://gfx/items/coins/rotating_coin.png" id="2_lxwb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fuv1"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lq7i"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj2c8"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaygb"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afovc"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqae5"]
+atlas = ExtResource("2_lxwb4")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sily8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7it5u")
+"texture": SubResource("AtlasTexture_1fuv1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_yhwd5")
+"texture": SubResource("AtlasTexture_0lq7i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3r18a")
+"texture": SubResource("AtlasTexture_vj2c8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_drbit")
+"texture": SubResource("AtlasTexture_oaygb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_3xxdx")
+"texture": SubResource("AtlasTexture_afovc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_2al6k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ax5yh")
+"texture": SubResource("AtlasTexture_lqae5")
 }],
 "loop": true,
 "name": &"default",

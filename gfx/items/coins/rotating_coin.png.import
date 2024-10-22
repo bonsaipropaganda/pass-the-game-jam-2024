@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxh070qlpm51y"
-path="res://.godot/imported/coin rotate 03.png-8381404909a1df5364f470d80ac321c9.ctex"
+uid="uid://dbdlepsgd55tq"
+path="res://.godot/imported/rotating_coin.png-a8a0449474a87149137b5a19693ea029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/items/coins/coin_rotating/coin rotate 03.png"
-dest_files=["res://.godot/imported/coin rotate 03.png-8381404909a1df5364f470d80ac321c9.ctex"]
+source_file="res://gfx/items/coins/rotating_coin.png"
+dest_files=["res://.godot/imported/rotating_coin.png-a8a0449474a87149137b5a19693ea029.ctex"]
 
 [params]
 
