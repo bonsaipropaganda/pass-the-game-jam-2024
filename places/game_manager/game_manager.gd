@@ -119,6 +119,7 @@ func to_next_level(room_type: E.RoomType):
 	var tileset_source: TileSetAtlasSource = used_tileset.get_source(0)
 
 	if !tileset_cache.has(used_tileset):
+		@warning_ignore("confusable_local_declaration")
 		var id_to_tile := {}
 		for i: int in tileset_source.get_tiles_count():
 			var tile_data := tileset_source.get_tile_data(tileset_source.get_tile_id(i), 0)

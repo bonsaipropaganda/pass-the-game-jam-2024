@@ -159,26 +159,26 @@ func sfx_play(sound:sfx_enum, pitch_variation:float = 0.12,  volume:float = 0.0,
 
 ## transitions smoothly to volume for the sfx designated by the stream id
 ## returns when finished. You can await it if needed
-func sfx_set_volume(sid:int, vol:float, transition_time:float = 0.4) -> void:
+func sfx_set_volume(sid:int, volume:float, transition_time:float = 0.4) -> void:
 	
 	#this tween is scoped inside the function.
 	#Changing a, sfx volume twice at the same time may do weird things.
 	#if you need to do it, use transition_time = 0
 	
 	if transition_time == 0:
-		_sfx_playback.set_stream_volume(sid, vol)
+		_sfx_playback.set_stream_volume(sid, volume)
 		return
 	
-	var tween = get_tree().create_tween()
+	var volume_tween = get_tree().create_tween()
 	
-	tween.tween_method(
+	volume_tween.tween_method(
 		(func (vol:float): _sfx_playback.set_stream_volume(sid, vol)),
 		_sfx_volumes[sid],
 		-80,
 		transition_time
 	).set_trans(Tween.TRANS_EXPO)
-	tween.play()
-	await tween.finished
+	volume_tween.play()
+	await volume_tween.finished
 	_sfx_playback.stop_stream(sid)
 	return
 
