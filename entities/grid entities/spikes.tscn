@@ -50,8 +50,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv1r8"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwfoe"]
+radius = 3.0
 
 [node name="Spikes" type="Area2D"]
 collision_layer = 0
@@ -63,6 +63,6 @@ sprite_frames = SubResource("SpriteFrames_sily8")
 frame_progress = 0.547233
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_nv1r8")
+shape = SubResource("CircleShape2D_kwfoe")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
