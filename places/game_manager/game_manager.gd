@@ -177,7 +177,10 @@ func show_available_actions():
 	hide_available_actions()
 
 	var player_pos = Utils.global_pos_to_coord(get_player().global_position)
-
+	
+	if players_cards.is_empty():
+		return
+	
 	for tile_pos in players_cards[selected_card].get_valid_coords(player_pos):
 		var rect = tile_hover_rect_packed.instantiate()
 		
@@ -234,6 +237,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
+	if players_cards.is_empty():
+		return # Don't do anything when the player lost
+	
 	match game_state:
 		GameState.BUSY:
 			pass # Nothing happens here, something else is happening asynchronously
