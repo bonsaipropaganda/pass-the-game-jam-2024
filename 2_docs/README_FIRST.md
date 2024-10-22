@@ -3,6 +3,33 @@
 This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
+#---------------------------------------------------------------------------------------------------
+## DAY 24 NOTES (Khusheete)
+#---------------------------------------------------------------------------------------------------
+
+QUICKSTART:
+Here are a few interesting things you can find in this file:
+- At the end of the file there are some infos about the game
+- DAY 14: Geazas explains a lot about how the game works (this WILL be usefull to fix some bugs
+  related to the procedural generation)
+
+If you want to modify some visuals, there are lots of sprite already there in the game files
+(res://gfx/**), maybe you'll find what you need.
+
+
+Log:
+- Added a more polished credits screen (for both participants of the jam and for external assets)
+  -> See: res://3_credits
+- Added some custom sprites and generally improved UI
+- Replaced placeholder coin sprites (custom made)
+- Added animation and improved sfx for the door (the sprites were there already)
+- Removed experiments from the game (damage test and funky grid refactor)
+- - The damage test button served its debug duty well and had to take it's retirement o7
+- - The "funky grid refactor" was a failed experiment (those are not my words).
+	It's lifetime had sadly expired a few days ago, so I let it have the rest it deserved
+- Made audio controls linear (it was exp scale, which made it hard to use)
+- Ofc a lot of bug smashing occurred :)
+
 
 #---------------------------------------------------------------------------------------------------
 ## DAY 22 NOTES (bonsaipropaganda)
