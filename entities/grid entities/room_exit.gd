@@ -6,6 +6,8 @@ class_name Exit
 
 func _ready() -> void:
 	SignalBus.room_complete.connect(on_room_complete)
+	SignalBus.player_move_started.connect($Area2D.set_monitoring.bind(false))
+	SignalBus.player_move_ended.connect($Area2D.set_monitoring.bind(true))
 
 
 func on_room_complete() -> void:
