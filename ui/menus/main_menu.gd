@@ -41,9 +41,6 @@ func _on_quit_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
 	get_tree().quit()
 
-func _on_button_hovered():
-	AudioManager.sfx_play(AudioManager.sfx_enum.SELECT, 0.2)
-
 var _last_time_soundcheck:int = 0
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(

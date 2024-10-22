@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wrl8qtpj08iw"]
+[gd_scene load_steps=12 format=3 uid="uid://wrl8qtpj08iw"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="3_m0xvr"]
 [ext_resource type="Texture2D" uid="uid://dedku7f333owv" path="res://gfx/ui/menues/crown_slider_grabber.png" id="5_7jgq5"]
 [ext_resource type="PackedScene" uid="uid://q3wlusxwlq3p" path="res://ui/menus/credits_menu.tscn" id="5_ma0e5"]
+[ext_resource type="Script" path="res://ui/elements/tbutton.gd" id="5_yneq0"]
 [ext_resource type="Texture2D" uid="uid://vmkd8tehye2u" path="res://gfx/ui/menues/crown_slider_grabber_highlight.png" id="6_ba4oc"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vep30"]
@@ -105,12 +106,13 @@ grow_vertical = 2
 layout_direction = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.169832
-anchor_top = -0.494916
-anchor_right = 0.169832
-anchor_bottom = -0.494916
+anchor_left = 0.0849161
+anchor_top = -0.250571
+anchor_right = 0.0849161
+anchor_bottom = -0.250571
 offset_right = 71.0
 offset_bottom = 27.0
+script = ExtResource("5_yneq0")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
@@ -127,6 +129,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "Start Game"
 
 [node name="Start2Button" type="TextureButton" parent="UI/Main Menu/Buttons"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.0222222
@@ -135,6 +138,7 @@ offset_left = 31.0
 offset_top = -26.9707
 offset_right = 292.0
 offset_bottom = 9.02933
+script = ExtResource("5_yneq0")
 metadata/_edit_group_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/Start2Button"]
@@ -166,14 +170,13 @@ text = "This was an experiment that never got anywhere, so if you are looking to
 [node name="CreditsButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00566107
-anchor_top = -0.171751
-anchor_right = 0.00566107
-anchor_bottom = -0.171751
-offset_left = 32.0
-offset_top = 34.0
-offset_right = 153.0
-offset_bottom = 48.0
+anchor_left = 0.101899
+anchor_top = 0.00165523
+anchor_right = 0.101899
+anchor_bottom = 0.00165523
+offset_right = 121.0
+offset_bottom = 14.0
+script = ExtResource("5_yneq0")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/CreditsButton"]
@@ -190,14 +193,13 @@ metadata/_edit_lock_ = true
 [node name="QuitButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0113221
-anchor_top = -0.140222
-anchor_right = 0.0113221
-anchor_bottom = -0.140222
-offset_left = 41.0
-offset_top = 48.0
-offset_right = 114.0
-offset_bottom = 64.0
+anchor_left = 0.0905771
+anchor_top = 0.206589
+anchor_right = 0.0905771
+anchor_bottom = 0.206589
+offset_right = 73.0
+offset_bottom = 16.0
+script = ExtResource("5_yneq0")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/QuitButton"]
@@ -295,13 +297,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="mouse_entered" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]
-[connection signal="mouse_entered" from="UI/Main Menu/Buttons/CreditsButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="mouse_entered" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_button_hovered"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="UI/Main Menu/Buttons/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="UI/Main Menu/Buttons/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
