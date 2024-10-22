@@ -21,6 +21,7 @@ Log:
 - Added a more polished credits screen (for both participants of the jam and for external assets)
   -> See: res://3_credits
 - Added some custom sprites and generally improved UI
+- Made so the cards go down when they are not hovered
 - Replaced placeholder coin sprites (custom made)
 - Added animation and improved sfx for the door (the sprites were there already)
 - Removed experiments from the game (damage test and funky grid refactor)
