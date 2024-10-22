@@ -82,8 +82,6 @@ func _ready() -> void:
 	_select_card(0)
 	$"%CardDeck_Menu".card_selected.connect(_select_card)
 
-	SignalBus.next_level.connect(func(_x): AudioManager.sfx_play(AudioManager.sfx_enum.DOOR_OPEN, 0.1, -2.0))
-
 
 func on_enemy_death(enemy: BaseEnemy) -> void:
 	money += enemy.reward

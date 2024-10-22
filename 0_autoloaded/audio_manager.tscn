@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dp7ro8q4313bh"]
+[gd_scene load_steps=28 format=3 uid="uid://dp7ro8q4313bh"]
 
 [ext_resource type="Script" path="res://0_autoloaded/audio_manager.gd" id="1_qwuow"]
 [ext_resource type="AudioStream" uid="uid://bqd7ip107fei5" path="res://sfx/ost/menu.wav" id="2_o0lma"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dxut7li7yqyr5" path="res://sfx/heartbeat.wav" id="4_j37rq"]
 [ext_resource type="AudioStream" uid="uid://d065pasljhqvh" path="res://sfx/door_open.wav" id="5_jp1am"]
 [ext_resource type="AudioStream" uid="uid://lpj2nsfrkwcs" path="res://sfx/money.wav" id="6_fhciw"]
+[ext_resource type="AudioStream" uid="uid://cimfn0u733ok0" path="res://sfx/door-slam.wav" id="8_cuk6b"]
 [ext_resource type="AudioStream" uid="uid://ierrx2t3qhua" path="res://sfx/slice/attack_stream.tres" id="9_o4eek"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="10_l645a"]
 [ext_resource type="AudioStream" uid="uid://4l6i207brldn" path="res://sfx/ui/button_RR1.wav" id="11_gtyh5"]
@@ -52,7 +53,7 @@ polyphony = 64
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_qwuow")
 streams_songs = Array[AudioStream]([ExtResource("2_o0lma"), ExtResource("3_0wggl")])
-streams_sfx = Array[AudioStream]([ExtResource("2_yyocr"), ExtResource("3_csryy"), ExtResource("4_j37rq"), ExtResource("5_jp1am"), ExtResource("6_fhciw"), ExtResource("9_o4eek"), ExtResource("10_l645a"), SubResource("AudioStreamRandomizer_t2sco"), ExtResource("14_3aety"), ExtResource("14_7n1oo"), SubResource("AudioStreamRandomizer_17ife"), SubResource("AudioStreamRandomizer_benpb")])
+streams_sfx = Array[AudioStream]([ExtResource("2_yyocr"), ExtResource("3_csryy"), ExtResource("4_j37rq"), ExtResource("5_jp1am"), ExtResource("8_cuk6b"), ExtResource("6_fhciw"), ExtResource("9_o4eek"), ExtResource("10_l645a"), SubResource("AudioStreamRandomizer_t2sco"), ExtResource("14_3aety"), ExtResource("14_7n1oo"), SubResource("AudioStreamRandomizer_17ife"), SubResource("AudioStreamRandomizer_benpb")])
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

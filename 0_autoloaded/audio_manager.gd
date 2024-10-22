@@ -36,6 +36,7 @@ enum sfx_enum {
 	DAMAGE,
 	HEARTBEAT,
 	DOOR_OPEN,
+	DOOR_SLAM,
 	MONEY,
 	ATTACK,
 	FOOTSTEPS,

@@ -405,7 +405,8 @@ DoorSqueaking.wav by Hotlavaman -- https://freesound.org/s/108672/ -- License: C
 Bag of Coins Drop by haulaway -- https://freesound.org/s/733333/ -- License: Creative Commons 0
 HeartBeatNEW.aif by Woodingp -- https://freesound.org/s/116642/ -- License: Creative Commons 0
 Punch Sounds by uEffects -- https://freesound.org/s/208791/ -- License: Creative Commons 0
-Voice_AdultMale_PainGrunts_13.wav by MrFossy -- https://freesound.org/s/547192/ -- License: Creative Commons 0"
+Voice_AdultMale_PainGrunts_13.wav by MrFossy -- https://freesound.org/s/547192/ -- License: Creative Commons 0
+Door slam effect -- https://pixabay.com/sound-effects/door-slam-172171/ -- License: Pixabay Content License"
 
 [node name="FadeRectangle" type="ColorRect" parent="UI"]
 visible = false

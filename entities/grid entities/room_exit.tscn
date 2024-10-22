@@ -1,10 +1,135 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnh3pvpb8dcy5"]
+[gd_scene load_steps=22 format=3 uid="uid://dnh3pvpb8dcy5"]
 
 [ext_resource type="Script" path="res://entities/grid entities/room_exit.gd" id="1_30jgn"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_xtujc"]
+[ext_resource type="Texture2D" uid="uid://bpc4wspke7lyx" path="res://gfx/terrain/wall/door_closed.png" id="3_wpqck"]
+[ext_resource type="Texture2D" uid="uid://bebupc443w3u" path="res://gfx/terrain/wall/door_spritesheet.png" id="4_o0hgv"]
+[ext_resource type="Texture2D" uid="uid://b68bxf20bccdo" path="res://gfx/terrain/wall/door_fullyopen.png" id="5_hsb4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ajf1"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp7k3"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kymb"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxgc8"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phq2p"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mfnm"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mec7p"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nbmi"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhlg"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss2c7"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqvgj"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6iq4"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xugmk"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbk65"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8rb3"]
+atlas = ExtResource("4_o0hgv")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dgrb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wpqck")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_jp7k3")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_4kymb")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_jxgc8")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_phq2p")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_4mfnm")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_mec7p")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_2nbmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbhlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss2c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqvgj")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6iq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xugmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbk65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8rb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hsb4d")
+}],
+"loop": false,
+"name": &"slam",
+"speed": 10.0
+}]
 
 [node name="RoomExit" type="Node2D"]
 script = ExtResource("1_30jgn")
@@ -19,9 +144,16 @@ position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_1ajf1")
 
 [node name="FullSpritesheet" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.535714)
 texture = ExtResource("2_xtujc")
 region_enabled = true
 region_rect = Rect2(95.8462, 84.0901, 31.6552, 28.2919)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2dgrb")
+animation = &"slam"
+autoplay = "default"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

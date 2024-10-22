@@ -12,12 +12,16 @@ func _ready() -> void:
 
 func on_room_complete() -> void:
 	$Area2D.set_deferred("monitoring", true)
-	$FullSpritesheet.frame = 0
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
-		await get_tree().create_timer(0.4).timeout # Let the player stand all the way on the tile. This is just a quick hack.
+		AudioManager.sfx_play(AudioManager.sfx_enum.DOOR_OPEN)
+		$AnimatedSprite2D.play(&"open")
+		await $AnimatedSprite2D.animation_finished
+		AudioManager.sfx_play(AudioManager.sfx_enum.DOOR_SLAM)
+		$AnimatedSprite2D.play(&"slam")
+		await $AnimatedSprite2D.animation_finished
 		# to use exit type enum in other scripts, do E.RoomType.TYPE
 		# you can set the type of the variables that use it as int or E.RoomType
 		SignalBus.next_level.emit(next_room_type)
