@@ -384,7 +384,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "Back"
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/Credits Menu"]
+[node name="AssetsCredits" type="Label" parent="UI/Credits Menu"]
 layout_mode = 0
 offset_top = 195.0
 offset_right = 690.0
