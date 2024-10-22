@@ -275,10 +275,6 @@ func _process(_delta: float) -> void:
 			SignalBus.game_tick.emit()
 			change_game_state(GameState.PLAYER_TURN)
 
-
-func _on_test_damage_button_pressed():
-	_discard_card()
-
 var heartbeat_sid:int
 func _discard_card() -> void:
 	# Once we choose a card to discard, this lambda is called

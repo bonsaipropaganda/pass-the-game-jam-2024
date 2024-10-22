@@ -27,28 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TestDamageButton" type="TextureButton" parent="UI/Side Buttons"]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -9.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Side Buttons/TestDamageButton"]
-layout_mode = 0
-offset_right = 119.0
-offset_bottom = 40.0
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 8
-text = "Take damage (test)"
-metadata/_edit_lock_ = true
-
 [node name="ControlsButton" type="TextureButton" parent="UI/Side Buttons"]
 process_mode = 3
 layout_mode = 1
@@ -120,5 +98,4 @@ unique_name_in_owner = true
 
 [node name="DeathMenu" parent="." instance=ExtResource("3_7o05k")]
 
-[connection signal="pressed" from="UI/Side Buttons/TestDamageButton" to="." method="_on_test_damage_button_pressed"]
 [connection signal="toggled" from="UI/Side Buttons/ControlsButton" to="UI/Side Buttons/ControlsButton" method="_on_toggled"]
