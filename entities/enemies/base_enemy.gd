@@ -34,7 +34,8 @@ func take_damage(_hp_loss:int):
 # every enemy overrides this function
 func get_coord() -> Vector2i: 
 	return Utils.global_pos_to_coord(global_position)
-	
+
+
 func move(to:Vector2i):
 	$FootstepsPlayer.play()
 	var tween = create_tween()
@@ -44,3 +45,9 @@ func move(to:Vector2i):
 
 func attack_player():
 	get_tree().get_first_node_in_group("player").take_damage()
+
+
+func _pick_random_move(move_selection: Array[Vector2i]) -> Vector2i:
+	if move_selection.is_empty():
+		return global_coord
+	return move_selection[randi() % move_selection.size()]

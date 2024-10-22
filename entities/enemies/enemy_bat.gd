@@ -28,4 +28,4 @@ func get_coord() -> Vector2i:
 		if Global.is_floor_tile(target_tile):
 			valid_coords.append(target_tile)
 			
-	return valid_coords[randi() % valid_coords.size()]
+	return _pick_random_move(valid_coords)

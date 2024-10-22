@@ -33,4 +33,4 @@ func get_coord() -> Vector2i:
 			valid_coords.append(target_tile)
 	
 	# This throws an error sometimes due to sometimes the valid_coords array being empty I think. 
-	return valid_coords[randi() % valid_coords.size()]
+	return _pick_random_move(valid_coords)
