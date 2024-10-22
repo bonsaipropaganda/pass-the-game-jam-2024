@@ -1,10 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://wrl8qtpj08iw"]
+[gd_scene load_steps=11 format=3 uid="uid://wrl8qtpj08iw"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
 [ext_resource type="PackedScene" uid="uid://b4ad0kklx6pqb" path="res://places/test map/world.tscn" id="3_d443o"]
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="3_m0xvr"]
+[ext_resource type="Texture2D" uid="uid://dedku7f333owv" path="res://gfx/ui/menues/crown_slider_grabber.png" id="5_7jgq5"]
 [ext_resource type="PackedScene" uid="uid://q3wlusxwlq3p" path="res://ui/menus/credits_menu.tscn" id="5_ma0e5"]
+[ext_resource type="Texture2D" uid="uid://vmkd8tehye2u" path="res://gfx/ui/menues/crown_slider_grabber_highlight.png" id="6_ba4oc"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vep30"]
+color = Color(0.140236, 0.115207, 0.14815, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7du08"]
+color = Color(0.833928, 0.65394, 0.747722, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_gucto"]
+color = Color(0.957089, 0.905484, 0.930893, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
 
 [node name="Menus" type="Control"]
 layout_mode = 3
@@ -204,6 +224,11 @@ offset_left = -112.021
 offset_top = -9.47269
 offset_right = -0.0209045
 offset_bottom = 9.52731
+theme_override_icons/grabber = ExtResource("5_7jgq5")
+theme_override_icons/grabber_highlight = ExtResource("6_ba4oc")
+theme_override_styles/slider = SubResource("StyleBoxLine_vep30")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_7du08")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_gucto")
 max_value = 1.2
 step = 0.05
 value = 0.8
@@ -233,6 +258,11 @@ offset_left = -112.021
 offset_top = -9.5009
 offset_right = -0.0209045
 offset_bottom = 9.4991
+theme_override_icons/grabber = ExtResource("5_7jgq5")
+theme_override_icons/grabber_highlight = ExtResource("6_ba4oc")
+theme_override_styles/slider = SubResource("StyleBoxLine_vep30")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_7du08")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_gucto")
 max_value = 1.2
 step = 0.05
 value = 0.8
