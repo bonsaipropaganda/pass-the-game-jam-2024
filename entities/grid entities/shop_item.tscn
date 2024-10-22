@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://djer560b2lbye"]
+[gd_scene load_steps=12 format=3 uid="uid://djer560b2lbye"]
 
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="1_ng2uu"]
 [ext_resource type="Script" path="res://entities/grid entities/shop_item.gd" id="2_nk31k"]
 [ext_resource type="AudioStream" uid="uid://d1rm8x7ygkvcw" path="res://sfx/chest_open.wav" id="3_jswtk"]
+[ext_resource type="PackedScene" uid="uid://dq34yi2l6xxcu" path="res://ui/elements/coin_counter.tscn" id="3_m3fby"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldm8r"]
 atlas = ExtResource("1_ng2uu")
@@ -57,15 +58,16 @@ autoplay = "default"
 frame_progress = 0.532779
 script = ExtResource("2_nk31k")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -26.0
-offset_right = 21.0
+[node name="CoinCounter" parent="." instance=ExtResource("3_m3fby")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -23.0
+offset_top = -19.0
+offset_right = -8.0
 offset_bottom = -10.0
-theme_override_font_sizes/font_size = 8
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 2
+grow_horizontal = 0
+amount = 5
 
 [node name="Area2D" type="Area2D" parent="." groups=["shop_item_area"]]
 collision_layer = 2

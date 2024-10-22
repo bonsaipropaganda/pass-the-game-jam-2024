@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq34yi2l6xxcu"]
+
+[ext_resource type="Texture2D" uid="uid://cgidhjbdtc5rv" path="res://gfx/ui/interface/tiny_coin.png" id="1_3s6cn"]
+[ext_resource type="Script" path="res://ui/elements/coin_counter.gd" id="1_22vho"]
+
+[node name="CoinCounter" type="HBoxContainer"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 17.0
+offset_bottom = 11.0
+theme_override_constants/separation = 2
+script = ExtResource("1_22vho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "123"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_3s6cn")
+stretch_mode = 3

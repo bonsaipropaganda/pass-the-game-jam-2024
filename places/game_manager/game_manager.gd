@@ -59,7 +59,7 @@ var danger_level = 1
 var money := 0: 
 	set(v):
 		money = v
-		%MoneyLabel.text = str(v)
+		%CoinCounter.amount = money
 		
 func _ready() -> void:
 	Global.game_manager = self

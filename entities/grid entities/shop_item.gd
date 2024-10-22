@@ -1,7 +1,7 @@
 extends Node2D
 class_name ShopItem
 
-@onready var label: Label = $Label
+@onready var coin_counter: Control = $CoinCounter
 
 var price: int = 5
 var card: CardResource = [
@@ -13,7 +13,7 @@ var card: CardResource = [
 ].pick_random().new()
 
 func _ready() -> void:
-	label.text = var_to_str(price)
+	coin_counter.amount = price
 
 func buy() -> bool:
 	if Global.game_manager.money >= price:
