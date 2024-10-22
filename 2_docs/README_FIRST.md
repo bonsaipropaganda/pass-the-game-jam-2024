@@ -20,7 +20,8 @@ If you want to modify some visuals, there are lots of sprite already there in th
 Log:
 - Added a more polished credits screen (for both participants of the jam and for external assets)
   -> See: res://3_credits
-- Added some custom sprites and generally improved UI
+- Added some custom sprites and generally improved UI (added a custom button script
+  that updates text color and plays a sfx when the button is hoverd)
 - Made so the cards go down when they are not hovered
 - Replaced placeholder coin sprites (custom made)
 - Added animation and improved sfx for the door (the sprites were there already)
