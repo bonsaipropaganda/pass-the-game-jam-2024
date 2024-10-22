@@ -1,0 +1,150 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3wlusxwlq3p"]
+
+[ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="1_gjwgg"]
+[ext_resource type="Script" path="res://ui/menus/credits_menu.gd" id="1_k8d1w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4g53x"]
+font_size = 24
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8d1w")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.298
+anchor_right = 1.0
+anchor_bottom = 1.343
+offset_top = -0.359997
+offset_bottom = 2.25999
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gjwgg")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginLeft" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="CreditsContainer" type="VBoxContainer" parent="HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopMargin" type="Control" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return
+of the King"
+label_settings = SubResource("LabelSettings_4g53x")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Padding1" type="Control" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Developers" type="RichTextLabel" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+bbcode_enabled = true
+fit_content = true
+
+[node name="Padding2" type="Control" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Assets" type="RichTextLabel" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+bbcode_enabled = true
+fit_content = true
+
+[node name="Padding3" type="Control" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="SpecialThanks" type="RichTextLabel" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+bbcode_enabled = true
+fit_content = true
+
+[node name="Padding4" type="Control" parent="HBoxContainer/ScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MarginRight" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MainMenu" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="MainMenu"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "Main Menu"
+metadata/_edit_lock_ = true
+
+[connection signal="meta_clicked" from="HBoxContainer/ScrollContainer/CreditsContainer/Assets" to="." method="_on_assets_meta_clicked"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

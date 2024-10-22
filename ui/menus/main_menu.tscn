@@ -1,13 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wrl8qtpj08iw"]
+[gd_scene load_steps=6 format=3 uid="uid://wrl8qtpj08iw"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
-[ext_resource type="Texture2D" uid="uid://c2hulywjpmr6q" path="res://gfx/ui/menues/coffe.png" id="2_hdcp8"]
 [ext_resource type="PackedScene" uid="uid://b4ad0kklx6pqb" path="res://places/test map/world.tscn" id="3_d443o"]
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="3_m0xvr"]
-[ext_resource type="Texture2D" uid="uid://p66irrxqu5rq" path="res://gfx/ui/menues/credits_menu.jpg" id="3_uxp4h"]
-
-[sub_resource type="SystemFont" id="SystemFont_twpjc"]
+[ext_resource type="PackedScene" uid="uid://q3wlusxwlq3p" path="res://ui/menus/credits_menu.tscn" id="5_ma0e5"]
 
 [node name="Menus" type="Control"]
 layout_mode = 3
@@ -149,11 +146,13 @@ text = "This was an experiment that never got anywhere, so if you are looking to
 [node name="CreditsButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.0388889
-anchor_bottom = -0.0388889
+anchor_left = 0.00566107
+anchor_top = -0.171751
+anchor_right = 0.00566107
+anchor_bottom = -0.171751
 offset_left = 32.0
-offset_top = 21.0
-offset_right = 128.0
+offset_top = 34.0
+offset_right = 153.0
 offset_bottom = 48.0
 metadata/_edit_use_anchors_ = true
 
@@ -171,18 +170,22 @@ metadata/_edit_lock_ = true
 [node name="QuitButton" type="TextureButton" parent="UI/Main Menu/Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.0388889
-anchor_bottom = -0.0388889
+anchor_left = 0.0113221
+anchor_top = -0.140222
+anchor_right = 0.0113221
+anchor_bottom = -0.140222
 offset_left = 41.0
-offset_top = 37.0
-offset_right = 97.0
+offset_top = 48.0
+offset_right = 114.0
 offset_bottom = 64.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="UI/Main Menu/Buttons/QuitButton"]
 layout_mode = 0
-offset_right = 253.0
-offset_bottom = 31.0
+offset_left = 2.0
+offset_top = 1.20999
+offset_right = 255.0
+offset_bottom = 32.21
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 3
@@ -248,165 +251,9 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 12
 text = "Music Volume"
 
-[node name="Credits Menu" type="Control" parent="UI"]
+[node name="CreditsMenu" parent="UI" instance=ExtResource("5_ma0e5")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Images" type="Control" parent="UI/Credits Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Background" type="TextureRect" parent="UI/Credits Menu/Images"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_uxp4h")
-expand_mode = 1
-
-[node name="COFFE!!" type="TextureRect" parent="UI/Credits Menu/Images"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -74.0
-offset_right = 80.0
-offset_bottom = -34.0
-grow_vertical = 2
-texture = ExtResource("2_hdcp8")
-
-[node name="Labels" type="Control" parent="UI/Credits Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -29.0
-offset_right = 36.0
-offset_bottom = 38.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/normal_font_size = 16
-text = "Credits"
-
-[node name="others" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -52.0
-offset_bottom = 52.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/normal_font_size = 12
-text = "- The Lost Eco
-- Edalyn Laird (ijo Ko)
-- Este aka Crownie
-- Wiktor aka TheWizzard
-- zwometer
-- Ohhnyx"
-
-[node name="Jam_devs" type="RichTextLabel" parent="UI/Credits Menu/Labels"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -56.0
-offset_right = 160.0
-offset_bottom = 57.0
-grow_vertical = 2
-mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/normal_font_size = 12
-text = "- Coffe
-
-- More people
-
-.-SO MANY PEOPLE
-who forgot to put their names here"
-
-[node name="Buttons" type="Control" parent="UI/Credits Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BackButton" type="TextureButton" parent="UI/Credits Menu/Buttons"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -27.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Label" type="RichTextLabel" parent="UI/Credits Menu/Buttons/BackButton"]
-layout_mode = 0
-offset_right = 253.0
-offset_bottom = 31.0
-mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/normal_font_size = 12
-text = "Back"
-metadata/_edit_lock_ = true
-
-[node name="AssetsCredits" type="Label" parent="UI/Credits Menu"]
-layout_mode = 0
-offset_top = 195.0
-offset_right = 690.0
-offset_bottom = 211.0
-theme_override_fonts/font = SubResource("SystemFont_twpjc")
-text = "Hey! Whoever's doing the polish, these need to be attributed. Thanks!
-
-godotengine.org/license
-
-knifesha by aboe -- https://freesound.org/p/4476/ -- License: Attribution 3.0
-Bone Crunch by Clearwavsound -- https://freesound.org/s/524609/ -- License: Attribution 3.0
-Close Combat Whip Stick Switch Hit Hitting Carpet by cjfilmmaker -- https://freesound.org/s/328323/ -- License: Attribution 3.0
-
-(These don't need to be attributed but if we have space including them would be nice)
-Knight Footsteps on Gravel (With Chainmail) by Ali_6868 -- https://freesound.org/p/21609/ -- License: Creative Commons 0
-dorm door opening.wav by pagancow -- https://freesound.org/s/15419/ -- License: Creative Commons 0
-DoorSqueaking.wav by Hotlavaman -- https://freesound.org/s/108672/ -- License: Creative Commons 0
-Bag of Coins Drop by haulaway -- https://freesound.org/s/733333/ -- License: Creative Commons 0
-HeartBeatNEW.aif by Woodingp -- https://freesound.org/s/116642/ -- License: Creative Commons 0
-Punch Sounds by uEffects -- https://freesound.org/s/208791/ -- License: Creative Commons 0
-Voice_AdultMale_PainGrunts_13.wav by MrFossy -- https://freesound.org/s/547192/ -- License: Creative Commons 0
-Door slam effect -- https://pixabay.com/sound-effects/door-slam-172171/ -- License: Pixabay Content License"
 
 [node name="FadeRectangle" type="ColorRect" parent="UI"]
 visible = false
@@ -428,5 +275,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="UI/Main Menu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="UI/Main Menu/Buttons/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="UI/Main Menu/Buttons/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="mouse_entered" from="UI/Credits Menu/Buttons/BackButton" to="." method="_on_button_hovered"]
-[connection signal="pressed" from="UI/Credits Menu/Buttons/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="main_menu" from="UI/CreditsMenu" to="." method="_on_back_button_pressed"]

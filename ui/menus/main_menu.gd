@@ -30,12 +30,12 @@ func _on_credits_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
 	# Smoothing will make this look nice
 	# I know you wanted smoothing but I removed the Camera :_(.
-	%"Credits Menu".visible = !%"Credits Menu".visible
+	%CreditsMenu.visible = !%CreditsMenu.visible
 	
 # Move camera back
 func _on_back_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
-	%"Credits Menu".visible = !%"Credits Menu".visible
+	%CreditsMenu.visible = !%CreditsMenu.visible
 
 func _on_quit_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)

@@ -46,6 +46,7 @@ folder_colors={
 "res://0_autoloaded/": "red",
 "res://1_static_utility_class/": "orange",
 "res://2_docs/": "blue",
+"res://3_credits/": "pink",
 "res://entities/grid entities/test room/": "green",
 "res://gfx/test room/": "green",
 "res://places/test map/": "green"
