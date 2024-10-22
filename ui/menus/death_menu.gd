@@ -1,7 +1,7 @@
 extends Control
 
 @onready var scene_width = ProjectSettings.get_setting("display/window/size/viewport_width")
-@export var scene_main_menu : PackedScene
+
 
 func start():
 	$"UI/Main Menu/Labels/RoomsClearedLabel".text = "Rooms Cleared: " + str(Global.game_manager.rooms_cleared)

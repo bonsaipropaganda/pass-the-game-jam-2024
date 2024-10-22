@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://1l48g2fcdhc4"]
 
 [ext_resource type="Script" path="res://ui/menus/death_menu.gd" id="1_llixi"]
-[ext_resource type="PackedScene" uid="uid://wrl8qtpj08iw" path="res://ui/menus/main_menu.tscn" id="2_2y7e2"]
 [ext_resource type="Texture2D" uid="uid://c1v68fqkb36nt" path="res://gfx/ui/menues/main_menu.png" id="4_5cjqs"]
 
 [node name="DeathMenu" type="Control"]
@@ -13,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_llixi")
-scene_main_menu = ExtResource("2_2y7e2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
