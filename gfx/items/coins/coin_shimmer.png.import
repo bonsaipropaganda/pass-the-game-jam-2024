@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl2jipee1cdqh"
-path="res://.godot/imported/coin shimmer 04.png-67369c7b2616bf3d1f4fdb28226e80a6.ctex"
+uid="uid://ivvre0l5faga"
+path="res://.godot/imported/coin_shimmer.png-9b091e065dcfd62fae5812f662db3012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/items/coins/coin_shimmer/coin shimmer 04.png"
-dest_files=["res://.godot/imported/coin shimmer 04.png-67369c7b2616bf3d1f4fdb28226e80a6.ctex"]
+source_file="res://gfx/items/coins/coin_shimmer.png"
+dest_files=["res://.godot/imported/coin_shimmer.png-9b091e065dcfd62fae5812f662db3012.ctex"]
 
 [params]
 
