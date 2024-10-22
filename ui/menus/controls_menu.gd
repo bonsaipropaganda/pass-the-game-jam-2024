@@ -1,4 +1,4 @@
-extends TextureButton
+extends TButton
 
 
 func _on_toggled(toggled_on: bool) -> void:
