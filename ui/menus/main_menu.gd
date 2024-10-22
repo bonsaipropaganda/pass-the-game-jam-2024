@@ -47,7 +47,7 @@ func _on_button_hovered():
 var _last_time_soundcheck:int = 0
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Sfx"), value
+		AudioServer.get_bus_index("Sfx"), linear_to_db(value)
 		)
 	#so it doesnt spamm
 	if Time.get_ticks_msec() - _last_time_soundcheck > 250:
@@ -57,5 +57,5 @@ func _on_sfx_volume_slider_value_changed(value: float) -> void:
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Music"), value
+		AudioServer.get_bus_index("Music"), linear_to_db(value)
 		)
