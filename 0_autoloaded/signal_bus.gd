@@ -24,6 +24,14 @@ signal next_level(level_type: E.RoomType)
 @warning_ignore("unused_signal")
 signal terrain_changed
 
+## Emitted when the player starts their move
+@warning_ignore("unused_signal")
+signal player_move_started
+
+## Emitted when the player finishes a move (they are on their destination tile)
+@warning_ignore("unused_signal")
+signal player_move_ended
+
 ## Emitted for game_manager to handle post-hit discarding 
 @warning_ignore("unused_signal")
 signal player_takes_damage

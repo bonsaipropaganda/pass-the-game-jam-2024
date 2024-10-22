@@ -7,12 +7,14 @@ const TILE_HOVER_COLOR_INVALID = Color("00000000") # Don't show invalid tiles fo
 var inventory: Inventory = Inventory.new()
 
 func move(to:Vector2i):
+	SignalBus.player_move_started.emit()
 	AudioManager.sfx_play(AudioManager.sfx_enum.FOOTSTEPS)
 	var tween = create_tween()
 	var target_position:= Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0)
 	var distance = global_position.distance_to(target_position)
 	tween.tween_property(self, "global_position", target_position, distance*0.01)
 	await tween.finished
+	SignalBus.player_move_ended.emit()
 
 
 # Not sure if this is where this logic really belongs
