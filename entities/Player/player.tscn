@@ -160,6 +160,7 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_dgdb1")
 animation = &"Idle"
 autoplay = "Idle"
+frame_progress = 0.853765
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
