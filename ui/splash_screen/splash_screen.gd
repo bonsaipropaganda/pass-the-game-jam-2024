@@ -1,8 +1,8 @@
 extends Control
 
 
-# The current splash screen's animation is by KenneyNL
-# https://github.com/KenneyNL/Godot-SplashScreens/tree/main
+## The current splash screen's animation is by KenneyNL
+## https://github.com/KenneyNL/Godot-SplashScreens/tree/main
 
 # If you change the splash screen,
 # try to keep it timed with the music :D

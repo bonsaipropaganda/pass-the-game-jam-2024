@@ -31,7 +31,7 @@ var show_cards: bool = false:
 		
 		var target_y_value: int
 		if show_cards:
-			target_y_value = -HAND_Y_MOVEMENT
+			target_y_value = int(-HAND_Y_MOVEMENT)
 		else:
 			target_y_value = 0
 		show_cards_tween.tween_property(deck, ^"position", Vector2(0.0, target_y_value), 0.2) \
