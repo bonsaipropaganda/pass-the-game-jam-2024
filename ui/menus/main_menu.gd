@@ -59,3 +59,12 @@ func _on_music_volume_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index("Music"), linear_to_db(value)
 		)
+
+
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_F:
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			else:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
