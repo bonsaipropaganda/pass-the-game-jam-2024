@@ -2,7 +2,7 @@
 ## ideally things should be split out into their relevant autoloads for better clarity
 extends Node2D ## class_name Global (Autoloaded)
 #---------------------------------------------------------------------------------------------------
-var game_manager: GameManager
+var game_manager :GameManager
 #---------------------------------------------------------------------------------------------------
 ## boolean check on whether or not the coord is valid or out of bounds
 func is_valid(coord:Vector2i) -> bool:

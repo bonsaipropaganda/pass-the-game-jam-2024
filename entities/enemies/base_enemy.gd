@@ -39,9 +39,7 @@ func get_coord() -> Vector2i:
 func move(to:Vector2i):
 	$FootstepsPlayer.play()
 	var tween = create_tween()
-	# Note: get_node("../../..") returns the current room
-	var enemy_count: float = float(get_node("../../..").enemy_count)
-	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.25 / enemy_count if enemy_count > 0 else 0.15)
+	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.15)
 	await tween.finished
 
 

@@ -22,12 +22,3 @@ func _on_video_stream_player_finished() -> void:
 	get_tree().change_scene_to_packed(
 		preload("res://ui/menus/main_menu.tscn")
 	)
-
-
-func _input(event):
-	if event is InputEventKey:
-		if event.keycode == KEY_F:
-			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			else:
-				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
