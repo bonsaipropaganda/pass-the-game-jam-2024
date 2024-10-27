@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wrl8qtpj08iw"]
+[gd_scene load_steps=12 format=3 uid="uid://wrl8qtpj08iw"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_egy55"]
 [ext_resource type="PackedScene" uid="uid://cv2sj0tpmbdau" path="res://places/game_manager/game_manager.tscn" id="2_cekuo"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://q3wlusxwlq3p" path="res://ui/menus/credits_menu.tscn" id="5_ma0e5"]
 [ext_resource type="Script" path="res://ui/elements/tbutton.gd" id="5_yneq0"]
 [ext_resource type="Texture2D" uid="uid://vmkd8tehye2u" path="res://gfx/ui/menues/crown_slider_grabber_highlight.png" id="6_ba4oc"]
-[ext_resource type="Texture2D" uid="uid://c2gino6i3s2ae" path="res://gfx/entities/player_test.png" id="9_l2h51"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vep30"]
 color = Color(0.140236, 0.115207, 0.14815, 1)
@@ -289,29 +288,14 @@ unique_name_in_owner = true
 visible = false
 
 [node name="FadeRectangle" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0)
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.113725, 0.109804, 0.129412, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI/FadeRectangle"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_l2h51")
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="UI/Main Menu/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Main Menu/Buttons/Start2Button" to="." method="_on_start_2_button_pressed"]

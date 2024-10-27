@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv2sj0tpmbdau"]
+[gd_scene load_steps=8 format=3 uid="uid://cv2sj0tpmbdau"]
 
 [ext_resource type="Script" path="res://places/game_manager/game_manager.gd" id="1_2n5bb"]
 [ext_resource type="Script" path="res://places/game_manager/camera.gd" id="2_ap55l"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://d4ac0sxxnv6qe" path="res://items/cards/card_deck.tscn" id="4_yh1ds"]
 [ext_resource type="PackedScene" uid="uid://dfsxx0r0misb3" path="res://ui/menus/take_damage_menu.tscn" id="5_8wkup"]
 [ext_resource type="PackedScene" uid="uid://dq34yi2l6xxcu" path="res://ui/elements/coin_counter.tscn" id="6_iun06"]
-[ext_resource type="Texture2D" uid="uid://c2gino6i3s2ae" path="res://gfx/entities/player_test.png" id="7_tu2qj"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_2n5bb")
@@ -98,30 +97,6 @@ visible = false
 
 [node name="CoinCounter" parent="UI" instance=ExtResource("6_iun06")]
 unique_name_in_owner = true
-
-[node name="FadeRectangle" type="ColorRect" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.113725, 0.109804, 0.129412, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI/FadeRectangle"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_tu2qj")
 
 [node name="DeathMenu" parent="." instance=ExtResource("3_7o05k")]
 

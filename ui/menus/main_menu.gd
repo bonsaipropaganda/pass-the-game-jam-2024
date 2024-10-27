@@ -4,25 +4,22 @@ extends Control
 @export var scene_dungeon : PackedScene
 @export var scene_test : PackedScene
 
+func _ready() -> void:
+	$UI/FadeRectangle.show()
+	#fade from black using FadeRectangle
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		$UI/FadeRectangle,
+		"color",
+		Color(1.0, 1.0, 1.0, 0.0),
+		1.0 # 1 second
+	).set_trans(Tween.TRANS_CUBIC)
 
-## Called by StartButton's on_pressed signal when pressed
+
 func _on_start_button_pressed() -> void:
-	# Musical fade-out & button SFX
-	AudioManager.music_transition_to(AudioManager.song_enum.GAMEPLAY_1, 5.0)
+	AudioManager.music_transition_to(AudioManager.song_enum.GAMEPLAY_1, 3.0)
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
-	
-	# Visual fade-out 
-	var tween: Tween = create_tween()
-	var fade_rectangle: ColorRect = $"UI/FadeRectangle"
-	tween.set_parallel(false)
-	fade_rectangle.mouse_filter = Control.MOUSE_FILTER_STOP
-	tween.tween_property(fade_rectangle, "modulate", Color(1, 1, 1, 1), 2.0)
-	tween.tween_property(fade_rectangle, "modulate", Color(1, 1, 1, 1), 1.0)
-	
-	# Visual fade-in
-	await tween.finished
 	get_tree().change_scene_to_packed(scene_dungeon)
-	# Game manager will handle fade-in in _ready
 
 func _on_start_2_button_pressed() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.BUTTON, 0.0)
