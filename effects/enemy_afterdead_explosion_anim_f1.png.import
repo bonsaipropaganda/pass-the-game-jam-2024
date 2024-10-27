@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc6brtmtk8dtv"
-path="res://.godot/imported/enemy_afterdead_explosion_anim_f1.png-458974a63249dc0a1d2b957d55a1e71e.ctex"
+path="res://.godot/imported/enemy_afterdead_explosion_anim_f1.png-58ba92a8ff43876ecc0a9f6293c9346a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/enemy_afterdead_explosion_anim_f1.png"
-dest_files=["res://.godot/imported/enemy_afterdead_explosion_anim_f1.png-458974a63249dc0a1d2b957d55a1e71e.ctex"]
+source_file="res://gfx/effects/enemy_afterdead_explosion_anim_f1.png"
+dest_files=["res://.godot/imported/enemy_afterdead_explosion_anim_f1.png-58ba92a8ff43876ecc0a9f6293c9346a.ctex"]
 
 [params]
 
