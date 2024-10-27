@@ -77,7 +77,8 @@ mouse_filter = 2
 theme_override_constants/line_separation = 4
 theme_override_font_sizes/normal_font_size = 8
 text = "- Number keys: Select card to use
-- Left click: Move to tile, open chest or attack enemy"
+- Left click: Move to tile, open chest or attack enemy
+- F: Fullscreen/Windowed"
 
 [node name="CardDeck_Menu" parent="UI" instance=ExtResource("4_yh1ds")]
 unique_name_in_owner = true
@@ -99,14 +100,13 @@ visible = false
 unique_name_in_owner = true
 
 [node name="FadeRectangle" type="ColorRect" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.113725, 0.109804, 0.129412, 1)
 
 [node name="TextureRect" type="TextureRect" parent="UI/FadeRectangle"]
 layout_mode = 1
