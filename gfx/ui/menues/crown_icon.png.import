@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjup1ea5kal2m"
-path="res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"
+uid="uid://br0weq0ft6rwy"
+path="res://.godot/imported/crown_icon.png-94f81d6851e5984b8823f217f60356f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/hit_effect_anim_spritesheet.png"
-dest_files=["res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"]
+source_file="res://gfx/ui/menues/crown_icon.png"
+dest_files=["res://.godot/imported/crown_icon.png-94f81d6851e5984b8823f217f60356f7.ctex"]
 
 [params]
 

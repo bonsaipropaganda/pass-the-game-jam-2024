@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4vhjh6ot4ahk"
-path="res://.godot/imported/slash_effect_anim_f2.png-4bad61eb774d459cef88306991a2792b.ctex"
+path="res://.godot/imported/slash_effect_anim_f2.png-33c2f34b49a37fb218388b273d93d291.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/effects/slash_effect_anim_f2.png"
-dest_files=["res://.godot/imported/slash_effect_anim_f2.png-4bad61eb774d459cef88306991a2792b.ctex"]
+source_file="res://effects/slash_effect_anim_f2.png"
+dest_files=["res://.godot/imported/slash_effect_anim_f2.png-33c2f34b49a37fb218388b273d93d291.ctex"]
 
 [params]
 

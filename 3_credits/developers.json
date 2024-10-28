@@ -43,5 +43,9 @@
 	"Lira",
 	"brandloose",
 	"nanto2016",
-	"Kaizar Nike"
+	{
+		"alias": "Kaizar Nike",
+		"pfp": "res://gfx/ui/menues/cuboneKaiz2.png"
+	},
+	"Sairam"
 ]

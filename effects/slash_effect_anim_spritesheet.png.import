@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjup1ea5kal2m"
-path="res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"
+uid="uid://cbjrw8roe3d82"
+path="res://.godot/imported/slash_effect_anim_spritesheet.png-a0fd8ea59ef363386972433182460d44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/hit_effect_anim_spritesheet.png"
-dest_files=["res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"]
+source_file="res://effects/slash_effect_anim_spritesheet.png"
+dest_files=["res://.godot/imported/slash_effect_anim_spritesheet.png-a0fd8ea59ef363386972433182460d44.ctex"]
 
 [params]
 

@@ -15,7 +15,7 @@ run/main_scene="res://ui/splash_screen/splash_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://gfx/ui/menues/crown_icon.png"
 
 [autoload]
 
