@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="Return of the King"
+config/description="Welcome to a dungeon of chess, where cards will let you travel, but with every hit you take, another soldier falls."
 run/main_scene="res://ui/splash_screen/splash_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://gfx/ui/menues/crown_icon.png"
 
 [autoload]
 
@@ -89,3 +90,4 @@ debug_right_click={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.113725, 0.109804, 0.129412, 1)

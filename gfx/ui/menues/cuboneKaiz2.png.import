@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjup1ea5kal2m"
-path="res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"
+uid="uid://u1uo4km48twa"
+path="res://.godot/imported/cuboneKaiz2.png-83e3b57cb3a77167e0f102047edeec0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/hit_effect_anim_spritesheet.png"
-dest_files=["res://.godot/imported/hit_effect_anim_spritesheet.png-c77f2e7cf5da3860e464fa845961fb84.ctex"]
+source_file="res://gfx/ui/menues/cuboneKaiz2.png"
+dest_files=["res://.godot/imported/cuboneKaiz2.png-83e3b57cb3a77167e0f102047edeec0f.ctex"]
 
 [params]
 

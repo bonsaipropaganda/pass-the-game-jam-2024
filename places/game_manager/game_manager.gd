@@ -4,6 +4,9 @@ class_name GameManager extends Node2D
 
 const tile_hover_rect_packed = preload("res://ui/terrain/tile_hover_rect.tscn")
 
+var save := preload("res://places/game_manager/save_resource.gd")
+const save_name := "user://save.tres"
+
 enum GameState {
 	BUSY, # Indicates not to do anything in _process()
 	PLAYER_TURN,
@@ -172,11 +175,14 @@ func hide_available_actions():
 		if child.is_in_group("hover_tile"):
 			child.queue_free()
 
-
+## :( plz fix
 func show_available_actions():
 	hide_available_actions()
-
-	var player_pos = Utils.global_pos_to_coord(get_player().global_position)
+	var p = get_player()
+	assert(p, "I had a crash here for a missing player, sad...")
+	if not p:
+		return
+	var player_pos = Utils.global_pos_to_coord(p.global_position)
 	
 	if players_cards.is_empty():
 		return
@@ -304,7 +310,29 @@ func discard_card_resource(card: CardResource) -> void:
 	players_cards.erase(card)
 	_select_card(0)
 
+
+func save_scores():
+	var new_save = load_scores()
+	if !new_save:
+		new_save = save.new()
+	new_save.everyRunRoomsBeaten.append(rooms_cleared)
+	ResourceSaver.save(new_save,save_name)
+	
+	
+## Returns the scores if successful, otherwise null
+func load_scores() -> Resource:
+	var loadedSave = ResourceLoader.load(save_name)
+	if not loadedSave:
+		print("No data on save, so moving on.")
+		return null
+	if !loadedSave.everyRunRoomsBeaten:
+		print("Missing rooms beaten.")
+		return null
+	return loadedSave
+	
+
 # called when card_king_basic.gd _on_discard is called
 func _on_game_over():
 	$DeathMenu.start()
 	$UI.visible = false
+	save_scores()

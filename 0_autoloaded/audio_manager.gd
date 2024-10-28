@@ -159,6 +159,7 @@ func sfx_play(sound:sfx_enum, pitch_variation:float = 0.12,  volume:float = 0.0,
 
 ## transitions smoothly to volume for the sfx designated by the stream id
 ## returns when finished. You can await it if needed
+## Got crashes here for others to know
 func sfx_set_volume(sid:int, volume:float, transition_time:float = 0.4) -> void:
 	
 	#this tween is scoped inside the function.

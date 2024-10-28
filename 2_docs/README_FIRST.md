@@ -4,6 +4,23 @@ This document aims to help you get started more quickly
 Please try to update it when you make relevant changes
 
 #---------------------------------------------------------------------------------------------------
+## DAY 30 NOTES (Kaizar Nike)
+#---------------------------------------------------------------------------------------------------
+
+SO FAR: 10/28/24 - 9:00 AM, 4 Hours In
+Watched the Joe Rogan Trump cast, what a real spectacle they are.
+Otherwise:
+	1: Gave game an icon
+	2: Changed some git fiddly bits, I'm not sure if its important
+	3: Added game over text, maybe you'll want to add more
+	4: Identified 2 crashes, 2 glitches, and an annoyance, they are:
+		- crash on show_available_actions() in game_manager.gd
+		- crash on some tweening thing for sfx
+		- glitch with level gen and background, temp fix by changing default clear color
+		- glitch with level gen and walls, haven't fixed, need like 12 more tiles for one wide walls
+		- annoyance: kinda would like to see where enemies will move next, unless that's part of the game
+
+#---------------------------------------------------------------------------------------------------
 ## DAY 24 NOTES (Khusheete)
 #---------------------------------------------------------------------------------------------------
 
@@ -18,7 +35,7 @@ If you want to modify some visuals, there are lots of sprite already there in th
 
 
 Log:
-- Added a more polished credits screen (for both participants of the jam and for external assets)
+- Added a more polished credits screen (for both participants of the jam and for external assets)	# TY, i liek - Kaizar
   -> See: res://3_credits
 - Added some custom sprites and generally improved UI (added a custom button script
   that updates text color and plays a sfx when the button is hoverd)
@@ -90,7 +107,7 @@ Bugs found:
 	when the knight can move to the door.
 	On second thought this may be intended functionality, I'm not sure.
 
-- Bishop and rook (and others probably) can go through walls.
+- Bishop and rook (and others probably) can go through walls.	# I enjoyed doing the rook wallhack - Kaizar
 
 - Cannot open chest with knight
 
