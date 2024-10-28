@@ -175,8 +175,11 @@ func hide_available_actions():
 
 func show_available_actions():
 	hide_available_actions()
-
-	var player_pos = Utils.global_pos_to_coord(get_player().global_position)
+	var p = get_player()
+	assert(p, "I had a crash here for a missing player, sad...")
+	if not p:
+		return
+	var player_pos = Utils.global_pos_to_coord(p.global_position)
 	
 	if players_cards.is_empty():
 		return
