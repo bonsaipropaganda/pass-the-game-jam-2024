@@ -23,6 +23,10 @@ Otherwise:
 12 PM, 7 Hours In
 Princesses for a royal dynasty
 
+2 PM, 9 Hours In
+Jesters for Ultimate Traversal (may need balancing)
+Plus reworked enemy animations.
+
 #---------------------------------------------------------------------------------------------------
 ## DAY 24 NOTES (Khusheete)
 #---------------------------------------------------------------------------------------------------
