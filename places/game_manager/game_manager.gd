@@ -58,6 +58,7 @@ var rooms_cleared = 0:
 			danger_level += 1
 
 var danger_level = 1
+var turns_completed := 0
 
 var money := 0: 
 	set(v):
@@ -201,6 +202,7 @@ func show_available_actions():
 func change_game_state(to: GameState):
 	match to:
 		GameState.PLAYER_TURN:
+			turns_completed += 1
 			show_available_actions()
 		
 		GameState.ENEMY_TURN:

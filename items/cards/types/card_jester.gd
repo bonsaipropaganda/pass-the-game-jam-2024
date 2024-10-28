@@ -14,6 +14,7 @@ func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	
 	var offsets:Array[Vector2i] = []
 	
+	rng.seed = Global.game_manager.turns_completed
 	var spots = rng.randi_range(0,32)
 	for spot in spots:
 		var loc = Vector2i(rng.randi_range(-8,8),rng.randi_range(-8,8))
