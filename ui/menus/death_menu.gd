@@ -13,7 +13,6 @@ func start():
 func fun_with_dying_text() -> String:
 	var text = ""
 	var save = Global.game_manager.load_scores()
-	print("scores should be there")
 	if not save:
 		return "- [color=yellow] NEW BEST!!! [/color] -"
 	var recent_score = Global.game_manager.rooms_cleared
@@ -23,7 +22,7 @@ func fun_with_dying_text() -> String:
 	else:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		var rand = rng.randi() % 3 # Number of alternatives, fill em in.
+		var rand = rng.randi_range(0,2) # Number of alternatives, fill em in.
 		match rand:
 			0:
 				return "alright."

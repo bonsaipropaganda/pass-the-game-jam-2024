@@ -19,6 +19,13 @@ Otherwise:
 		- glitch with level gen and background, temp fix by changing default clear color
 		- glitch with level gen and walls, haven't fixed, need like 12 more tiles for one wide walls
 		- annoyance: kinda would like to see where enemies will move next, unless that's part of the game
+		
+12 PM, 7 Hours In
+Princesses for a royal dynasty
+
+2 PM, 9 Hours In
+Jesters for Ultimate Traversal (may need balancing)
+Plus reworked enemy animations.
 
 #---------------------------------------------------------------------------------------------------
 ## DAY 24 NOTES (Khusheete)
