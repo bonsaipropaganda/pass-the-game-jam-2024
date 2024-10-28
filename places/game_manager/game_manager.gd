@@ -175,7 +175,7 @@ func hide_available_actions():
 		if child.is_in_group("hover_tile"):
 			child.queue_free()
 
-
+## :( plz fix
 func show_available_actions():
 	hide_available_actions()
 	var p = get_player()
