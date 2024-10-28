@@ -334,5 +334,6 @@ func load_scores() -> Resource:
 # called when card_king_basic.gd _on_discard is called
 func _on_game_over():
 	$DeathMenu.start()
+	if $UI.visible: # Temp fix as save got called multiple times
+		save_scores()
 	$UI.visible = false
-	save_scores()

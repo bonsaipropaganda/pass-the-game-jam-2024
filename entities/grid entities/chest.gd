@@ -15,6 +15,7 @@ func open():
 		is_open = true
 		if Global.game_manager.danger_level > 1:
 			card.append(CardPrincessBasic)
+			card.append(CardJester)
 		card = card.pick_random().new()
 		Global.game_manager.add_card(card)
 		$ChestSoundPlayer.play()
