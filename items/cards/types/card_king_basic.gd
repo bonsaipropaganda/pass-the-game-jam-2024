@@ -2,10 +2,10 @@ class_name CardKingBasic extends CardResource
 
 func _init() -> void:
 	card_name = "King"
-	description = """[color=cyan]Move Shape:[/color] 
+	description = """[color=green]Behaviors:[/color]
+	Evasive
+[color=cyan]Move:[/color] 
 	3x3 Grid. 
-[color=pink]Attack Shape:[/color] 
-	3x3 Grid.
 [color=red]On Discard:[/color]
 	Lose."""
 
@@ -25,7 +25,7 @@ func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	
 	for offset in offsets:
 		var target_tile = player_pos + offset
-		if Global.is_floor_tile(target_tile) or Global.is_chest_on_tile(target_tile):
+		if CardActions.can_move_to_tile(target_tile) or CardActions.can_loot_tile(target_tile):
 			valid_coords.append(target_tile)
 	
 	return valid_coords
@@ -36,5 +36,19 @@ func on_discard() -> void:
 	# vv let's make a death sound as a start! vv
 	SignalBus.game_over.emit()
 	#assert(false, "You died! Currently there is no death functionality so I'm just gonna kill your game.")
+
+
+func do_action(tileCord:Vector2i) -> void:
+	
+	if CardActions.can_attack_tile(tileCord):
+		await CardActions.attack_tile(tileCord,1)
+	
+	if CardActions.can_move_to_tile(tileCord):
+		await CardActions.move_to_tile(tileCord)
+	
+	if CardActions.can_loot_tile(tileCord):
+		await CardActions.loot_tile(tileCord)
+	
+	CardActions.end_turn()
 	
 	

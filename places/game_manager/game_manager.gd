@@ -253,24 +253,16 @@ func _process(_delta: float) -> void:
 		GameState.PLAYER_TURN:
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var mouse_coord: Vector2i = Utils.global_pos_to_coord(get_global_mouse_position())
-				var p = get_player()
-				players_cards[selected_card].do_action(get_player_tile_pos())
+				#var p = get_player()
+				
 				if (mouse_coord in players_cards[selected_card].get_valid_coords(get_player_tile_pos())):
 					change_game_state(GameState.BUSY)
 					hide_available_actions()
-					if Global.is_enemy_on_tile(mouse_coord):
-						get_player().attack()
-						await Global.attack_enemy_at_tile(mouse_coord, 1)
-					elif Global.is_chest_on_tile(mouse_coord):
-						Global.open_chest(mouse_coord)
-					elif Global.is_shop_item_on_tile(mouse_coord):
-						var bought = Global.buy_shop_item(mouse_coord)
-
-						if bought:
-							AudioManager.sfx_play(AudioManager.sfx_enum.MONEY, 0.2, -2.0)
-					else:
-						await p.move(mouse_coord)
-					change_game_state(GameState.ENEMY_TURN)
+					
+					await players_cards[selected_card].do_action(mouse_coord)
+					
+					if game_state == GameState.BUSY:
+						change_game_state(GameState.PLAYER_TURN)
 		
 		GameState.ENEMY_TURN:
 			change_game_state(GameState.BUSY)

@@ -15,7 +15,7 @@ func _ready():
 
 
 func take_damage(_hp_loss:int):
-	hp -= 1
+	hp -= _hp_loss
 	health_bar.update(hp, max_hp)
 	if hp <= 0:
 		SignalBus.enemy_died.emit(self)

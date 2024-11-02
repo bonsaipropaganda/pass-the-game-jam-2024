@@ -36,15 +36,28 @@ func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	
 	for offset in offsets:
 		var target_tile = player_pos + offset
-		if Global.is_floor_tile(target_tile) and !Global.is_enemy_on_tile(target_tile):
+		if CardActions.can_move_to_tile(target_tile) or CardActions.can_loot_tile(target_tile):
 			valid_coords.append(target_tile)
 	
 	for offset in attack_offsets:
 		var target_tile = player_pos + offset
-		if Global.is_floor_tile(target_tile):
+		if CardActions.can_attack_tile(target_tile) or CardActions.can_loot_tile(target_tile):
 			valid_coords.append(target_tile)
 	
 	return valid_coords
+
+func do_action(tileCord:Vector2i) -> void:
+	
+	if CardActions.can_attack_tile(tileCord):
+		await CardActions.attack_tile(tileCord,1)
+	
+	elif CardActions.can_move_to_tile(tileCord):
+		await CardActions.move_to_tile(tileCord)
+	
+	elif CardActions.can_loot_tile(tileCord):
+		await CardActions.loot_tile(tileCord)
+	
+	CardActions.end_turn()
 
 func on_discard() -> void:
 	AudioManager.sfx_play(AudioManager.sfx_enum.KILL, 0.2, 3.0)
