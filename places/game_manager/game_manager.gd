@@ -190,8 +190,10 @@ func show_available_actions():
 	for tile_pos in players_cards[selected_card].get_valid_coords(player_pos):
 		var rect = tile_hover_rect_packed.instantiate()
 		
-		if Global.is_enemy_on_tile(tile_pos): rect.color = C.ENEMY_HOVER_COLOR
-		else: rect.color = C.FLOOR_HOVER_COLOR
+		if Global.is_enemy_on_tile(tile_pos): 
+			rect.color = C.ENEMY_HOVER_COLOR
+		else: 
+			rect.color = C.FLOOR_HOVER_COLOR
 		
 		add_child(rect)
 		rect.global_position = tile_pos * C.TILE_SIZE

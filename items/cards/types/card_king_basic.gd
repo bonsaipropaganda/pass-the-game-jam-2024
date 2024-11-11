@@ -40,13 +40,15 @@ func on_discard() -> void:
 
 func do_action(tileCord:Vector2i) -> void:
 	
+	print("b")
+	
 	if CardActions.can_attack_tile(tileCord):
 		await CardActions.attack_tile(tileCord,1)
 	
-	if CardActions.can_move_to_tile(tileCord):
+	elif CardActions.can_move_to_tile(tileCord):
 		await CardActions.move_to_tile(tileCord)
 	
-	if CardActions.can_loot_tile(tileCord):
+	elif CardActions.can_loot_tile(tileCord):
 		await CardActions.loot_tile(tileCord)
 	
 	CardActions.end_turn()
