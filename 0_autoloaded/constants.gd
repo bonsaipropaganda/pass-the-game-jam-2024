@@ -3,8 +3,8 @@ extends Node ## class_name C (Autoloaded)
 
 const TILE_SIZE:int = 16
 
-@export var FLOOR_HOVER_COLOR:= Color(0, 0.74, 0.257)
-@export var ENEMY_HOVER_COLOR:= Color(0.654, 0.208, 0.098)
+@export var FLOOR_HOVER_COLOR:= Color("80f4a764")
+@export var ENEMY_HOVER_COLOR:= Color("dd395264")
 #---------------------------------------------------------------------------------------------------
 @export_group(&"Entity")
 ## how long it visually takes a piece to move
