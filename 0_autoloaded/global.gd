@@ -135,13 +135,6 @@ func attack_enemy_at_tile(tile_pos:Vector2i, damage:int):
 	var enemy = $TestRaycast.get_collider().get_parent() as BaseEnemy
 	await enemy.take_damage(damage)
 
-func get_enemy_at_tile(tile_pos:Vector2i)->BaseEnemy:
-	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)
-	$TestRaycast.collision_mask = 2 # ObjectLayer
-	$TestRaycast.force_raycast_update()
-	var enemy = $TestRaycast.get_collider().get_parent() as BaseEnemy
-	return enemy
-
 ##should be called only if certain -> after calling is_chest_on_tile() method
 func open_chest(tile_pos:Vector2i):
 	$TestRaycast.global_position = (tile_pos * C.TILE_SIZE) + (Vector2i(C.TILE_SIZE, C.TILE_SIZE) / 2)

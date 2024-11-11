@@ -1,4 +1,4 @@
-class_name Player extends Node2D
+extends Node2D
 
 const tile_hover_packed = preload("res://ui/terrain/tile_hover_rect.tscn")
 const TILE_HOVER_COLOR_VALID = Color("ffffff44")
