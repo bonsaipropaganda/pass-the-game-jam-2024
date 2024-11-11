@@ -143,9 +143,12 @@ func to_next_level(room_type: E.RoomType):
 		var coords := Vector2i(i % room_size.x, i / room_size.x)
 		all_coords.append(coords)
 		
+		var buffer = []
 		if room_data.tiles[i] != 0:
-			current_room.tiles.set_cell(coords, 0, id_to_tile[room_data.tiles[i]])
-	
+			if room_data.tiles[i] > 16:
+				buffer.append(coords)
+		current_room.tiles.set_cells_terrain_connect(buffer , 0, 0)
+
 	for i in used_tileset.get_terrain_sets_count():
 		for j in used_tileset.get_terrains_count(i):
 			current_room.tiles.set_cells_terrain_connect(all_coords.filter(func(a: Vector2i) -> bool:
@@ -160,6 +163,7 @@ func to_next_level(room_type: E.RoomType):
 		var inst: Node = room_data.scenes[i]
 		current_room.tiles.add_child(inst)
 		inst.position = current_room.tiles.map_to_local(i)
+	current_room.tiles.update_internals()
 	
 	SignalBus.room_complete.emit()
 
