@@ -8,8 +8,12 @@ func _init() -> void:
 [color=red]Discard on use.[/color]"""
 
 func do_action(_pos :Vector2i):
-	await SignalBus.game_tick
-	Global.game_manager.discard_card_resource(self)
+	if CardActions.can_move_to_tile(_pos):
+		await CardActions.move_to_tile(_pos)
+		
+		Global.game_manager.discard_card_resource(self)
+		
+	CardActions.end_turn()
 
 func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	var valid_coords:Array[Vector2i] = []
@@ -24,9 +28,7 @@ func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	
 	for offset in offsets:
 		var target_tile = player_pos + offset
-		if Global.is_floor_tile(target_tile) or Global.is_chest_on_tile(target_tile):
+		if CardActions.can_move_to_tile(target_tile):
 			valid_coords.append(target_tile)
-		if Global.is_enemy_on_tile(target_tile):
-			offsets.remove_at(offsets.find(offset))
 	
 	return valid_coords
