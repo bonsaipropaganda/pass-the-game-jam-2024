@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://tauulab1vn0g"]
+[gd_scene load_steps=12 format=3 uid="uid://tauulab1vn0g"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_slime.gd" id="1_yp88l"]
 [ext_resource type="Texture2D" uid="uid://i184xxddbxoh" path="res://gfx/entities/grid entities/full spritesheet.png" id="2_26yct"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_24x8w"]
 [ext_resource type="PackedScene" uid="uid://dqgd3b181co1l" path="res://entities/enemies/health_bar.tscn" id="3_ogmkw"]
-[ext_resource type="PackedScene" uid="uid://dhormydtppava" path="res://entities/enemies/visible_on_screen_notifier_2d.tscn" id="5_gjn4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
@@ -190,5 +189,3 @@ autoplay = "Idle"
 process_mode = 3
 stream = ExtResource("3_24x8w")
 volume_db = -2.0
-
-[node name="VisibleOnScreenNotifier2D" parent="." instance=ExtResource("5_gjn4o")]

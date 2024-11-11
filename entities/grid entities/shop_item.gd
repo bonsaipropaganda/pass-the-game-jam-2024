@@ -4,23 +4,21 @@ class_name ShopItem
 @onready var coin_counter: Control = $CoinCounter
 
 var price: int = 5
-var card = [
+var card: CardResource = [
 	CardKnightBasic,
 	CardPawnBasic,
 	CardBishopBasic,
 	CardRookBasic,
 	CardPlanB
-]
+].pick_random().new()
 
 func _ready() -> void:
 	coin_counter.amount = price
-	if Global.game_manager.danger_level > 1:
-		card.append(CardJester)
 
 func buy() -> bool:
 	if Global.game_manager.money >= price:
 		Global.game_manager.money -= price
-		Global.game_manager.add_card(card.pick_random().new())
+		Global.game_manager.add_card(card)
 		#$ChestSoundPlayer.play
 		queue_free()
 		return true

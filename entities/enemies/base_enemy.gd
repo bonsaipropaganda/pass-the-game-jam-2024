@@ -6,12 +6,10 @@ var max_hp := 1
 var hp := max_hp
 # money dropped on death
 var reward := 1
-var onScreen := false
 
 func _ready():
 	SignalBus.enemy_spawned.emit(self)
 	health_bar.update(hp, max_hp)
-	onScreen = $VisibleOnScreenNotifier2D.is_on_screen()
 
 
 func take_damage(_hp_loss:int):
@@ -40,14 +38,9 @@ func get_coord() -> Vector2i:
 
 func move(to:Vector2i):
 	$FootstepsPlayer.play()
-	onScreen = $VisibleOnScreenNotifier2D.is_on_screen()
-	if onScreen:
-		var tween = create_tween()
-		tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.15)
-		await tween.finished
-	else:
-		#global_position = to
-		global_position = Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0)
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", Vector2(to) * C.TILE_SIZE + (Vector2.ONE * C.TILE_SIZE / 2.0), 0.15)
+	await tween.finished
 
 
 func attack_player():
@@ -58,11 +51,3 @@ func _pick_random_move(move_selection: Array[Vector2i]) -> Vector2i:
 	if move_selection.is_empty():
 		return global_coord
 	return move_selection[randi() % move_selection.size()]
-
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	onScreen = true
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	onScreen = false

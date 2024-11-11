@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://df81e4sd0fqba"]
+[gd_scene load_steps=17 format=3 uid="uid://df81e4sd0fqba"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_goblin.gd" id="1_pevj5"]
 [ext_resource type="Texture2D" uid="uid://bmd7qdq3drsys" path="res://gfx/entities/pawn_sheet.png" id="2_gdalc"]
 [ext_resource type="AudioStream" uid="uid://dud3v88jnkjdn" path="res://sfx/footsteps/footsteps_stream.tres" id="3_4v0lm"]
 [ext_resource type="PackedScene" uid="uid://dqgd3b181co1l" path="res://entities/enemies/health_bar.tscn" id="3_txhkh"]
-[ext_resource type="PackedScene" uid="uid://dhormydtppava" path="res://entities/enemies/visible_on_screen_notifier_2d.tscn" id="5_c83cd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5i1p"]
 size = Vector2(16, 16)
@@ -222,5 +221,3 @@ autoplay = "Idle"
 process_mode = 3
 stream = ExtResource("3_4v0lm")
 volume_db = -5.0
-
-[node name="VisibleOnScreenNotifier2D" parent="." instance=ExtResource("5_c83cd")]
