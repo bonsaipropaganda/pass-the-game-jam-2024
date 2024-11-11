@@ -34,7 +34,7 @@ class CardActions:
 	
 	
 	static func can_move_to_tile(tileCord:Vector2i):
-		return Global.is_floor_tile(tileCord) or can_loot_tile(tileCord) or can_attack_tile(tileCord)
+		return (Global.is_floor_tile(tileCord) or can_attack_tile(tileCord)) and (not can_loot_tile(tileCord))
 	
 	static func move_to_tile(tileCord:Vector2i,target:Node2D = Global.game_manager.get_player()):
 		await target.move(tileCord)
