@@ -7,7 +7,9 @@ func _init() -> void:
 [color=cyan]Move:[/color] 
 	L-Shape
 [color=pink]Attack:[/color] 
-	L-Shape"""
+	L-Shape
+
+[color=red]CANNOT MOVE IF CAN ATTACK[/color]"""
 
 func get_valid_coords(player_pos:Vector2i) -> Array[Vector2i]:
 	var valid_coords:Array[Vector2i] = []
